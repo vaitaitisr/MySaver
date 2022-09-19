@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             xmlns:handlers="clr-namespace:MySaver.Handlers"
              x:Class="MySaver.MainPage">
 
     <ScrollView>
@@ -9,32 +11,82 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <Image Source="logo.png"
+                   HeightRequest="200"
+                   WidthRequest="200"/>
+            
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Welcome!"
+                       FontSize="28"
+                       TextColor="LightGreen"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="Log in to your account"
+                       FontSize="18"
+                       TextColor="LightGreen"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1"
+                       HasShadow="True"
+                       BorderColor="AntiqueWhite"
+                       HeightRequest="50"
+                       WidthRequest="25">
+                    <Image Source="user.png"
+                           HeightRequest="20"
+                           WidthRequest="20"/>
+                </Frame>
+                <Frame Padding="0"
+                       HasShadow="True"
+                       BorderColor="AntiqueWhite"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="50"
+                       Margin="-20,0,0,0">
+                    <handlers:BorderlessEntry VerticalOptions="Center"
+                           Margin="20,0,0,0"
+                           Placeholder="Username"
+                           Keyboard="Email"/>
+                </Frame>
+            </StackLayout>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            <StackLayout Orientation="Horizontal">
+                <Frame ZIndex="1"
+                       HasShadow="True"
+                       BorderColor="AntiqueWhite"
+                       HeightRequest="50"
+                       WidthRequest="25">
+                    <Image Source="lock.png"
+                           HeightRequest="20"
+                           WidthRequest="20"/>
+                </Frame>
+                <Frame Padding="0"
+                       HasShadow="True"
+                       BorderColor="AntiqueWhite"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="50"
+                       Margin="-20,0,0,0">
+                    <handlers:BorderlessEntry VerticalOptions="Center"
+                           Margin="20,0,0,0"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           Keyboard="Email"/>
+                </Frame>
+            </StackLayout>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <Button Text="Sign in"
+                    WidthRequest="100"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    BackgroundColor="#3E8EED"/>
 
+            <StackLayout Orientation="Horizontal"
+                         Spacing="5"
+                         HorizontalOptions="Center">
+                <Label Text="Don't have account?"
+                       TextColor="LightGray"/>
+                <Label Text="Sign up here"
+                       TextColor="LightGray"/>
+            </StackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
