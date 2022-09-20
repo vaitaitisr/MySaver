@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySaver.Views.UserSummaryPage"
+             Title="User Summary"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Grid BackgroundColor="{DynamicResource PrimaryColor}">
+                <Label Text="Test user"
+                       VerticalOptions="Center"
+                       Margin="15"/>
+                <Frame Margin="10"
+                       CornerRadius="50"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       IsClippedToBounds="True"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center">
+                    <Image Grid.Column="1"
+                           Margin="-40"
+                           Source="user.png"
+                           HeightRequest="100"
+                           WidthRequest="100"/>
+                </Frame>
+            </Grid>
+            <StackLayout Grid.Row="1"
+                             Margin="10">
+                    <!--***add user info here***-->
+                    <Label Text="In progress.."
+                           TextColor="Black"/>
+                </StackLayout>
+            <Button Grid.Row="2"
+                    Text="More info in the future"
+                    TextColor="Black"
+                    Clicked="MoreInfo_Clicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>
