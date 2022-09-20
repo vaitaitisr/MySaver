@@ -78,7 +78,14 @@
                     CornerRadius="20"
                     HorizontalOptions="Center"
                     BackgroundColor="#3E8EED"/>
-
+            
+            <Button Text="As guest"
+                    WidthRequest="100"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    BackgroundColor="LightGray"
+                    Clicked="OnGuestSignInClicked"/>
+                    
             <StackLayout Orientation="Horizontal"
                          Spacing="5"
                          HorizontalOptions="Center">

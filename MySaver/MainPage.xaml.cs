@@ -13,5 +13,9 @@ public partial class MainPage : ContentPage
 	{
 
 	}
+	private void OnGuestSignInClicked(object sender, EventArgs e)
+	{
+        Application.Current.MainPage.Navigation.PushModalAsync(new ProfilePage(), true);
+    }
 }
 
