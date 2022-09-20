@@ -6,9 +6,15 @@
     xmlns:local="clr-namespace:MySaver"
     Shell.FlyoutBehavior="Disabled">
 
+    <TabBar>
+        <ShellContent Title="Profile"
+                      ContentTemplate="{DataTemplate local:ProfilePage}"/>
+        <ShellContent Title="Lists"
+                      ContentTemplate="{DataTemplate local:ListPage}"/>
+    </TabBar>
+
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
 </Shell>

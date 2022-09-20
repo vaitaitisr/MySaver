@@ -5,7 +5,7 @@
              Title="Profile">
     <VerticalStackLayout>
         <Label
-            Text="Welcome to .NET MAUI!"
+            Text="Welcome to your profile!"
             VerticalOptions="Center"
             HorizontalOptions="Center" />
     </VerticalStackLayout>
