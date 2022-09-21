@@ -4,11 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MySaver"
+    xmlns:views="clr-namespace:MySaver.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+
+
+    <TabBar>
+        <ShellContent Title="Home"
+                      ContentTemplate="{DataTemplate local:MainPage}"
+                      Route="MainPage"/>
+
+        <ShellContent Title="About"
+                      ContentTemplate="{DataTemplate local:AboutPage}"
+                      Route="AboutPage"/>
+        <ShellContent Title="User"
+                      ContentTemplate="{DataTemplate views:UserSummaryPage}"/>
+    </TabBar>
 
 </Shell>

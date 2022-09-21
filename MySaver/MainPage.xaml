@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
              xmlns:handlers="clr-namespace:MySaver.Handlers"
-             x:Class="MySaver.MainPage">
+             x:Class="MySaver.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ScrollView>
         <VerticalStackLayout
