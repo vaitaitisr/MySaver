@@ -4,34 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySaver
+namespace MySaver.Controls
 {
     internal class DataClass
     {
         string[] productList;
-        string data;
-
-        private async Task ReadDataFile()
+        private async Task <string[]> ReadDataFile()
         {
+            string data;
+
             var inputFile = await FilePicker.Default.PickAsync();
             using StreamReader reader = new StreamReader(inputFile.FullPath);
 
             data = await reader.ReadToEndAsync();
             data = data.ToLower();
+
             productList = data.Split('\n');
+
+            return productList;
         }
+
         public async Task <string[]> GetSearchResultsAsync(String input)
         {
             if (input == null) return null;
-            if (data == null)
+
+            if (productList == null)
             {
-                await ReadDataFile();
+                productList = await ReadDataFile();
             }
+
             input = input.ToLower();
+
             string[] resultList = Array.FindAll(productList, element => element.Contains(input));
-            if (resultList == null) return null;
+
+            if (resultList == null)
+            {
+                return null;
+            }
             else
-            return resultList;
+            {
+                return resultList;
+            }
         }
     }
 }

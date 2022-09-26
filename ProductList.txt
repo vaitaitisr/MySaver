@@ -4,3 +4,5 @@ Saldainiai
 Duona
 Sviestas
 Batonas
+Dešra
+Kiaušiniai

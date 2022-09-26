@@ -4,17 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MySaver"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:views="clr-namespace:MySaver.Views"
+    Shell.FlyoutBehavior="Flyout">
 
     <TabBar>
-        <ShellContent Title="Profile"
-                      ContentTemplate="{DataTemplate local:ProfilePage}"/>
-        <ShellContent Title="Lists"
-                      ContentTemplate="{DataTemplate local:ListPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}"
+                      Route="LoginPage"/>
     </TabBar>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="About">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}"
+                      Route="AboutPage"/>
+    </FlyoutItem>
+    <FlyoutItem Title="User">
+        <ShellContent ContentTemplate="{DataTemplate views:UserSummaryPage}"
+                      Route="UserSummaryPage"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Lists">
+        <ShellContent ContentTemplate="{DataTemplate views:ListPage}"
+                      Route="ListPage"/>
+    </FlyoutItem>
+    <MenuItem Text="Logout"
+              Clicked="OnSignOutClicked"/>
+
 </Shell>

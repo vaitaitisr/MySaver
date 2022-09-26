@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySaver.Views.UserDetailsPage"
+             Title="User Details"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.2*" />
+            </Grid.RowDefinitions>
+            <Image Source="user.png"
+                   HeightRequest="250"
+                   WidthRequest="250"/>
+            <Grid BackgroundColor="{DynamicResource TransparentColor}">
+                <Label VerticalOptions="End"
+                       Margin="15">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Borat Sagdiyev"
+                                  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Start"
+                       Margin="10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Gender"
+                                  TextColor="Black"/>
+                            <Span Text="&#x0a;"
+                                  TextColor="Black"/>
+                            <Span Text="Male"
+                                  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Start"
+                       Margin="10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Likes"
+                                  TextColor="Black"/>
+                            <Span Text="&#x0a;"
+                                  TextColor="Black"/>
+                            <Span Text="Ping pong, sunbathing and disco dance"
+                                  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Start"
+                       Margin="10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Description"
+                                  TextColor="Black"/>
+                            <Span Text="&#x0a;"
+                                  TextColor="Black"/>
+                            <Span Text="Born and raised in the village of Kuzcek. I attended Astana University where I studied English, journalism and plague research."
+                                  TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

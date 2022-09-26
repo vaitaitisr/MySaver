@@ -21,7 +21,5 @@ public partial class App : Application
 		});
 
 		MainPage = new AppShell();
-        Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
-        Routing.RegisterRoute(nameof(ListPage), typeof(ListPage));
-    }
+	}
 }
