@@ -25,19 +25,24 @@
                     <Image Grid.Column="1"
                            Margin="-40"
                            Source="user.png"
-                           HeightRequest="100"
-                           WidthRequest="100"/>
+                           HeightRequest="50"
+                           WidthRequest="50"/>
                 </Frame>
             </Grid>
             <StackLayout Grid.Row="1"
                              Margin="10">
                     <!--***add user info here***-->
-                    <Label Text="In progress.."
-                           TextColor="Black"/>
-                </StackLayout>
+                <Label Text="Borat Sagdiyev"
+                       TextColor="Black"/>
+                <Label Text="1972-07-30"
+                       TextColor="Black"/>
+                <Label Text="First appeared in 'F2F' in 1997 as Alexi Krickler and in 'Da Ali G' Show in 2000 as Borat"
+                       TextColor="Black"/>
+            </StackLayout>
             <Button Grid.Row="2"
-                    Text="More info in the future"
-                    TextColor="Black"
+                    BackgroundColor="Green"
+                    Text="More info about the user"
+                    TextColor="White"
                     Clicked="MoreInfo_Clicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
