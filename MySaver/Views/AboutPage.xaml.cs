@@ -1,4 +1,4 @@
-namespace MySaver;
+namespace MySaver.Views;
 
 public partial class AboutPage : ContentPage
 {

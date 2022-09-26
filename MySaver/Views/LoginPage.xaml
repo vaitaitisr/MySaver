@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
              xmlns:handlers="clr-namespace:MySaver.Handlers"
-             x:Class="MySaver.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             x:Class="MySaver.Views.LoginPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Shell.FlyoutBehavior="Disabled">
 
     <ScrollView>
         <VerticalStackLayout
@@ -78,7 +79,8 @@
                     WidthRequest="100"
                     CornerRadius="20"
                     HorizontalOptions="Center"
-                    BackgroundColor="#3E8EED"/>
+                    BackgroundColor="#3E8EED"
+                    Clicked="OnSignInButtonClicked"/>
 
             <StackLayout Orientation="Horizontal"
                          Spacing="5"
