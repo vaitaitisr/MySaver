@@ -50,8 +50,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\test.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\lock.png" />
+	  <None Remove="Resources\Images\mail.png" />
+	  <None Remove="Resources\Images\phone.png" />
+	  <None Remove="Resources\Images\test.jpg" />
 	  <None Remove="Resources\Images\user.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Syncfusion.Maui.Core" Version="20.2.50" />
 	</ItemGroup>
 
 	<ItemGroup>

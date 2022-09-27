@@ -1,46 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:avatarview="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:Class="MySaver.Views.UserSummaryPage"
              Title="User Summary"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <ScrollView>
-        <Grid>
+    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="30">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <avatarview:SfAvatarView 
+        ContentType="Custom"
+        ImageSource="user.png"
+        VerticalOptions="Center"
+        HorizontalOptions="Center"   
+        HeightRequest="100"
+        WidthRequest="100"
+        CornerRadius="50" />
+
+        <Grid Grid.Row="1" ColumnSpacing="30" RowSpacing="15" >
+
             <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="200"/>
-                <RowDefinition Height="120"/>
-                <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
-            <Grid BackgroundColor="{DynamicResource PrimaryColor}">
-                <Label Text="Test user"
-                       VerticalOptions="Center"
-                       Margin="15"/>
-                <Frame Margin="10"
-                       CornerRadius="50"
-                       HeightRequest="60"
-                       WidthRequest="60"
-                       IsClippedToBounds="True"
-                       HorizontalOptions="End"
-                       VerticalOptions="Center">
-                    <Image Grid.Column="1"
-                           Margin="-40"
-                           Source="user.png"
-                           HeightRequest="100"
-                           WidthRequest="100"/>
-                </Frame>
-            </Grid>
-            <StackLayout Grid.Row="1"
-                             Margin="10">
-                    <!--***add user info here***-->
-                    <Label Text="In progress.."
-                           TextColor="Black"/>
-                </StackLayout>
-            <Button Grid.Row="2"
-                    Text="More info in the future"
-                    TextColor="Black"
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="user.png" HeightRequest="25" VerticalOptions="Center"/>
+            <Image Grid.Row="1" Source="phone.png" HeightRequest="22" VerticalOptions="Center"/>
+            <Image Grid.Row="2" Source="mail.png" HeightRequest="20"  VerticalOptions="Center" />
+            <Image Grid.Row="3" Source="home.png" HeightRequest="20"  VerticalOptions="Center" />
+
+            <Label VerticalOptions="Start" Grid.Column="1" Text="Name" TextColor="Gray" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Column="1" Text="Vardenis Pavardenis" TextColor="Black" FontAttributes="Bold"/>
+
+            <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="1" Text="Mail" TextColor="Gray" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Row="1" Grid.Column="1" Text="Vardenis.Pavardenis@gmail.com" TextColor="Black" FontAttributes="Bold"/>
+
+            <Label VerticalOptions="Start"  Grid.Row="2" Grid.Column="1" Text="Phone" TextColor="Gray" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Row="2" Grid.Column="1" Text="+37066666666" TextColor="Black" FontAttributes="Bold"/>
+
+            <Label VerticalOptions="Start"  Grid.Row="3" Grid.Column="1" Text="Address" TextColor="Gray" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Row="3" Grid.Column="1" Text="Street name" TextColor="Black" FontAttributes="Bold"/>
+
+            <Button Grid.Row="4"
+                    Grid.Column="1"
+                    Text="More info"
+                    TextColor="White"
+                    BackgroundColor="Black"
+                    Padding="16"
+                    CornerRadius="5"
                     Clicked="MoreInfo_Clicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
         </Grid>
-    </ScrollView>
+
+        
+    </Grid>
+    
 </ContentPage>
