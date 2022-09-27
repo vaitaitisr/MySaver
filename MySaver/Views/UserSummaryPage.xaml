@@ -54,7 +54,7 @@
             <Label VerticalOptions="End" Grid.Row="3" Grid.Column="1" Text="Street name" TextColor="Black" FontAttributes="Bold"/>
 
             <Button Grid.Row="4"
-                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
                     Text="More info"
                     TextColor="White"
                     BackgroundColor="Black"
