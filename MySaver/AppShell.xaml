@@ -20,6 +20,10 @@
         <ShellContent ContentTemplate="{DataTemplate views:UserSummaryPage}"
                       Route="UserSummaryPage"/>
     </FlyoutItem>
+    <FlyoutItem Title="Lists">
+        <ShellContent ContentTemplate="{DataTemplate views:ListPage}"
+                      Route="ListPage"/>
+    </FlyoutItem>
     <MenuItem Text="Logout"
               Clicked="OnSignOutClicked"/>
 
