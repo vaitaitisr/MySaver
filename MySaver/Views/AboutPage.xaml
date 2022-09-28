@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MySaver.AboutPage"
-             Title="AboutPage"
-             Background="{DynamicResource PageBackgroundColor}">
+             x:Class="MySaver.Views.AboutPage"
+             Title="AboutPage">
     <VerticalStackLayout Spacing="10"
                          Margin="10">
         <HorizontalStackLayout Spacing="10">
@@ -19,9 +18,7 @@
         </HorizontalStackLayout>
 
         <Label Text="This app is written in XAML and C# with .NET MAUI"/>
-        <Button BackgroundColor="Green"
-                Text="Learn more"
-                TextColor="White"
+        <Button Text="Learn more"
                 Clicked="LearnMore_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

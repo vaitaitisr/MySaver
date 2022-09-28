@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Shell.NavBarIsVisible="False"
              xmlns:handlers="clr-namespace:MySaver.Handlers"
-             x:Class="MySaver.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             x:Class="MySaver.Views.LoginPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Shell.FlyoutBehavior="Disabled">
 
     <ScrollView>
         <VerticalStackLayout
@@ -19,11 +20,11 @@
             <VerticalStackLayout Spacing="5">
                 <Label Text="Welcome!"
                        FontSize="28"
-                       TextColor="Green"
+                       TextColor="LightGreen"
                        HorizontalTextAlignment="Center"/>
                 <Label Text="Log in to your account"
                        FontSize="18"
-                       TextColor="Green"
+                       TextColor="LightGreen"
                        HorizontalTextAlignment="Center"/>
             </VerticalStackLayout>
 
@@ -44,10 +45,9 @@
                        HeightRequest="50"
                        Margin="-20,0,0,0">
                     <handlers:BorderlessEntry VerticalOptions="Center"
-                                              Margin="20,0,0,0"
-                                              PlaceholderColor="Gray"
-                                              Placeholder="Username"
-                                              Keyboard="Email"/>
+                           Margin="20,0,0,0"
+                           Placeholder="Username"
+                           Keyboard="Email"/>
                 </Frame>
             </StackLayout>
 
@@ -68,11 +68,10 @@
                        HeightRequest="50"
                        Margin="-20,0,0,0">
                     <handlers:BorderlessEntry VerticalOptions="Center"
-                                              Margin="20,0,0,0"
-                                              PlaceholderColor="Gray"
-                                              Placeholder="Password"
-                                              IsPassword="True"
-                                              Keyboard="Email"/>
+                           Margin="20,0,0,0"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           Keyboard="Email"/>
                 </Frame>
             </StackLayout>
 
@@ -80,7 +79,8 @@
                     WidthRequest="100"
                     CornerRadius="20"
                     HorizontalOptions="Center"
-                    BackgroundColor="#009966"/>
+                    BackgroundColor="#3E8EED"
+                    Clicked="OnSignInButtonClicked"/>
 
             <StackLayout Orientation="Horizontal"
                          Spacing="5"
