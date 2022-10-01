@@ -20,7 +20,7 @@
                        Margin="15">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Borat Sagdiyev"
+                            <Span Text="Vardenis Pavardenis"
                                   TextColor="Black"/>
                         </FormattedString>
                     </Label.FormattedText>
@@ -58,7 +58,7 @@
                                   TextColor="Black"/>
                             <Span Text="&#x0a;"
                                   TextColor="Black"/>
-                            <Span Text="Ping pong, sunbathing and disco dance"
+                            <Span Text="Ping pong, sunbathing, reading"
                                   TextColor="Black"/>
                         </FormattedString>
                     </Label.FormattedText>
@@ -77,7 +77,7 @@
                                   TextColor="Black"/>
                             <Span Text="&#x0a;"
                                   TextColor="Black"/>
-                            <Span Text="Born and raised in the village of Kuzcek. I attended Astana University where I studied English, journalism and plague research."
+                            <Span Text="Just an everyday normal guy. Enjoy doing normal human things. Nothing special about me."
                                   TextColor="Black"/>
                         </FormattedString>
                     </Label.FormattedText>

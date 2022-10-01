@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:MySaver"
              x:Class="MySaver.App">
     <Application.Resources>
-        <ResourceDictionary Source="Themes/LightTheme.xaml" />
+        <ResourceDictionary>
+            <Color x:Key="LightBackground"> #F9F7F8</Color>
+            <Color x:Key="DarkBackground"> #2A2729</Color>
+
+            <Color x:Key="LabelText"> Black</Color>
+            <Color x:Key="LabelTextDark"> White</Color>
+
+            <Style ApplyToDerivedTypes="True" TargetType="Page">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+            </Style>
+
+            <Style ApplyToDerivedTypes="True" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+            </Style>
+
+            <Style x:Key="ButtonOutline" TargetType="Button">
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+                <!--<Setter Property="TextColor" Value="{}"/>-->
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
