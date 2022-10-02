@@ -26,6 +26,7 @@
                 </Frame>
                 <Frame Padding="0" HasShadow="True" BorderColor="AntiqueWhite" HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="-20,0,0,0">
                     <handlers:BorderlessEntry VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Username" Keyboard="Email" TextColor="Black"/>
+
                 </Frame>
             </StackLayout>
 
@@ -43,6 +44,7 @@
             <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
                 <Label Text="Don't have account?" TextColor="LightGray"/>
                 <Label Text="Sign up here" TextColor="LightGray"/>
+
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>

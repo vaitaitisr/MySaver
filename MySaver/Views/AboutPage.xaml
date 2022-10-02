@@ -12,5 +12,6 @@
 
         <Label Text="This app is written in XAML and C# with .NET MAUI" Style="{StaticResource Label}"/>
         <Button Text="Learn more" Clicked="LearnMore_Clicked" Style="{StaticResource Button}"/>
+
     </VerticalStackLayout>
 </ContentPage>

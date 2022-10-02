@@ -54,6 +54,7 @@
             <Label VerticalOptions="End" Grid.Row="3" Grid.Column="1" Text="Street name" FontAttributes="Bold" Style="{StaticResource Label}"/>
 
             <Button Grid.Row="4" Grid.ColumnSpan="2" Text="More info" Padding="16" CornerRadius="5" Clicked="MoreInfo_Clicked" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource Button}"/>
+
         </Grid>
 
         
