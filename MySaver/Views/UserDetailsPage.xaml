@@ -12,16 +12,12 @@
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.2*" />
             </Grid.RowDefinitions>
-            <Image Source="user.png"
-                   HeightRequest="250"
-                   WidthRequest="250"/>
+            <Image Source="user.png" HeightRequest="250" WidthRequest="250"/>
             <Grid BackgroundColor="{DynamicResource TransparentColor}">
-                <Label VerticalOptions="End"
-                       Margin="15">
+                <Label VerticalOptions="End" Margin="15">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Vardenis Pavardenis"
-                                  TextColor="Black"/>
+                            <Span Text="Vardenis Pavardenis" TextColor="Gray"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -31,16 +27,12 @@
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-                <Label VerticalOptions="Start"
-                       Margin="10">
+                <Label VerticalOptions="Start" Margin="10">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Gender"
-                                  TextColor="Black"/>
-                            <Span Text="&#x0a;"
-                                  TextColor="Black"/>
-                            <Span Text="Male"
-                                  TextColor="Black"/>
+                            <Span Text="Gender" TextColor="Gray"/>
+                            <Span Text="&#x0a;" TextColor="Gray"/>
+                            <Span Text="Male" TextColor="Gray"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -50,16 +42,12 @@
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0.2*"/>
                 </Grid.ColumnDefinitions>
-                <Label VerticalOptions="Start"
-                       Margin="10">
+                <Label VerticalOptions="Start" Margin="10">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Likes"
-                                  TextColor="Black"/>
-                            <Span Text="&#x0a;"
-                                  TextColor="Black"/>
-                            <Span Text="Ping pong, sunbathing, reading"
-                                  TextColor="Black"/>
+                            <Span Text="Likes" TextColor="Gray"/>
+                            <Span Text="&#x0a;" TextColor="Gray"/>
+                            <Span Text="Ping pong, sunbathing, reading" TextColor="Gray"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -69,16 +57,12 @@
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
-                <Label VerticalOptions="Start"
-                       Margin="10">
+                <Label VerticalOptions="Start" Margin="10">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Description"
-                                  TextColor="Black"/>
-                            <Span Text="&#x0a;"
-                                  TextColor="Black"/>
-                            <Span Text="Just an everyday normal guy. Enjoy doing normal human things. Nothing special about me."
-                                  TextColor="Black"/>
+                            <Span Text="Description" TextColor="Gray"/>
+                            <Span Text="&#x0a;" TextColor="Gray"/>
+                            <Span Text="Just an everyday normal guy. Enjoy doing normal human things. Nothing special about me." TextColor="Gray"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

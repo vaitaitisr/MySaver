@@ -10,11 +10,13 @@
             FontAttributes="Bold"
             Text="My shopping lists"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            Style="{StaticResource Label}"/>
         
         <SearchBar 
             Placeholder="Produkto pavadinimas..." 
-            TextChanged="OnTextChanged" />
+            TextChanged="OnTextChanged" 
+            Style="{StaticResource Search}"/>
         <ListView x:Name="SearchResults"/>
 
     </VerticalStackLayout>
