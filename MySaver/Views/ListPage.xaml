@@ -16,7 +16,7 @@
         <SearchBar 
             Placeholder="Produkto pavadinimas..." 
             TextChanged="OnTextChanged" 
-            Style="{StaticResource Search}"/>
+            Style="{StaticResource Search}"
             HorizontalOptions="Center" />
         
         <ListView x:Name="SearchResults"/>

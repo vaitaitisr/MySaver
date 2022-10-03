@@ -9,7 +9,7 @@
             <Color x:Key="DarkBackground"> #2A2729</Color>
 
             <Color x:Key="LabelText"> Black</Color>
-            <Color x:Key="LabelTextDark"> White</Color>
+            <Color x:Key="LabelTextDark"> WhiteSmoke</Color>
 
             <Style ApplyToDerivedTypes="True" TargetType="Page">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
@@ -17,6 +17,7 @@
 
             <Style ApplyToDerivedTypes="True" TargetType="Label">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelTextDark}, Dark={StaticResource LabelText}}"/>
             </Style>
 
             <Style x:Key="Label" TargetType="Label">
@@ -32,6 +33,7 @@
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="BorderColor" Value="Black"/>
             </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
