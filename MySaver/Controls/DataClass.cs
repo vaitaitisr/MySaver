@@ -4,40 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySaver.Controls
+namespace MySaver.Controls;
+
+internal class DataClass
 {
-    internal class DataClass
+    private string[] ProductList;
+    private async Task<string[]> ReadDataFileAsync()
     {
-        string[] productList;
-        private async Task <string[]> ReadDataFile()
+        var InputFile = await FilePicker.Default.PickAsync();
+        using StreamReader reader = new StreamReader(InputFile.FullPath);
+
+        string Data = await reader.ReadToEndAsync();
+        Data = Data.ToLower();
+
+        ProductList = Data.Split('\n');
+
+        return ProductList;
+    }
+
+    public async Task<string[]> GetSearchResultsAsync(string input)
+    {
+        if (input == null) return null;
+
+        if (ProductList == null)
         {
-            string data;
-
-            var inputFile = await FilePicker.Default.PickAsync();
-            using StreamReader reader = new StreamReader(inputFile.FullPath);
-
-            data = await reader.ReadToEndAsync();
-            data = data.ToLower();
-
-            productList = data.Split('\n');
-
-            return productList;
+            ProductList = await ReadDataFileAsync();
         }
 
-        public async Task <string[]> GetSearchResultsAsync(String input)
-        {
-            if (input == null) return null;
+        input = input.ToLower();
 
-            if (productList == null)
-            {
-                productList = await ReadDataFile();
-            }
+        var ResultQuery =
+            (from Product in ProductList
+             where Product.Contains(input)
+             select Product).ToArray();
 
-            input = input.ToLower();
-
-            string[] resultList = Array.FindAll(productList, element => element.Contains(input));
-			
-            return resultList;
-        }
+        return ResultQuery;
     }
 }
