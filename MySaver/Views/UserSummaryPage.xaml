@@ -41,28 +41,20 @@
             <Image Grid.Row="2" Source="mail.png" HeightRequest="20"  VerticalOptions="Center" />
             <Image Grid.Row="3" Source="home.png" HeightRequest="20"  VerticalOptions="Center" />
 
-            <Label VerticalOptions="Start" Grid.Column="1" Text="Name" TextColor="Gray" FontSize="12"/>
-            <Label VerticalOptions="End" Grid.Column="1" Text="Vardenis Pavardenis" TextColor="Black" FontAttributes="Bold"/>
+            <Label VerticalOptions="Start" Grid.Column="1" Text="Name" Style="{StaticResource Label}" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Column="1" Text="Vardenis Pavardenis" FontAttributes="Bold" Style="{StaticResource Label}"/>
 
-            <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="1" Text="Mail" TextColor="Gray" FontSize="12"/>
-            <Label VerticalOptions="End" Grid.Row="1" Grid.Column="1" Text="Vardenis.Pavardenis@gmail.com" TextColor="Black" FontAttributes="Bold"/>
+            <Label VerticalOptions="Start" Grid.Row="1" Grid.Column="1" Text="Mail" Style="{StaticResource Label}" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Row="1" Grid.Column="1" Text="Vardenis.Pavardenis@gmail.com" FontAttributes="Bold" Style="{StaticResource Label}"/>
 
-            <Label VerticalOptions="Start"  Grid.Row="2" Grid.Column="1" Text="Phone" TextColor="Gray" FontSize="12"/>
-            <Label VerticalOptions="End" Grid.Row="2" Grid.Column="1" Text="+37066666666" TextColor="Black" FontAttributes="Bold"/>
+            <Label VerticalOptions="Start"  Grid.Row="2" Grid.Column="1" Text="Phone" Style="{StaticResource Label}" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Row="2" Grid.Column="1" Text="+37066666666" FontAttributes="Bold" Style="{StaticResource Label}"/>
 
-            <Label VerticalOptions="Start"  Grid.Row="3" Grid.Column="1" Text="Address" TextColor="Gray" FontSize="12"/>
-            <Label VerticalOptions="End" Grid.Row="3" Grid.Column="1" Text="Street name" TextColor="Black" FontAttributes="Bold"/>
+            <Label VerticalOptions="Start"  Grid.Row="3" Grid.Column="1" Text="Address" Style="{StaticResource Label}" FontSize="12"/>
+            <Label VerticalOptions="End" Grid.Row="3" Grid.Column="1" Text="Street name" FontAttributes="Bold" Style="{StaticResource Label}"/>
 
-            <Button Grid.Row="4"
-                    Grid.ColumnSpan="2"
-                    Text="More info"
-                    TextColor="White"
-                    BackgroundColor="Black"
-                    Padding="16"
-                    CornerRadius="5"
-                    Clicked="MoreInfo_Clicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Text="More info" Padding="16" CornerRadius="5" Clicked="MoreInfo_Clicked" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource Button}"/>
+
         </Grid>
 
         
