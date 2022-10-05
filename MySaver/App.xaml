@@ -17,7 +17,6 @@
 
             <Style ApplyToDerivedTypes="True" TargetType="Label">
                 <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
-                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelTextDark}, Dark={StaticResource LabelText}}"/>
             </Style>
 
             <Style x:Key="Label" TargetType="Label">
