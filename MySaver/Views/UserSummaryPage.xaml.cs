@@ -11,4 +11,19 @@ public partial class UserSummaryPage : ContentPage
 	{
 		await Navigation.PushAsync(new UserDetailsPage());
 	}
+
+    private async void AddUserImage_Clicked(object sender, EventArgs e)
+    {
+        var result = await FilePicker.PickAsync(new PickOptions
+        {
+            FileTypes = FilePickerFileType.Images
+        });
+
+        if (result == null)
+            return;
+
+        var stream = await result.OpenReadAsync();
+
+        profileImage.Source = ImageSource.FromStream(() => stream);
+    }
 }
