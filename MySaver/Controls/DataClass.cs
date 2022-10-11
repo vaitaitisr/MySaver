@@ -8,36 +8,36 @@ namespace MySaver.Controls;
 
 internal class DataClass
 {
-    private string[] ProductList;
+    private string[] productList;
     private async Task<string[]> ReadDataFileAsync()
     {
-        var InputFile = await FilePicker.Default.PickAsync();
-        using StreamReader reader = new StreamReader(InputFile.FullPath);
+        var inputFile = await FilePicker.Default.PickAsync();
+        using StreamReader reader = new StreamReader(inputFile.FullPath);
 
-        string Data = await reader.ReadToEndAsync();
-        Data = Data.ToLower();
+        string data = await reader.ReadToEndAsync();
+        data = data.ToLower();
 
-        ProductList = Data.Split('\n');
+        productList = data.Split('\n');
 
-        return ProductList;
+        return productList;
     }
 
     public async Task<string[]> GetSearchResultsAsync(string input)
     {
         if (input == null) return null;
 
-        if (ProductList == null)
+        if (productList == null)
         {
-            ProductList = await ReadDataFileAsync();
+            productList = await ReadDataFileAsync();
         }
 
         input = input.ToLower();
 
-        var ResultQuery =
-            (from Product in ProductList
-             where Product.Contains(input)
-             select Product).ToArray();
+        var resultQuery =
+            (from product in productList
+             where product.Contains(input)
+             select product).ToArray();
 
-        return ResultQuery;
+        return resultQuery;
     }
 }

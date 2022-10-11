@@ -12,14 +12,23 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Style="{StaticResource Label}"/>
+
+        <ListView x:Name="ListOfLists"
+            SelectionMode="None"
+            ItemTapped="OnListTapped"/>
+
+        <Button Text="Create new list" 
+                Clicked="OnCreateTapped" />
         
         <SearchBar 
             Placeholder="Produkto pavadinimas..." 
             TextChanged="OnTextChanged" 
             Style="{StaticResource Search}"
             HorizontalOptions="Center" />
-        
-        <ListView x:Name="SearchResults"/>
+
+        <ListView x:Name="SearchResults"
+            SelectionMode="None"
+            ItemTapped="OnItemTapped"/>
 
     </VerticalStackLayout>
 </ContentPage>
