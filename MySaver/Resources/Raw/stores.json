@@ -1,0 +1,16 @@
+﻿[
+  {
+    "Name": "Maxima",
+    "Address": "Mindaugo g. 11",
+    "WorkingHours": "07:00-00:00",
+    "Latitude": 54.6780927,
+    "Longitude": 25.2728643
+  },
+  {
+    "Name": "Iki",
+    "Address": "Mindaugo g. 25",
+    "WorkingHours": "07:30-23:00",
+    "Latitude": 54.6736078,
+    "Longitude": 25.2783152
+  }
+]

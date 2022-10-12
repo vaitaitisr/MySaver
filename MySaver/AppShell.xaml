@@ -24,6 +24,10 @@
         <ShellContent ContentTemplate="{DataTemplate views:ListPage}"
                       Route="ListPage"/>
     </FlyoutItem>
+    <FlyoutItem Title="Stores">
+        <ShellContent ContentTemplate="{DataTemplate views:StoresPage}"
+                      Route="StoresPage"/>
+    </FlyoutItem>
     <MenuItem Text="Logout"
               Clicked="OnSignOutClicked"/>
 
