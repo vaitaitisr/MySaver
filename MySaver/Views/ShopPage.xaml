@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:MySaver.Controls"
+             xmlns:viewmodel="clr-namespace:MySaver.ShopView"
+             x:DataType="viewmodel:ShopsView"
+             x:Class="MySaver.Views.ShopPage"
+             Title = "Grocery Stores">
+
+    <Grid
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <CollectionView ItemsSource="{Binding Shops}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Shop" >
+                    <Grid Padding="10">
+                        <Frame 
+                            HeightRequest="80"
+                            CornerRadius="10">
+                            <Grid>
+                                <VerticalStackLayout VerticalOptions="Center">
+                                    <Label Text="{Binding title}" />
+                                    <Label Text="{Binding street}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Get Shops" 
+                Command="{Binding GetShopsCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="8"/>
+    </Grid>
+
+</ContentPage>

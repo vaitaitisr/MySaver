@@ -1,0 +1,600 @@
+[{
+  "title": "Maxima",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Lazdynėlių g. 23A, Vilnius 04126, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Lazdynėlių g. 23A",
+  "street": "Lazdynėlių g. 23A",
+  "city": "Vilnius",
+  "postalCode": "04126",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "M57V+32 Vilnius, Lithuania",
+  "website": "https://www.maxima.lt/",
+  "phone": "+370 800 20 050",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6626713,
+    "lng": 25.1925745
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.4,
+  "isAdvertisement": false,
+  "rank": 6,
+  "placeId": "ChIJ5S-o5JeT3UYRZ0kxFpIlgM8",
+  "categories": [
+    "Grocery store",
+    "Shopping mall"
+  ],
+  "cid": "14951992072237828455",
+  "url": "https://www.google.com/maps/place/Maxima/@54.6626713,25.1925745,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd9397e4a82fe5:0xcf80259216314967!8m2!3d54.6626707!4d25.1925488?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/maxima/@54.6316605,25.0646444,15z?hl=en",
+  "searchString": "maxima",
+  "scrapedAt": "2022-10-11T21:15:05.729Z",
+  "reviewsCount": 169,
+  "reviewsDistribution": {
+    "oneStar": 6,
+    "twoStar": 2,
+    "threeStar": 18,
+    "fourStar": 36,
+    "fiveStar": 107
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipPYnaSoHBVftofPeIvG8zJjsh44To2qyaqYpIAh=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Maxima Bazė",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Mamoničių g 3, Vilnius 02300, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Mamoničių g 3",
+  "street": "Mamoničių g 3",
+  "city": "Vilnius",
+  "postalCode": null,
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "M44Q+Q6 Vilnius, Lithuania",
+  "website": "http://www.maxima.lt/",
+  "phone": null,
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6569861,
+    "lng": 25.1380139
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.1,
+  "isAdvertisement": false,
+  "rank": 5,
+  "placeId": "ChIJ4Zm1CxCT3UYR_HeElZnQC2I",
+  "categories": [
+    "Grocery store"
+  ],
+  "cid": "7064969798517815292",
+  "url": "https://www.google.com/maps/place/Maxima+Baz%C4%97/@54.6569861,25.1380139,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd93100bb599e1:0x620bd099958477fc!8m2!3d54.6569861!4d25.1380139?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/maxima/@54.6316605,25.0646444,15z?hl=en",
+  "searchString": "maxima",
+  "scrapedAt": "2022-10-11T21:15:05.806Z",
+  "reviewsCount": 708,
+  "reviewsDistribution": {
+    "oneStar": 50,
+    "twoStar": 33,
+    "threeStar": 100,
+    "fourStar": 162,
+    "fiveStar": 363
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipNQn2A0-n2HTstLvqKbpaMn2BWKF6Kp1FGNpjgF=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Maxima",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "J. Tiškevičiaus g. 22, Vilnius 02231, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "J. Tiškevičiaus g. 22",
+  "street": "J. Tiškevičiaus g. 22",
+  "city": "Vilnius",
+  "postalCode": "02231",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "J4F5+MV Vilnius, Lithuania",
+  "website": "https://www.maxima.lt/",
+  "phone": "+370 800 20 050",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6241647,
+    "lng": 25.1096935
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.2,
+  "isAdvertisement": false,
+  "rank": 2,
+  "placeId": "ChIJSW8yqyHt3UYRjwMm8irVYq0",
+  "categories": [
+    "Grocery store"
+  ],
+  "cid": "12493782696707097487",
+  "url": "https://www.google.com/maps/place/Maxima/@54.6241647,25.1096935,17z/data=!3m1!4b1!4m5!3m4!1s0x46dded21ab326f49:0xad62d52af226038f!8m2!3d54.6241647!4d25.1096935?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/maxima/@54.6316605,25.0646444,15z?hl=en",
+  "searchString": "maxima",
+  "scrapedAt": "2022-10-11T21:15:07.705Z",
+  "reviewsCount": 2445,
+  "reviewsDistribution": {
+    "oneStar": 141,
+    "twoStar": 65,
+    "threeStar": 272,
+    "fourStar": 661,
+    "fiveStar": 1306
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipNSy7WJmElwzQg_KqO4r-_k1QCDQobH9BaNGCJF=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Iki",
+  "subTitle": null,
+  "price": "$$",
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Fabijoniškių g. 2A, Vilnius 07108, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Fabijoniškių g. 2A",
+  "street": "Fabijoniškių g. 2A",
+  "city": "Vilnius",
+  "postalCode": "07108",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "P6CV+VR Vilnius, Lithuania",
+  "website": "https://www.iki.lt/",
+  "phone": "+370 800 11 454",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.7222232,
+    "lng": 25.24462
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.1,
+  "isAdvertisement": false,
+  "rank": 3,
+  "placeId": "ChIJGxs_XwCR3UYR9AUye_8kasA",
+  "categories": [
+    "Grocery store"
+  ],
+  "cid": "13864935082515629556",
+  "url": "https://www.google.com/maps/place/Iki/@54.7222232,25.24462,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd91005f3f1b1b:0xc06a24ff7b3205f4!8m2!3d54.7222232!4d25.24462?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/iki/@54.6316605,25.0646444,15z?hl=en",
+  "searchString": "iki",
+  "scrapedAt": "2022-10-11T21:21:16.811Z",
+  "reviewsCount": 1552,
+  "reviewsDistribution": {
+    "oneStar": 74,
+    "twoStar": 64,
+    "threeStar": 242,
+    "fourStar": 437,
+    "fiveStar": 735
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipNFl4WzTb1ePzCpnOtS68BrIM6SibYE_suF06Kr=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "IKI - MINDAUGO",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Mindaugo g. 25, Vilnius 03214, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Mindaugo g. 25",
+  "street": "Mindaugo g. 25",
+  "city": "Vilnius",
+  "postalCode": "03214",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "M7FF+6W Vilnius, Lithuania",
+  "website": "https://www.iki.lt/",
+  "phone": "+370 800 11 454",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6730575,
+    "lng": 25.2748681
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.2,
+  "isAdvertisement": false,
+  "rank": 6,
+  "placeId": "ChIJVyXv-2uU3UYRKu4zHPZfPic",
+  "categories": [
+    "Grocery store",
+    "Fruit and vegetable store"
+  ],
+  "cid": "2827803126675009066",
+  "url": "https://www.google.com/maps/place/IKI+-+MINDAUGO/@54.6730575,25.2748681,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd946bfbef2557:0x273e5ff61c33ee2a!8m2!3d54.6730707!4d25.2750036?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/iki/@54.6316605,25.0646444,15z?hl=en",
+  "searchString": "iki",
+  "scrapedAt": "2022-10-11T21:21:18.633Z",
+  "reviewsCount": 2266,
+  "reviewsDistribution": {
+    "oneStar": 93,
+    "twoStar": 85,
+    "threeStar": 331,
+    "fourStar": 595,
+    "fiveStar": 1162
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipOOLuvFGtlphnZsalkwEaXNWSbgc5POrqjcXEQx=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Lidl",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Discount supermarket",
+  "address": "Nidos g. 1, Vilnius 06258, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Nidos g. 1",
+  "street": "Nidos g. 1",
+  "city": "Vilnius",
+  "postalCode": "06258",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "P56P+52 Vilnius, Lithuania",
+  "website": "https://www.lidl.lt/",
+  "phone": "+370 800 10 011",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.7104241,
+    "lng": 25.1851136
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.6,
+  "isAdvertisement": false,
+  "rank": 3,
+  "placeId": "ChIJIcE51TGS3UYRU4LgEOHrHPY",
+  "categories": [
+    "Discount supermarket",
+    "Shopping mall",
+    "Store",
+    "Supermarket"
+  ],
+  "cid": "17734308784561488467",
+  "url": "https://www.google.com/maps/place/Lidl/@54.7104241,25.1851136,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd9231d539c121:0xf61cebe110e08253!8m2!3d54.7104241!4d25.1851136?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/lidl/@54.6316605,25.0987932,15z?hl=en",
+  "searchString": "lidl",
+  "scrapedAt": "2022-10-11T21:31:46.702Z",
+  "reviewsCount": 1749,
+  "reviewsDistribution": {
+    "oneStar": 47,
+    "twoStar": 27,
+    "threeStar": 92,
+    "fourStar": 328,
+    "fiveStar": 1255
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipNkCcnorOyVk58xYKiBGylxG09BcWmLKFJh-tvE=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Lidl",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Discount supermarket",
+  "address": "Gariūnų g. 66, Vilnius 02300, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Gariūnų g. 66",
+  "street": "Gariūnų g. 66",
+  "city": "Vilnius",
+  "postalCode": "02300",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "M554+CW Vilnius, Lithuania",
+  "website": "https://www.lidl.lt/",
+  "phone": "+370 800 10 011",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6585316,
+    "lng": 25.1573741
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.5,
+  "isAdvertisement": false,
+  "rank": 2,
+  "placeId": "ChIJAeypKNiT3UYR--poUzNgBew",
+  "categories": [
+    "Discount supermarket",
+    "Shopping mall",
+    "Store",
+    "Supermarket"
+  ],
+  "cid": "17007105341393529595",
+  "url": "https://www.google.com/maps/place/Lidl/@54.6585316,25.1573741,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd93d828a9ec01:0xec0560335368eafb!8m2!3d54.6585351!4d25.1573794?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/lidl/@54.6316605,25.0987932,15z?hl=en",
+  "searchString": "lidl",
+  "scrapedAt": "2022-10-11T21:31:51.452Z",
+  "reviewsCount": 195,
+  "reviewsDistribution": {
+    "oneStar": 5,
+    "twoStar": 2,
+    "threeStar": 13,
+    "fourStar": 43,
+    "fiveStar": 132
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipPb7bif-icLOB-atQkgQPLoPWW_W72Cmm2wZKXi=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Lidl",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Discount supermarket",
+  "address": "J. Tiškevičiaus g. 17, Trakų Vokė 02231, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "J. Tiškevičiaus g. 17",
+  "street": "J. Tiškevičiaus g. 17",
+  "city": "Trakų Vokė",
+  "postalCode": "02231",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "J4G6+3G Vilnius, Lithuania",
+  "website": "https://www.lidl.lt/",
+  "phone": "+370 800 10 011",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6251637,
+    "lng": 25.1113507
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.5,
+  "isAdvertisement": false,
+  "rank": 1,
+  "placeId": "ChIJx7aO7HCU3UYRZJ7UtvDIzqg",
+  "categories": [
+    "Discount supermarket",
+    "Shopping mall",
+    "Store",
+    "Supermarket"
+  ],
+  "cid": "12163880579759382116",
+  "url": "https://www.google.com/maps/place/Lidl/@54.6251637,25.1113507,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd9470ec8eb6c7:0xa8cec8f0b6d49e64!8m2!3d54.6251637!4d25.1113507?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/lidl/@54.6316605,25.0987932,15z?hl=en",
+  "searchString": "lidl",
+  "scrapedAt": "2022-10-11T21:36:55.394Z",
+  "reviewsCount": 4869,
+  "reviewsDistribution": {
+    "oneStar": 130,
+    "twoStar": 83,
+    "threeStar": 369,
+    "fourStar": 1099,
+    "fiveStar": 3188
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipPutsKHkkswPfmJyzuuEko1bip2QexdwPQ1p14m=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "IKI - ŠEŠKINĖ",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Šeškinės g. 32, Vilnius 07157, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Šeškinės g. 32",
+  "street": "Šeškinės g. 32",
+  "city": "Vilnius",
+  "postalCode": "07157",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "P68W+65 Vilnius, Lithuania",
+  "website": "https://www.iki.lt/",
+  "phone": "+370 800 11 454",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.7155242,
+    "lng": 25.2454198
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4,
+  "isAdvertisement": false,
+  "rank": 7,
+  "placeId": "ChIJT8QWWWeR3UYRII75T49fohw",
+  "categories": [
+    "Grocery store",
+    "Fruit and vegetable store"
+  ],
+  "cid": "2063316648415825440",
+  "url": "https://www.google.com/maps/place/IKI+-+%C5%A0E%C5%A0KIN%C4%96/@54.7155242,25.2454198,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd91675916c44f:0x1ca25f8f4ff98e20!8m2!3d54.7155242!4d25.2454198?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/iki/@54.6316605,25.0646444,15z?hl=en",
+  "searchString": "iki",
+  "scrapedAt": "2022-10-11T21:37:02.089Z",
+  "reviewsCount": 1750,
+  "reviewsDistribution": {
+    "oneStar": 127,
+    "twoStar": 85,
+    "threeStar": 244,
+    "fourStar": 465,
+    "fiveStar": 829
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipNnSIO8AXgly91gFgS1TFPK6phvdwXjztknhcwp=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Rimi",
+  "subTitle": null,
+  "price": "$$",
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Kedrų g. 4, Vilnius 03116, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Kedrų g. 4",
+  "street": "Kedrų g. 4",
+  "city": "Vilnius",
+  "postalCode": "03116",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "M7G4+6P Vilnius, Lithuania",
+  "website": "https://www.rimi.lt/",
+  "phone": "+370 800 29 000",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6755792,
+    "lng": 25.2567864
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.4,
+  "isAdvertisement": false,
+  "rank": 2,
+  "placeId": "ChIJEeBxGXSU3UYROYHYiINngoI",
+  "categories": [
+    "Grocery store"
+  ],
+  "cid": "9404192786537283897",
+  "url": "https://www.google.com/maps/place/Rimi/@54.6755792,25.2567864,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd94741971e011:0x8282678388d88139!8m2!3d54.6755792!4d25.2567864?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/rimi/@54.611864,25.0987932,15z?hl=en",
+  "searchString": "rimi",
+  "scrapedAt": "2022-10-11T21:37:06.392Z",
+  "reviewsCount": 4145,
+  "reviewsDistribution": {
+    "oneStar": 142,
+    "twoStar": 93,
+    "threeStar": 362,
+    "fourStar": 1036,
+    "fiveStar": 2512
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipOWroF2nM1KYHcWavFxH_KYUJs13WdOR_aA-HFK=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Rimi Live Square",
+  "subTitle": null,
+  "price": null,
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Gedimino pr. 44A, Vilnius 01110, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Gedimino pr. 44A",
+  "street": "Gedimino pr. 44A",
+  "city": "Vilnius",
+  "postalCode": "01110",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "M7Q9+H6 Vilnius, Lithuania",
+  "website": "https://www.rimi.lt/",
+  "phone": "+370 800 29 000",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.6888759,
+    "lng": 25.2680903
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.2,
+  "isAdvertisement": false,
+  "rank": 1,
+  "placeId": "ChIJm3qZYReV3UYRg5BqvYO6Ino",
+  "categories": [
+    "Grocery store"
+  ],
+  "cid": "8800801696816730243",
+  "url": "https://www.google.com/maps/place/Rimi+Live+Square/@54.6888759,25.2680903,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd951761997a9b:0x7a22ba83bd6a9083!8m2!3d54.6888759!4d25.2680903?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/rimi/@54.611864,25.0987932,15z?hl=en",
+  "searchString": "rimi",
+  "scrapedAt": "2022-10-11T21:37:07.086Z",
+  "reviewsCount": 98,
+  "reviewsDistribution": {
+    "oneStar": 3,
+    "twoStar": 1,
+    "threeStar": 20,
+    "fourStar": 24,
+    "fiveStar": 50
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipPcvsO4S7HQnTvTzmwhitlfoVXA_QrtQTbuf4Sw=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+},
+{
+  "title": "Rimi",
+  "subTitle": null,
+  "price": "$",
+  "menu": null,
+  "categoryName": "Grocery store",
+  "address": "Vydūno g. 4, Vilnius 06204, Lithuania",
+  "locatedIn": null,
+  "neighborhood": "Vydūno g. 4",
+  "street": "Vydūno g. 4",
+  "city": "Vilnius",
+  "postalCode": "06204",
+  "state": null,
+  "countryCode": "LT",
+  "plusCode": "P54Q+QC Vilnius, Lithuania",
+  "website": "https://www.rimi.lt/",
+  "phone": "+370 800 29 000",
+  "temporarilyClosed": false,
+  "location": {
+    "lat": 54.7069661,
+    "lng": 25.1886185
+  },
+  "permanentlyClosed": false,
+  "totalScore": 4.2,
+  "isAdvertisement": false,
+  "rank": 3,
+  "placeId": "ChIJUyN5MTKS3UYR2RCByc5mv64",
+  "categories": [
+    "Grocery store"
+  ],
+  "cid": "12591896121481171161",
+  "url": "https://www.google.com/maps/place/Rimi/@54.7069661,25.1886185,17z/data=!3m1!4b1!4m5!3m4!1s0x46dd923231792353:0xaebf66cec98110d9!8m2!3d54.7068812!4d25.1887384?hl=en",
+  "searchPageUrl": "https://www.google.com/maps/search/rimi/@54.611864,25.0987932,15z?hl=en",
+  "searchString": "rimi",
+  "scrapedAt": "2022-10-11T21:37:08.011Z",
+  "reviewsCount": 1470,
+  "reviewsDistribution": {
+    "oneStar": 58,
+    "twoStar": 40,
+    "threeStar": 183,
+    "fourStar": 417,
+    "fiveStar": 772
+  },
+  "imageUrls": [
+    "https://lh5.googleusercontent.com/p/AF1QipNIVZLjsqrYPpmHjPMhvj0c1_ZrUTuM-QIRHTFh=w1920-h1080-k-no"
+  ],
+  "reviews": [],
+  "orderBy": []
+}]
