@@ -2,15 +2,50 @@
   {
     "Name": "Maxima",
     "Address": "Mindaugo g. 11",
-    "WorkingHours": "07:00-00:00",
+    "OpeningHours": "07:00-00:00",
     "Latitude": 54.6780927,
     "Longitude": 25.2728643
   },
   {
     "Name": "Iki",
     "Address": "Mindaugo g. 25",
-    "WorkingHours": "07:30-23:00",
-    "Latitude": 54.6736078,
-    "Longitude": 25.2783152
+    "OpeningHours": "07:30-23:00",
+    "Latitude": 54.6730547,
+    "Longitude": 25.2750805
+  },
+  {
+    "Name": "Rimi",
+    "Address": "Linkmenų g. 22",
+    "OpeningHours": "08:00-22:00",
+    "Latitude": 54.7058411,
+    "Longitude": 25.2677823
+  },
+  {
+    "Name": "Lidl",
+    "Address": "Kalvarijų g. 180",
+    "OpeningHours": "07:00-23:00",
+    "Latitude": 54.7139075,
+    "Longitude": 25.286192
+  },
+  {
+    "Name": "Norfa",
+    "Address": "Ateities g. 10",
+    "OpeningHours": "08:00-22:00",
+    "Latitude": 54.7304276,
+    "Longitude": 25.2470905
+  },
+  {
+    "Name": "Iki",
+    "Address": "Didlaukio g. 80a",
+    "OpeningHours": "08:00-22:00",
+    "Latitude": 54.7288675,
+    "Longitude": 25.2691998
+  },
+  {
+    "Name": "Maxima",
+    "Address": "Didlaukio g. 1",
+    "OpeningHours": "08:00-22:00",
+    "Latitude": 54.7279502,
+    "Longitude": 25.2785813
   }
 ]

@@ -12,10 +12,10 @@ public partial class StoresPage : ContentPage
         this.viewModel = viewModel;
     }
 
-    protected override void OnAppearing()
+    protected async override void OnAppearing()
     {
         base.OnAppearing();
-        viewModel.GetStoresCommand.Execute(null);
+        await viewModel.UpdateStoresAsync();
     }
 
 }

@@ -8,15 +8,15 @@ public class StoresViewModel
 {
     StoreService storeService;
     public ObservableCollection<Store> Stores { get; } = new ObservableCollection<Store>();
-    public ICommand GetStoresCommand { get; }
+    public ICommand UpdateStoresCommand { get; }
 
     public StoresViewModel(StoreService storeService)
     {
         this.storeService = storeService;
-        GetStoresCommand = new Command(async () => await GetStores());
+        UpdateStoresCommand = new Command(async () => await UpdateStoresAsync());
     }
 
-    async Task GetStores()
+    public async Task UpdateStoresAsync()
     {
         if (Stores.Count != 0)
             Stores.Clear();
