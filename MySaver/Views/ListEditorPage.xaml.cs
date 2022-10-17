@@ -1,4 +1,4 @@
-using MySaver.Controls;
+﻿using MySaver.Controls;
 
 namespace MySaver.Views;
 
@@ -17,6 +17,10 @@ public partial class ListEditorPage : ContentPage
         if (File.Exists(targetFile))
         {
             selection.AddRange(File.ReadAllLines(targetFile));
+        }
+        else
+        {
+            File.Create(targetFile).Close();
         }
 
         InitializeComponent();
@@ -43,7 +47,12 @@ public partial class ListEditorPage : ContentPage
         listContents.ItemsSource = selection.ToArray();
     }
 
-    private void OnSaveTapped(object sender, EventArgs e)
+    async void OnSaveTapped(object sender, EventArgs e)
+    {
+        SaveFile();
+    }
+
+    private async void SaveFile()
     {
         File.WriteAllLines(targetFile, selection);
 
@@ -51,11 +60,34 @@ public partial class ListEditorPage : ContentPage
         {
             var renamedFile = Path.Combine(mainDir, listName.Text);
 
+            if (File.Exists(renamedFile))
+            {
+                bool answer = await DisplayAlert("Klausimas", "Ar norite perrašyti esantį failą?", "Taip", "Ne");
+                if (!answer)
+                {
+                    return;
+                }
+            }
+
             File.Delete(renamedFile);
             File.Move(targetFile, renamedFile);
 
             targetFile = renamedFile;
             startName = listName.Text;
+        }
+    }
+
+    protected override async void OnDisappearing()
+    {
+        //if filename was changed      or if the list contents were changed
+        if (listName.Text != startName || !selection.SequenceEqual(File.ReadAllLines(targetFile)))
+        {
+            bool answer = await DisplayAlert("Klausimas", "Ar norite išsaugoti sąrašą?", "Taip", "Ne");
+
+            if (answer)
+            {
+                SaveFile();
+            }
         }
     }
 }

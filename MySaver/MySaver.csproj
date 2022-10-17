@@ -59,6 +59,7 @@
 	  <None Remove="Resources\Images\phone.png" />
 	  <None Remove="Resources\Images\test.jpg" />
 	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Raw\stores.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -68,9 +69,6 @@
 	<ItemGroup>
 	  <Compile Update="Views\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\ListEditorPage.xaml.cs">
-	    <DependentUpon>ListEditorPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\UserDetailsPage.xaml.cs">
 	    <DependentUpon>UserDetailsPage.xaml</DependentUpon>
@@ -87,10 +85,7 @@
 	  <MauiXaml Update="Themes\LightTheme.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ListEditorPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\NewPage1.xaml">
+	  <MauiXaml Update="Views\StoresPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ThemeSelectionPage.xaml">
