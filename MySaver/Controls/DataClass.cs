@@ -3,13 +3,16 @@
 internal class DataClass
 {
     private string[] productList;
+
     private async Task<string[]> ReadDataFileAsync()
     {
-        var inputFile = await FilePicker.Default.PickAsync();
-        using StreamReader reader = new StreamReader(inputFile.FullPath);
+        using Stream inputFileStream = await FileSystem.OpenAppPackageFileAsync("ProductList.txt");
+        using StreamReader reader = new StreamReader(inputFileStream);
 
         string data = await reader.ReadToEndAsync();
+
         data = data.ToLower();
+        data = data.Replace("\r", "");
 
         productList = data.Split('\n');
 

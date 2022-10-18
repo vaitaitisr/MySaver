@@ -4,12 +4,13 @@ namespace MySaver.Views;
 
 public partial class ListEditorPage : ContentPage
 {
-    DataClass dataManager = new DataClass();
+    private bool isBusy = false;
+    private DataClass dataManager = new DataClass();
     private string startName;
     private string mainDir, targetFile;
     private List<string> selection = new List<string>();
 
-    public ListEditorPage(string inputName = "Untitled")
+    public ListEditorPage(string inputName = "Titulas")
     {
         mainDir = FileSystem.Current.AppDataDirectory;
         targetFile = Path.Combine(mainDir, inputName);
@@ -30,21 +31,29 @@ public partial class ListEditorPage : ContentPage
         startName = inputName;
     }
 
+    protected override async void OnAppearing()
+    {
+        SearchResults.ItemsSource = await dataManager.GetSearchResultsAsync("");
+    }
+
     async void OnTextChanged(object sender, EventArgs e)
     {
         SearchBar search = (SearchBar)sender;
         SearchResults.ItemsSource = await dataManager.GetSearchResultsAsync(search.Text);
     }
 
-    async void OnItemTapped(object sender, ItemTappedEventArgs e)
+    async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        selection.Add(e.Item.ToString().TrimEnd());
-        RefreshList();
+        if (!selection.Contains(e.CurrentSelection.FirstOrDefault().ToString()))
+        {
+            selection.Add(e.CurrentSelection.FirstOrDefault().ToString());
+            RefreshList();
+        }
     }
 
     private void RefreshList()
     {
-        listContents.ItemsSource = selection.ToArray();
+        ListContents.ItemsSource = selection.ToArray();
     }
 
     async void OnSaveTapped(object sender, EventArgs e)
@@ -77,17 +86,35 @@ public partial class ListEditorPage : ContentPage
         }
     }
 
-    protected override async void OnDisappearing()
+    protected override bool OnBackButtonPressed()
     {
-        //if filename was changed      or if the list contents were changed
-        if (listName.Text != startName || !selection.SequenceEqual(File.ReadAllLines(targetFile)))
+        if (!isBusy)
+        {
+            //if filename was changed      or if the list contents were changed then renders popup
+            if (listName.Text != startName || !selection.SequenceEqual(File.ReadAllLines(targetFile)))
+            {
+                PutSavePopup();
+            }
+            else
+            {
+                Shell.Current.GoToAsync("..");
+            }
+        }
+
+        return true;
+    }
+
+    private async void PutSavePopup()
+    {
+        isBusy = true;
         {
             bool answer = await DisplayAlert("Klausimas", "Ar norite išsaugoti sąrašą?", "Taip", "Ne");
-
             if (answer)
             {
                 SaveFile();
             }
+            await Shell.Current.GoToAsync("..");
+            isBusy = false;
         }
     }
 }

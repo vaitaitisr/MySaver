@@ -10,25 +10,27 @@ public partial class ListPage : ContentPage
         InitializeComponent();
         RefreshLists();
     }
+
     protected override void OnAppearing()
     {
         RefreshLists();
         base.OnAppearing();
     }
+
     private void RefreshLists()
     {
         var tempList = Directory.GetFiles(mainDir);
 
         var fileNames =
             from file in tempList
-            select file.Replace(mainDir + "\\", "");
+            select Path.GetFileNameWithoutExtension(file);
 
         ListOfLists.ItemsSource = fileNames;
     }
 
     async void OnListTapped(object sender, ItemTappedEventArgs e)
     {
-        await Navigation.PushAsync(new ListEditorPage(e.Item.ToString()));
+        await Navigation.PushAsync(new ListEditorPage(inputName: e.Item.ToString()));
     }
 
     async void OnCreateTapped(object sender, EventArgs e)

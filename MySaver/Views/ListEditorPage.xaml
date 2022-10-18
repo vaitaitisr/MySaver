@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MySaver.Views.ListEditorPage">
 
-    <ScrollView Margin="20">
         <VerticalStackLayout  Spacing="10" Margin="10">
             <Entry
                 x:Name="listName"
@@ -24,22 +23,45 @@
                 Clicked="OnSaveTapped"
                 Style="{StaticResource Button}"/>
 
-            <SearchBar 
+        <SearchBar 
                 Placeholder="Produkto pavadinimas..." 
                 TextChanged="OnTextChanged" 
                 Style="{StaticResource Search}"
                 HorizontalOptions="Center" />
 
-            <ListView x:Name="SearchResults"
-                      Header="Paieška:"
-                      SelectionMode="None"
-                      ItemTapped="OnItemTapped"/>
+        <Label Text="Paieška:"
+               FontSize="Large"
+               Style="{StaticResource Label}"/>
 
-            <ListView x:Name="listContents"
-                      Header="Sąrašas:">
+        <CollectionView x:Name="SearchResults"
+                SelectionMode="Single"
+                SelectionChanged="OnSelectionChanged"
+                HeightRequest="150">
 
-            </ListView>
-    
-        </VerticalStackLayout>
-    </ScrollView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}"
+                           Style="{StaticResource Label}"
+                           FontSize="Medium"
+                           BackgroundColor="Transparent"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Text="Sąrašas:"
+               FontSize="Large"
+               Style="{StaticResource Label}"/>
+
+        <CollectionView x:Name="ListContents"
+                HeightRequest="150">
+           
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
 </ContentPage>
