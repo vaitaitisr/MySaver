@@ -4,7 +4,8 @@
              x:Class="MySaver.Views.ListPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              Title="My Lists">
-    <VerticalStackLayout  Spacing="10" Margin="10">
+    <VerticalStackLayout  Spacing="10"
+                          Margin="10">
         
         <Label 
             FontSize="22"
