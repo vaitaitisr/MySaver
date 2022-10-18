@@ -1,4 +1,6 @@
-﻿namespace MySaver.Views;
+﻿using System.Text.RegularExpressions;
+
+namespace MySaver.Views;
 
 public partial class LoginPage : ContentPage
 {
@@ -10,7 +12,16 @@ public partial class LoginPage : ContentPage
 
 	private async void OnSignInButtonClicked(object sender, EventArgs e)
 	{
-		await Shell.Current.GoToAsync("//AboutPage");
+		var email = EmailEntry.Text;
+
+		var emailPattern = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
+
+
+        if (Regex.IsMatch(email, emailPattern))
+			await Shell.Current.GoToAsync("//AboutPage");
+		else
+			ErrorLabel.Text = "Invalid email";
+
 	}
 }
 
