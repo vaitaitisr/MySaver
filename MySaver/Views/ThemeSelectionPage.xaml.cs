@@ -1,4 +1,3 @@
-using Java.Security;
 using MySaver.Services;
 using MySaver.Themes;
 
@@ -6,35 +5,35 @@ namespace MySaver.Views;
 
 public partial class ThemeSelectionPage : ContentPage, IModalPage
 {
-	public ThemeSelectionPage()
-	{
-		InitializeComponent();
-	}
+    public ThemeSelectionPage()
+    {
+        InitializeComponent();
+    }
 
-	void OnPickerSelectionChanged(object sender, EventArgs e)
-	{
-		Picker picker = sender as Picker;
-		Theme theme = (Theme)picker.SelectedItem;
+    void OnPickerSelectionChanged(object sender, EventArgs e)
+    {
+        Picker picker = sender as Picker;
+        Theme theme = (Theme)picker.SelectedItem;
 
-		ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
-		if (mergedDictionaries != null)
-		{
-			mergedDictionaries.Clear();
+        ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+        if (mergedDictionaries != null)
+        {
+            mergedDictionaries.Clear();
 
-			switch (theme)
-			{
-				case Theme.Dark:
-					mergedDictionaries.Add(new DarkTheme());
-					break;
-				case Theme.Light:
-					mergedDictionaries.Add(new LightTheme());
-					break;
-			}
-			statusLabel.Text = $"{theme.ToString()} theme loaded.";
-		}
-	}
-	public async Task Dismiss()
-	{
-		await Navigation.PopModalAsync();
-	}
+            switch (theme)
+            {
+                case Theme.Dark:
+                    mergedDictionaries.Add(new DarkTheme());
+                    break;
+                case Theme.Light:
+                    mergedDictionaries.Add(new LightTheme());
+                    break;
+            }
+            statusLabel.Text = $"{theme.ToString()} theme loaded.";
+        }
+    }
+    public async Task Dismiss()
+    {
+        await Navigation.PopModalAsync();
+    }
 }

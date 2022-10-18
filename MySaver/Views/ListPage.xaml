@@ -6,21 +6,21 @@
              Title="My Lists">
     <VerticalStackLayout  Spacing="10"
                           Margin="10">
-        
+
         <Label 
             FontSize="22"
             FontAttributes="Bold"
             Text="My shopping lists"
-            VerticalOptions="Center" 
+            VerticalOptions="Center"
             HorizontalOptions="Center" 
             Style="{StaticResource Label}"/>
-        
+
         <SearchBar 
             Placeholder="Produkto pavadinimas..." 
             TextChanged="OnTextChanged" 
             Style="{StaticResource Search}"
             HorizontalOptions="Center" />
-        
+
         <ListView x:Name="SearchResults"/>
 
     </VerticalStackLayout>

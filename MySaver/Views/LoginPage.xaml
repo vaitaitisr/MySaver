@@ -16,7 +16,7 @@
             <Image Source="logo.png"
                    HeightRequest="200"
                    WidthRequest="200"/>
-            
+
             <VerticalStackLayout Spacing="5">
                 <Label Text="Welcome!"
                        FontSize="28"
@@ -26,7 +26,8 @@
                        FontSize="18"
                        TextColor="LightGreen"
                        HorizontalTextAlignment="Center"/>
-                <Label x:Name="ErrorLabel"/>
+                <Label x:Name="ErrorLabel"
+                       TextColor="Red"/>
             </VerticalStackLayout>
 
             <StackLayout Orientation="Horizontal">
