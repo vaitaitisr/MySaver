@@ -5,10 +5,15 @@
              x:Class="MySaver.Views.UserSummaryPage"
              Title="User Summary"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    
-    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="30">
 
-            <Grid.RowDefinitions>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Theme"
+                     Clicked="OnThemeToolbarItemClicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid HorizontalOptions="Center"
+          VerticalOptions="Center"
+          RowSpacing="30">
+        <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>

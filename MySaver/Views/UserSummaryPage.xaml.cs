@@ -26,4 +26,8 @@ public partial class UserSummaryPage : ContentPage
 
         profileImage.Source = ImageSource.FromStream(() => stream);
     }
+    async void OnThemeToolbarItemClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ThemeSelectionPage());
+    }
 }

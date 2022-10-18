@@ -5,34 +5,33 @@
              x:Class="MySaver.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="LightBackground"> #F9F7F8</Color>
-            <Color x:Key="DarkBackground"> #2A2729</Color>
+            <ResourceDictionary Source="Themes/DarkTheme.xaml"/>
 
-            <Color x:Key="LabelText"> Black</Color>
-            <Color x:Key="LabelTextDark"> WhiteSmoke</Color>
-
-            <Style ApplyToDerivedTypes="True" TargetType="Page">
-                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+            <Style TargetType="Page">
+                <Setter Property="BackgroundColor"
+                        Value="{DynamicResource PageBackgroundColor}"/>
             </Style>
 
-            <Style ApplyToDerivedTypes="True" TargetType="Label">
-                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+            <Style x:Key="Label"
+                   TargetType="Label">
+                <Setter Property="TextColor"
+                        Value="{DynamicResource PrimaryTextColor}"/>
+            </Style>
+            <Style x:Key="Search"
+                   TargetType="SearchBar">
+                <Setter Property="TextColor"
+                        Value="{DynamicResource PrimaryTextColor}"/>
             </Style>
 
-            <Style x:Key="Label" TargetType="Label">
-                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkBackground}, Dark={StaticResource LightBackground}}"/>
+            <Style x:Key="Button"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor"
+                        Value="{DynamicResource ButtonBackgroud}"/>
+                <Setter Property="TextColor"
+                        Value="{DynamicResource ButtonTextColor}"/>
+                <Setter Property="BorderColor"
+                        Value="{DynamicResource ButtonBorderColor}"/>
             </Style>
-
-            <Style x:Key="Search" TargetType="SearchBar">
-                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkBackground}, Dark={StaticResource LightBackground}}"/>
-            </Style>
-
-            <Style x:Key="Button" TargetType="Button">
-                <Setter Property="Background" Value="LightGreen"/>
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="BorderColor" Value="Black"/>
-            </Style>
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
