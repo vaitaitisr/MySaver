@@ -1,8 +1,8 @@
-namespace MySaver.Views;
+﻿namespace MySaver.Views;
 
 public partial class ListPage : ContentPage
 {
-    string mainDir;
+    private string mainDir;
     public ListPage()
     {
         mainDir = FileSystem.Current.AppDataDirectory;
@@ -27,10 +27,34 @@ public partial class ListPage : ContentPage
 
         ListOfLists.ItemsSource = fileNames;
     }
-
-    async void OnListTapped(object sender, ItemTappedEventArgs e)
+    async void OnDeleteListTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ListEditorPage(inputName: e.Item.ToString()));
+        var senderButton = (ImageButton)sender;
+        DeleteListAsync((string)senderButton.CommandParameter);
+    }
+
+    async void DeleteListAsync(string listName)
+    {
+        var target = Path.Combine(mainDir, listName);
+        if (File.Exists(target))
+        {
+            bool answer = await DisplayAlert("Klausimas", "Ar norite ištrinti sąrašą?", "Taip", "Ne");
+            if (!answer)
+            {
+                return;
+            }
+            File.Delete(target);
+            RefreshLists();
+        }
+    }
+
+    async void OnListTapped(object sender, SelectionChangedEventArgs e)
+    {
+        if (ListOfLists.SelectedItem != null)
+        {
+            await Navigation.PushAsync(new ListEditorPage(inputName: e.CurrentSelection.FirstOrDefault().ToString()));
+            ListOfLists.SelectedItem = null;
+        }
     }
 
     async void OnCreateTapped(object sender, EventArgs e)

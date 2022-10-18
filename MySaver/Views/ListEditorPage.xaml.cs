@@ -8,7 +8,7 @@ public partial class ListEditorPage : ContentPage
     private DataClass dataManager = new DataClass();
     private string startName;
     private string mainDir, targetFile;
-    private List<string> selection = new List<string>();
+    private List<string> selectedProducts = new List<string>();
 
     public ListEditorPage(string inputName = "Titulas")
     {
@@ -17,7 +17,7 @@ public partial class ListEditorPage : ContentPage
 
         if (File.Exists(targetFile))
         {
-            selection.AddRange(File.ReadAllLines(targetFile));
+            selectedProducts.AddRange(File.ReadAllLines(targetFile));
         }
         else
         {
@@ -42,18 +42,22 @@ public partial class ListEditorPage : ContentPage
         SearchResults.ItemsSource = await dataManager.GetSearchResultsAsync(search.Text);
     }
 
-    async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+   async  void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (!selection.Contains(e.CurrentSelection.FirstOrDefault().ToString()))
+        if(SearchResults.SelectedItem != null)
         {
-            selection.Add(e.CurrentSelection.FirstOrDefault().ToString());
-            RefreshList();
+            if (!selectedProducts.Contains(e.CurrentSelection.FirstOrDefault().ToString()))
+            {
+                selectedProducts.Add(e.CurrentSelection.FirstOrDefault().ToString());
+                RefreshList();
+            }
+            Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
         }
     }
 
     private void RefreshList()
     {
-        ListContents.ItemsSource = selection.ToArray();
+        ListContents.ItemsSource = selectedProducts.ToArray();
     }
 
     async void OnSaveTapped(object sender, EventArgs e)
@@ -63,7 +67,7 @@ public partial class ListEditorPage : ContentPage
 
     private async void SaveFile()
     {
-        File.WriteAllLines(targetFile, selection);
+        File.WriteAllLines(targetFile, selectedProducts);
 
         if (startName != listName.Text)
         {
@@ -91,7 +95,7 @@ public partial class ListEditorPage : ContentPage
         if (!isBusy)
         {
             //if filename was changed      or if the list contents were changed then renders popup
-            if (listName.Text != startName || !selection.SequenceEqual(File.ReadAllLines(targetFile)))
+            if (listName.Text != startName || !selectedProducts.SequenceEqual(File.ReadAllLines(targetFile)))
             {
                 PutSavePopup();
             }
@@ -102,6 +106,13 @@ public partial class ListEditorPage : ContentPage
         }
 
         return true;
+    }
+
+    async void OnRemoveProductTapped(object sender, EventArgs e)
+    {
+        var senderButton = (ImageButton)sender;
+        selectedProducts.Remove((string)senderButton.CommandParameter);
+        RefreshList();
     }
 
     private async void PutSavePopup()

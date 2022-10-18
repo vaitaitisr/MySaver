@@ -34,9 +34,9 @@
                Style="{StaticResource Label}"/>
 
         <CollectionView x:Name="SearchResults"
-                SelectionMode="Single"
-                SelectionChanged="OnSelectionChanged"
-                HeightRequest="150">
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged"
+                        HeightRequest="150">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -56,12 +56,25 @@
                 HeightRequest="150">
            
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,50">
                         <Label Text="{Binding .}"
-                               Style="{StaticResource Label}"
-                               FontSize="Medium"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Column="0"/>
+
+                        <ImageButton Source="delete.png"
+                                         HorizontalOptions="End"
+                                         Grid.Column="1"
+                                         BackgroundColor="Transparent"
+                                         BorderColor="Transparent"
+                                         Clicked="OnRemoveProductTapped"
+                                         CommandParameter="{Binding .}"/>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
