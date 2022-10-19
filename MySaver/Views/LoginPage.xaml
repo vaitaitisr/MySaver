@@ -51,7 +51,7 @@
                                               Margin="20,0,0,0"
                                               Placeholder="Email"
                                               Keyboard="Email"
-                                              TextColor="Black"/>
+                                              TextColor="{DynamicResource PrimaryTextColor}"/>
                 </Frame>
             </StackLayout>
 
