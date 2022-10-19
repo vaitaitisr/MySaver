@@ -2,15 +2,15 @@ namespace MySaver.Views;
 
 public partial class UserSummaryPage : ContentPage
 {
-	public UserSummaryPage()
-	{
-		InitializeComponent();
-	}
+    public UserSummaryPage()
+    {
+        InitializeComponent();
+    }
 
-	async void MoreInfo_Clicked(object sender, EventArgs e)
-	{
-		await Navigation.PushAsync(new UserDetailsPage());
-	}
+    async void MoreInfo_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new UserDetailsPage());
+    }
 
     private async void AddUserImage_Clicked(object sender, EventArgs e)
     {
@@ -25,5 +25,9 @@ public partial class UserSummaryPage : ContentPage
         var stream = await result.OpenReadAsync();
 
         profileImage.Source = ImageSource.FromStream(() => stream);
+    }
+    async void OnThemeToolbarItemClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ThemeSelectionPage());
     }
 }
