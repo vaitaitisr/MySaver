@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySaver.Views.ListEditorPage">
+
+        <VerticalStackLayout  Spacing="10" Margin="10">
+            <Entry
+                x:Name="listName"
+                Placeholder="Sąrašo pavadinimas"
+                FontSize="22"
+                FontAttributes="Bold"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" 
+                Style="{StaticResource Label}"/>
+
+            <ImageButton
+                x:Name="saveButton"
+                HeightRequest="50"
+                WidthRequest="50"
+                Aspect="AspectFit"
+                Source="checkmark.png"
+                HorizontalOptions="End"
+                Clicked="OnSaveTapped"
+                Style="{StaticResource Button}"/>
+
+        <SearchBar 
+                Placeholder="Produkto pavadinimas..." 
+                TextChanged="OnTextChanged" 
+                Style="{StaticResource Search}"
+                HorizontalOptions="Center" />
+
+        <Label Text="Paieška:"
+               FontSize="Large"
+               Style="{StaticResource Label}"/>
+
+        <CollectionView x:Name="SearchResults"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged"
+                        HeightRequest="150">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding .}"
+                           Style="{StaticResource Label}"
+                           FontSize="Medium"
+                           BackgroundColor="Transparent"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Text="Sąrašas:"
+               FontSize="Large"
+               Style="{StaticResource Label}"/>
+
+        <CollectionView x:Name="ListContents"
+                HeightRequest="150">
+           
+                <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,50">
+                        <Label Text="{Binding .}"
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Column="0"/>
+
+                        <ImageButton Source="delete.png"
+                                         HorizontalOptions="End"
+                                         Grid.Column="1"
+                                         BackgroundColor="Transparent"
+                                         BorderColor="Transparent"
+                                         Clicked="OnRemoveProductTapped"
+                                         CommandParameter="{Binding .}"/>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

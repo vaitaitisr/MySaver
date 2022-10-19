@@ -12,14 +12,36 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             Style="{StaticResource Label}"/>
-        
-        <SearchBar 
-            Placeholder="Produkto pavadinimas..." 
-            TextChanged="OnTextChanged" 
-            Style="{StaticResource Search}"
-            HorizontalOptions="Center" />
-        
-        <ListView x:Name="SearchResults"/>
 
+        <CollectionView x:Name="ListOfLists"
+                        SelectionMode="Single"
+                        SelectionChanged="OnListTapped"
+                        HeightRequest="200">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,50">
+                        <Label Text="{Binding .}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"
+                               Grid.Column="0"/>
+
+                        <ImageButton Source="delete.png"
+                                     HorizontalOptions="End"
+                                     Grid.Column="1"
+                                     BackgroundColor="Transparent"
+                                     BorderColor="Transparent"
+                                     Clicked="OnDeleteListTapped"
+                                     CommandParameter="{Binding .}"/>
+                        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Create new list" 
+                Clicked="OnCreateTapped" />
+       
     </VerticalStackLayout>
 </ContentPage>
