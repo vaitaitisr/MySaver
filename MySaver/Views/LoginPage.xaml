@@ -30,55 +30,57 @@
                        TextColor="Red"/>
             </VerticalStackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1"
-                       HasShadow="True"
-                       BorderColor="AntiqueWhite"
-                       HeightRequest="50"
-                       WidthRequest="25">
-                    <Image Source="user.png"
-                           HeightRequest="20"
-                           WidthRequest="20"/>
-                </Frame>
-                <Frame Padding="0"
-                       HasShadow="True"
-                       BorderColor="AntiqueWhite"
-                       HorizontalOptions="FillAndExpand"
-                       HeightRequest="50"
-                       Margin="-20,0,0,0">
+            <Border Stroke="AntiqueWhite"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 5"
+                    Background="White"
+                    Padding="0"
+                    HeightRequest="50">
+                <Grid ColumnDefinitions="30,*"
+                      Margin="-1">
+                    <Border Grid.Column="0"
+                            Stroke="AntiqueWhite"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 5,0,5,0"
+                            Background="AntiqueWhite"
+                            Padding="3">
+                        <Image Source="user.png"/>
+                    </Border>
                     <handlers:BorderlessEntry x:Name="EmailEntry"
+                                              Grid.Column="1"
                                               VerticalOptions="Center"
-                                              Margin="20,0,0,0"
+                                              Margin="5"
                                               Placeholder="Email"
                                               Keyboard="Email"
-                                              TextColor="{DynamicResource PrimaryTextColor}"/>
-                </Frame>
-            </StackLayout>
+                                              TextColor="Black"/>
+                </Grid>
+            </Border>
 
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1"
-                       HasShadow="True"
-                       BorderColor="AntiqueWhite"
-                       HeightRequest="50"
-                       WidthRequest="25">
-                    <Image Source="lock.png"
-                           HeightRequest="20"
-                           WidthRequest="20"/>
-                </Frame>
-                <Frame Padding="0"
-                       HasShadow="True"
-                       BorderColor="AntiqueWhite"
-                       HorizontalOptions="FillAndExpand"
-                       HeightRequest="50"
-                       Margin="-20,0,0,0">
-                    <handlers:BorderlessEntry VerticalOptions="Center"
-                                              Margin="20,0,0,0"
+            <Border Stroke="AntiqueWhite"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 5"
+                    Background="White"
+                    Padding="0"
+                    HeightRequest="50">
+                <Grid ColumnDefinitions="30,*"
+                      Margin="-1">
+                    <Border Grid.Column="0"
+                            Stroke="AntiqueWhite"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 5,0,5,0"
+                            Background="AntiqueWhite"
+                            Padding="3">
+                        <Image Source="lock.png"/>
+                    </Border>
+                    <handlers:BorderlessEntry Grid.Column="1"
+                                              VerticalOptions="Center"
+                                              Margin="5"
                                               Placeholder="Password"
                                               IsPassword="True"
                                               Keyboard="Email"
                                               TextColor="Black"/>
-                </Frame>
-            </StackLayout>
+                </Grid>
+            </Border>
 
             <Button Text="Sign in"
                     WidthRequest="100"
