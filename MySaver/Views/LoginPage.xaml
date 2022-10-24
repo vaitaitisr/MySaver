@@ -33,7 +33,7 @@
             <Border Stroke="AntiqueWhite"
                     StrokeThickness="1"
                     StrokeShape="RoundRectangle 5"
-                    Background="White"
+                    BackgroundColor="White"
                     Padding="0"
                     HeightRequest="50">
                 <Grid ColumnDefinitions="30,*"
@@ -42,24 +42,26 @@
                             Stroke="AntiqueWhite"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle 5,0,5,0"
-                            Background="AntiqueWhite"
+                            BackgroundColor="AntiqueWhite"
                             Padding="3">
                         <Image Source="user.png"/>
                     </Border>
-                    <handlers:BorderlessEntry x:Name="EmailEntry"
-                                              Grid.Column="1"
-                                              VerticalOptions="Center"
-                                              Margin="5"
-                                              Placeholder="Email"
-                                              Keyboard="Email"
-                                              TextColor="Black"/>
+                    <Entry x:Name="EmailEntry"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           Placeholder="Email"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           IsSpellCheckEnabled="False"/>
                 </Grid>
             </Border>
 
             <Border Stroke="AntiqueWhite"
                     StrokeThickness="1"
                     StrokeShape="RoundRectangle 5"
-                    Background="White"
+                    BackgroundColor="White"
                     Padding="0"
                     HeightRequest="50">
                 <Grid ColumnDefinitions="30,*"
@@ -68,17 +70,19 @@
                             Stroke="AntiqueWhite"
                             StrokeThickness="1"
                             StrokeShape="RoundRectangle 5,0,5,0"
-                            Background="AntiqueWhite"
+                            BackgroundColor="AntiqueWhite"
                             Padding="3">
                         <Image Source="lock.png"/>
                     </Border>
-                    <handlers:BorderlessEntry Grid.Column="1"
-                                              VerticalOptions="Center"
-                                              Margin="5"
-                                              Placeholder="Password"
-                                              IsPassword="True"
-                                              Keyboard="Email"
-                                              TextColor="Black"/>
+                    <Entry Grid.Column="1"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           IsSpellCheckEnabled="False"/>
                 </Grid>
             </Border>
 
