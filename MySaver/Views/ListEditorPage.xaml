@@ -21,7 +21,8 @@
                 Source="checkmark.png"
                 HorizontalOptions="End"
                 Clicked="OnSaveTapped"
-                Style="{StaticResource Button}"/>
+                Background="{DynamicResource ButtonBackgroud}"
+                BorderColor="{DynamicResource ButtonBorderColor}"/>
 
         <SearchBar 
                 Placeholder="Produkto pavadinimas..." 
