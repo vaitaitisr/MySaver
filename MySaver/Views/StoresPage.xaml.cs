@@ -30,19 +30,15 @@ public partial class StoresPage : ContentPage
 
         searchTerm = searchTerm.ToLowerInvariant();
 
-        var filteredItems = viewModel.Stores.Where(Store => Store.Name.ToLowerInvariant().Contains(searchTerm)).ToList();
+        var filteredItems = viewModel.Stores.Where(
+            Store => Store.Name.ToLowerInvariant().Contains(searchTerm)).ToList();
 
 
-        foreach(var Store in viewModel.Stores)
+        viewModel.MyItems.Clear();
+
+        foreach (var Item in filteredItems)
         {
-            if (!filteredItems.Contains(Store))
-            {
-                viewModel.MyItems.Remove(Store);
-            }
-            else if (!viewModel.MyItems.Contains(Store))
-            {
-                viewModel.MyItems.Add(Store);
-            }
+            viewModel.MyItems.Add(Item); 
         }
     }
 }

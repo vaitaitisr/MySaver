@@ -21,8 +21,11 @@ public class StoresViewModel
     public async Task UpdateStoresAsync()
     {
         if (Stores.Count != 0)
+        {
             Stores.Clear();
-
+            MyItems.Clear();
+        }
+            
         var stores = await storeService.GetStoresAsync();
         
         foreach (var store in stores)
