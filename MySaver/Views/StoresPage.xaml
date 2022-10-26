@@ -6,33 +6,40 @@
              x:Class="MySaver.Views.StoresPage"
              x:DataType="viewmodels:StoresViewModel"
              Title="Stores">
-    <CollectionView ItemsSource="{Binding Stores}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="models:Store">
-                <Frame Margin="5"
-                       Padding="10"
-                       CornerRadius="5"
-                       BorderColor="Black"
-                       BackgroundColor="White">
-                    <Grid ColumnDefinitions="*,110">
-                        <VerticalStackLayout Grid.Column="0">
-                            <Label Text="{Binding Name}"
+    <ScrollView>
+        <StackLayout>
+            <SearchBar Placeholder="Filter stores by name" 
+                       PlaceholderColor="Grey"
+                       TextChanged="ShopsFilterByName"/>
+            <CollectionView ItemsSource="{Binding MyItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Store">
+                        <Frame Margin="5"
+                           Padding="10"
+                           CornerRadius="5"
+                           BorderColor="Black"
+                           BackgroundColor="White">
+                            <Grid ColumnDefinitions="*,110">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding Name}"
+                                       FontSize="20"
+                                       TextColor="Black"
+                                       BackgroundColor="Transparent"/>
+                                    <Label Text="{Binding Address}"
+                                       TextColor="Gray"
+                                       BackgroundColor="Transparent"/>
+                                </VerticalStackLayout>
+                                <Label Text="{Binding TodaysSchedule}"
+                                   Grid.Column="1"
                                    FontSize="20"
                                    TextColor="Black"
-                                   BackgroundColor="Transparent"/>
-                            <Label Text="{Binding Address}"
-                                   TextColor="Gray"
-                                   BackgroundColor="Transparent"/>
-                        </VerticalStackLayout>
-                        <Label Text="{Binding TodaysSchedule}"
-                               Grid.Column="1"
-                               FontSize="20"
-                               TextColor="Black"
-                               BackgroundColor="Transparent"
-                               VerticalOptions="Center"/>
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
