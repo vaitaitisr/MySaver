@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MySaver.Views.ListEditorPage">
+             xmlns:models="clr-namespace:MySaver.Models"
+             xmlns:viewmodels="clr-namespace:MySaver.ViewModels"
+             x:Class="MySaver.Views.ListEditorPage"
+             x:DataType="viewmodels:ProductViewModel">
 
-        <VerticalStackLayout  Spacing="10" Margin="10">
+    <VerticalStackLayout  Spacing="10" Margin="10">
             <Entry
-                x:Name="listName"
+                Text="{Binding ListName}"
                 Placeholder="Sąrašo pavadinimas"
                 FontSize="22"
                 FontAttributes="Bold"
@@ -40,8 +43,8 @@
                         HeightRequest="150">
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Label Text="{Binding .}"
+                <DataTemplate x:DataType="models:Product">
+                    <Label Text="{Binding Name}"
                            Style="{StaticResource Label}"
                            FontSize="Medium"
                            BackgroundColor="Transparent"/>
@@ -53,21 +56,35 @@
                FontSize="Large"
                Style="{StaticResource Label}"/>
 
-        <CollectionView x:Name="ListContents"
-                HeightRequest="150">
-           
-                <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="*,50">
-                        <Label Text="{Binding .}"
+        <CollectionView ItemsSource="{Binding SelectedProducts}"
+            x:Name="ListContents"
+            HeightRequest="150">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Product">
+                    <Grid ColumnDefinitions="*,auto,*,50" 
+                          ColumnSpacing="10">
+                        <Label Text="{Binding Name}"
                                    Style="{StaticResource Label}"
                                    FontSize="Medium"
                                    BackgroundColor="Transparent"
                                    Grid.Column="0"/>
+                        
+                        <Label Text="Kaina:"
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Column="1"/>
+                        
+                        <Label Text="{Binding Price}"
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Column="2"/>
 
                         <ImageButton Source="delete.png"
                                          HorizontalOptions="End"
-                                         Grid.Column="1"
+                                         Grid.Column="3"
                                          BackgroundColor="Transparent"
                                          BorderColor="Transparent"
                                          Clicked="OnRemoveProductTapped"

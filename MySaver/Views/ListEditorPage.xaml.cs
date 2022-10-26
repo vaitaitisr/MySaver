@@ -1,78 +1,49 @@
-﻿using MySaver.Controls;
+﻿using MySaver.Models;
+using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
 public partial class ListEditorPage : ContentPage
 {
-    private bool isBusy = false;
-    private DataClass dataManager = new DataClass();
     private string startName;
-    private string mainDir, targetFile;
-    private List<string> selectedProducts = new List<string>();
+    private bool isBusy = false;
+    private ProductViewModel viewModel;
+    private string mainDir = FileSystem.Current.AppDataDirectory;
 
     public ListEditorPage(string inputName = "Titulas")
     {
-        mainDir = FileSystem.Current.AppDataDirectory;
-        targetFile = Path.Combine(mainDir, inputName);
-
-        if (File.Exists(targetFile))
-        {
-            selectedProducts.AddRange(File.ReadAllLines(targetFile));
-        }
-        else
-        {
-            File.Create(targetFile).Close();
-        }
+        viewModel = new ProductViewModel(inputName);
+        BindingContext = viewModel;
 
         InitializeComponent();
-        RefreshList();
 
-        listName.Text = inputName;
         startName = inputName;
     }
 
     protected override async void OnAppearing()
     {
-        SearchResults.ItemsSource = await dataManager.GetSearchResultsAsync("");
+        SearchResults.ItemsSource = await viewModel.GetSearchResultsAsync(null);
     }
 
     async void OnTextChanged(object sender, EventArgs e)
     {
         SearchBar search = (SearchBar)sender;
-        SearchResults.ItemsSource = await dataManager.GetSearchResultsAsync(search.Text);
+        SearchResults.ItemsSource = await viewModel.GetSearchResultsAsync(search.Text);
     }
 
-   async  void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if(SearchResults.SelectedItem != null)
-        {
-            if (!selectedProducts.Contains(e.CurrentSelection.FirstOrDefault().ToString()))
-            {
-                selectedProducts.Add(e.CurrentSelection.FirstOrDefault().ToString());
-                RefreshList();
-            }
-            Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
-        }
-    }
-
-    private void RefreshList()
-    {
-        ListContents.ItemsSource = selectedProducts.ToArray();
+        viewModel.AddSelection((Product)SearchResults.SelectedItem);
+        Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
     }
 
     async void OnSaveTapped(object sender, EventArgs e)
     {
-        SaveFile();
-    }
+        viewModel.SaveFile();
+        var renamedFile = Path.Combine(mainDir, viewModel.ListName + ".json");
 
-    private async void SaveFile()
-    {
-        File.WriteAllLines(targetFile, selectedProducts);
-
-        if (startName != listName.Text)
+        if (startName != viewModel.ListName)
         {
-            var renamedFile = Path.Combine(mainDir, listName.Text);
-
             if (File.Exists(renamedFile))
             {
                 bool answer = await DisplayAlert("Klausimas", "Ar norite perrašyti esantį failą?", "Taip", "Ne");
@@ -82,11 +53,9 @@ public partial class ListEditorPage : ContentPage
                 }
             }
 
-            File.Delete(renamedFile);
-            File.Move(targetFile, renamedFile);
+            viewModel.RenameFile(renamedFile);
 
-            targetFile = renamedFile;
-            startName = listName.Text;
+            startName = viewModel.ListName;
         }
     }
 
@@ -95,7 +64,9 @@ public partial class ListEditorPage : ContentPage
         if (!isBusy)
         {
             //if filename was changed      or if the list contents were changed then renders popup
-            if (listName.Text != startName || !selectedProducts.SequenceEqual(File.ReadAllLines(targetFile)))
+            var check = viewModel.ReadList();
+            if (viewModel.ListName != startName ||
+                !viewModel.SelectedProducts.Equals(check))
             {
                 PutSavePopup();
             }
@@ -111,8 +82,7 @@ public partial class ListEditorPage : ContentPage
     async void OnRemoveProductTapped(object sender, EventArgs e)
     {
         var senderButton = (ImageButton)sender;
-        selectedProducts.Remove((string)senderButton.CommandParameter);
-        RefreshList();
+        viewModel.RemoveProduct((Product)senderButton.CommandParameter);
     }
 
     private async void PutSavePopup()
@@ -122,7 +92,7 @@ public partial class ListEditorPage : ContentPage
             bool answer = await DisplayAlert("Klausimas", "Ar norite išsaugoti sąrašą?", "Taip", "Ne");
             if (answer)
             {
-                SaveFile();
+                OnSaveTapped(null, null);
             }
             await Shell.Current.GoToAsync("..");
             isBusy = false;
