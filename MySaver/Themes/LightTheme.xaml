@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MySaver.Themes.LightTheme">
 
-    <Color x:Key="PageBackgroundColor">White</Color>
+    <Color x:Key="PageBackgroundColor">#F9F7F8</Color>
     <Color x:Key="NavigationBarColor">WhiteSmoke</Color>
     <Color x:Key="PrimaryColor">WhiteSmoke</Color>
     <Color x:Key="SecondaryColor">Black</Color>
@@ -11,4 +11,7 @@
     <Color x:Key="SecondaryTextColor">White</Color>
     <Color x:Key="TertiaryTextColor">Gray</Color>
     <Color x:Key="TransparentColor">Transparent</Color>
+    <Color x:Key="ButtonBackgroud">LightGreen</Color>
+    <Color x:Key="ButtonTextColor">Black</Color>
+    <Color x:Key="ButtonBorderColor">Black</Color>
 </ResourceDictionary>

@@ -13,38 +13,93 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image Source="logo.png" HeightRequest="200" WidthRequest="200"/>
-            
+            <Image Source="logo.png"
+                   HeightRequest="200"
+                   WidthRequest="200"/>
+
             <VerticalStackLayout Spacing="5">
-                <Label Text="Welcome!" FontSize="28" TextColor="LightGreen" HorizontalTextAlignment="Center"/>
-                <Label Text="Log in to your account" FontSize="18" TextColor="LightGreen" HorizontalTextAlignment="Center"/>
+                <Label Text="Welcome!"
+                       FontSize="28"
+                       TextColor="LightGreen"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="Log in to your account"
+                       FontSize="18"
+                       TextColor="LightGreen"
+                       HorizontalTextAlignment="Center"/>
+                <Label x:Name="ErrorLabel"
+                       TextColor="Red"/>
             </VerticalStackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" BorderColor="AntiqueWhite" HeightRequest="50" WidthRequest="25">
-                    <Image Source="user.png" HeightRequest="20" WidthRequest="20"/>
-                </Frame>
-                <Frame Padding="0" HasShadow="True" BorderColor="AntiqueWhite" HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="-20,0,0,0">
-                    <handlers:BorderlessEntry VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Username" Keyboard="Email" TextColor="Black"/>
+            <Border Stroke="AntiqueWhite"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 5"
+                    BackgroundColor="White"
+                    Padding="0"
+                    HeightRequest="50">
+                <Grid ColumnDefinitions="30,*"
+                      Margin="-1">
+                    <Border Grid.Column="0"
+                            Stroke="AntiqueWhite"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 5,0,5,0"
+                            BackgroundColor="AntiqueWhite"
+                            Padding="3">
+                        <Image Source="user.png"/>
+                    </Border>
+                    <Entry x:Name="EmailEntry"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           Placeholder="Email"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           IsSpellCheckEnabled="False"/>
+                </Grid>
+            </Border>
 
-                </Frame>
-            </StackLayout>
+            <Border Stroke="AntiqueWhite"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 5"
+                    BackgroundColor="White"
+                    Padding="0"
+                    HeightRequest="50">
+                <Grid ColumnDefinitions="30,*"
+                      Margin="-1">
+                    <Border Grid.Column="0"
+                            Stroke="AntiqueWhite"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 5,0,5,0"
+                            BackgroundColor="AntiqueWhite"
+                            Padding="3">
+                        <Image Source="lock.png"/>
+                    </Border>
+                    <Entry Grid.Column="1"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           Placeholder="Password"
+                           IsPassword="True"
+                           Keyboard="Email"
+                           TextColor="Black"
+                           BackgroundColor="Transparent"
+                           IsSpellCheckEnabled="False"/>
+                </Grid>
+            </Border>
 
-            <StackLayout Orientation="Horizontal">
-                <Frame ZIndex="1" HasShadow="True" BorderColor="AntiqueWhite" HeightRequest="50" WidthRequest="25">
-                    <Image Source="lock.png" HeightRequest="20" WidthRequest="20"/>
-                </Frame>
-                <Frame Padding="0" HasShadow="True" BorderColor="AntiqueWhite" HorizontalOptions="FillAndExpand" HeightRequest="50" Margin="-20,0,0,0">
-                    <handlers:BorderlessEntry VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Password" IsPassword="True" Keyboard="Email" TextColor="Black"/>
-                </Frame>
-            </StackLayout>
+            <Button Text="Sign in"
+                    WidthRequest="100"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    Clicked="OnSignInButtonClicked"
+                    Style="{StaticResource Button}"/>
 
-            <Button Text="Sign in" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" Clicked="OnSignInButtonClicked" Style="{StaticResource Button}"/>
-
-            <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
-                <Label Text="Don't have account?" TextColor="LightGray"/>
-                <Label Text="Sign up here" TextColor="LightGray"/>
-
+            <StackLayout Orientation="Horizontal"
+                         Spacing="5"
+                         HorizontalOptions="Center">
+                <Label Text="Don't have account?"
+                       TextColor="LightGray"/>
+                <Label Text="Sign up here"
+                       TextColor="LightGray"/>
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>

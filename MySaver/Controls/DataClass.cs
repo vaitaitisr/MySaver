@@ -1,43 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MySaver.Controls;
+﻿namespace MySaver.Controls;
 
 internal class DataClass
 {
-    private string[] ProductList;
+    private string[] productList;
+
     private async Task<string[]> ReadDataFileAsync()
     {
-        var InputFile = await FilePicker.Default.PickAsync();
-        using StreamReader reader = new StreamReader(InputFile.FullPath);
+        using Stream inputFileStream = await FileSystem.OpenAppPackageFileAsync("ProductList.txt");
+        using StreamReader reader = new StreamReader(inputFileStream);
 
-        string Data = await reader.ReadToEndAsync();
-        Data = Data.ToLower();
+        string data = await reader.ReadToEndAsync();
 
-        ProductList = Data.Split('\n');
+        data = data.ToLower();
+        data = data.Replace("\r", "");
 
-        return ProductList;
+        productList = data.Split('\n');
+
+        return productList;
     }
 
     public async Task<string[]> GetSearchResultsAsync(string input)
     {
         if (input == null) return null;
 
-        if (ProductList == null)
+        if (productList == null)
         {
-            ProductList = await ReadDataFileAsync();
+            productList = await ReadDataFileAsync();
         }
 
         input = input.ToLower();
 
-        var ResultQuery =
-            (from Product in ProductList
-             where Product.Contains(input)
-             select Product).ToArray();
+        var resultQuery =
+            (from product in productList
+             where product.Contains(input)
+             select product).ToArray();
 
-        return ResultQuery;
+        return resultQuery;
     }
 }

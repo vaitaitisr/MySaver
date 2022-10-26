@@ -12,9 +12,14 @@
                 <RowDefinition Height="0.1*" />
                 <RowDefinition Height="0.2*" />
             </Grid.RowDefinitions>
-            <Image Source="user.png" HeightRequest="250" WidthRequest="250"/>
+
+            <Image Source="user.png"
+                   HeightRequest="250"
+                   WidthRequest="250"/>
             <Grid BackgroundColor="{DynamicResource TransparentColor}">
-                <Label VerticalOptions="End" Margin="15" Style="{StaticResource Label}">
+                <Label VerticalOptions="End"
+                       Margin="15"
+                       Style="{StaticResource Label}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Vardenis Pavardenis"/>
@@ -22,12 +27,16 @@
                     </Label.FormattedText>
                 </Label>
             </Grid>
+
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-                <Label VerticalOptions="Start" Margin="10" BackgroundColor="Transparent" Style="{StaticResource Label}">
+                <Label VerticalOptions="Start"
+                       Margin="10"
+                       BackgroundColor="Transparent"
+                       Style="{StaticResource Label}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Gender"/>
@@ -37,12 +46,15 @@
                     </Label.FormattedText>
                 </Label>
             </Grid>
+
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0.2*"/>
                 </Grid.ColumnDefinitions>
-                <Label VerticalOptions="Start" Margin="10" Style="{StaticResource Label}">
+                <Label VerticalOptions="Start"
+                       Margin="10"
+                       Style="{StaticResource Label}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Likes"/>
@@ -52,12 +64,15 @@
                     </Label.FormattedText>
                 </Label>
             </Grid>
+
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
-                <Label VerticalOptions="Start" Margin="10" Style="{StaticResource Label}">
+                <Label VerticalOptions="Start"
+                       Margin="10"
+                       Style="{StaticResource Label}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Description"/>

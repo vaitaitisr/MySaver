@@ -29,7 +29,7 @@
                                        TextColor="Gray"
                                        BackgroundColor="Transparent"/>
                                 </VerticalStackLayout>
-                                <Label Text="{Binding OpeningHours}"
+                                <Label Text="{Binding TodaysSchedule}"
                                    Grid.Column="1"
                                    FontSize="20"
                                    TextColor="Black"

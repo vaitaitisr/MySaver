@@ -2,16 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MySaver.Views.AboutPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
              Title="AboutPage">
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
-            <Image Source="about.png" HeightRequest="64"/>
-            <Label FontSize="22" FontAttributes="Bold" Text="About" VerticalOptions="End" Style="{StaticResource Label}"/>
-            <Label FontSize="22" Text="v1.0" VerticalOptions="End" Style="{StaticResource Label}"/>
+            <Image Source="about.png"
+                   HeightRequest="64"/>
+            <Label FontSize="22"
+                   FontAttributes="Bold"
+                   Text="About"
+                   VerticalOptions="End"
+                   Style="{StaticResource Label}"/>
+            <Label FontSize="22"
+                   Text="v1.0"
+                   VerticalOptions="End"
+                   Style="{StaticResource Label}"/>
         </HorizontalStackLayout>
 
-        <Label Text="This app is written in XAML and C# with .NET MAUI" Style="{StaticResource Label}"/>
-        <Button Text="Learn more" Clicked="LearnMore_Clicked" Style="{StaticResource Button}"/>
+        <Label Text="This app is written in XAML and C# with .NET MAUI"
+               Style="{StaticResource Label}"/>
+        <Button Text="Learn more" Clicked="LearnMore_Clicked"
+                Style="{StaticResource Button}"/>
 
     </VerticalStackLayout>
 </ContentPage>
