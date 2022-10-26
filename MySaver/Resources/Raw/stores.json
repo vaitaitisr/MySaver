@@ -1,57 +1,1447 @@
-﻿[
-  {
-    "Name": "Maxima",
-    "Address": "Mindaugo g. 11",
-    "DefaultSchedule": "07:00-00:00",
-    "Latitude": 54.6780927,
-    "Longitude": 25.2728643
-  },
-  {
-    "Name": "Iki",
-    "Address": "Mindaugo g. 25",
-    "DefaultSchedule": "07:30-23:00",
-    "Latitude": 54.6730547,
-    "Longitude": 25.2750805
-  },
-  {
-    "Name": "Rimi",
-    "Address": "Linkmenų g. 22",
-    "Schedule": {
-      "Sunday": "10:00-22:00"
+[
+    {
+        "Name": "Maxima",
+        "Address": "Ukmergės g. 282, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.72768749999999,
+        "Longitude": 25.238937499999977
     },
-    "DefaultSchedule": "08:00-22:00",
-    "Latitude": 54.7058411,
-    "Longitude": 25.2677823
-  },
-  {
-    "Name": "Lidl",
-    "Address": "Kalvarijų g. 180",
-    "DefaultSchedule": "07:00-23:00",
-    "Latitude": 54.7139075,
-    "Longitude": 25.286192
-  },
-  {
-    "Name": "Norfa",
-    "Address": "Ateities g. 10",
-    "Schedule": {
-      "Sunday": "10:00-21:00"
+    {
+        "Name": "Maxima",
+        "Address": "Ukmergės g. 369, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.73993749999998,
+        "Longitude": 25.22793749999998
     },
-    "DefaultSchedule": "08:00-22:00",
-    "Latitude": 54.7304276,
-    "Longitude": 25.2470905
-  },
-  {
-    "Name": "Iki",
-    "Address": "Didlaukio g. 80a",
-    "DefaultSchedule": "08:00-22:00",
-    "Latitude": 54.7288675,
-    "Longitude": 25.2691998
-  },
-  {
-    "Name": "Maxima",
-    "Address": "Didlaukio g. 1",
-    "DefaultSchedule": "08:00-22:00",
-    "Latitude": 54.7279502,
-    "Longitude": 25.2785813
-  }
+    {
+        "Name": "Maxima",
+        "Address": "Gedvydžių g. 17, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.73718749999999,
+        "Longitude": 25.238687499999983
+    },
+    {
+        "Name": "Maxima",
+        "Address": "S. Stanevičiaus g. 42, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72443750000001,
+        "Longitude": 25.249687500000007
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Santaros g. 5, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.7570625,
+        "Longitude": 25.27718750000001
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Pavilnionių g. 55, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.736937499999996,
+        "Longitude": 25.211437499999974
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Medeinos g. 39-65, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72768749999999,
+        "Longitude": 25.22043749999999
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Didlaukio g. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72793749999998,
+        "Longitude": 25.278687500000004
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Gabijos g. 30, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.73531249999998,
+        "Longitude": 25.220812500000008
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Mokslininkų g. 9, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.754187499999986,
+        "Longitude": 25.264687499999994
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Žirmūnų g. 89A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71956250000001,
+        "Longitude": 25.303812500000006
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Taikos g. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71681249999996,
+        "Longitude": 25.22881249999999
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Gelvonų g. 35, Gelvonų g. 35A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71806249999999,
+        "Longitude": 25.258687499999994
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Ukmergės g. 223-3, Vilnius",
+        "DefaultSchedule": "07:00-21:00",
+        "Schedule": {
+            "Saturday": "09:00-19:00",
+            "Sunday": "09:00-19:00"
+        },
+        "Latitude": 54.71556249999996,
+        "Longitude": 25.24843750000001
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Dūkštų g. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71481249999998,
+        "Longitude": 25.243312499999988
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Maxima, Ukmergės g. 184, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71068749999999,
+        "Longitude": 25.248562500000006
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Ozo g. 18-1001, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71393749999997,
+        "Longitude": 25.272562500000006
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Ulonų g. 5, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.709812499999984,
+        "Longitude": 25.292187499999997
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Taikos g. 162A, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.71243749999998,
+        "Longitude": 25.215812499999984
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Žalgirio g. 105, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70431249999997,
+        "Longitude": 25.28293749999999
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Viršuliškių g. 30, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70943749999999,
+        "Longitude": 25.221812499999984
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Pilaitės pr. 31, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70968749999999,
+        "Longitude": 25.188437500000006
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Tuskulėnų g. 66, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.7020625,
+        "Longitude": 25.28893749999999
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Antakalnio g. 75A-1001, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.715812499999984,
+        "Longitude": 25.316687499999986
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Ozo g. 25, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.70968749999999,
+        "Longitude": 25.260562499999978
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Antakalnio g. 61-49, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.711812499999965,
+        "Longitude": 25.315187499999993
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Kalvarijų g. 59, Vilnius",
+        "DefaultSchedule": "08:00-20:00",
+        "Latitude": 54.699312500000005,
+        "Longitude": 25.283062499999986
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Nemenčinės pl. 33, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.73468749999999,
+        "Longitude": 25.33856250000001
+    },
+    {
+        "Name": "Maxima",
+        "Address": "V. Grybo g. 21, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70406249999998,
+        "Longitude": 25.3160625
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Kęstučio g. 37, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6934375,
+        "Longitude": 25.2511875
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Saulės g. 1, Avižieniai",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.76393749999998,
+        "Longitude": 25.19431249999998
+    },
+    {
+        "Name": "Maxima",
+        "Address": "I. Kanto al. 13-142, Vilnius",
+        "DefaultSchedule": "08:00-20:00",
+        "Latitude": 54.70431249999997,
+        "Longitude": 25.183562500000008
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Minties g. 58, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70343749999999,
+        "Longitude": 25.29056249999998
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Vydūno g. 27 - 101, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70706249999999,
+        "Longitude": 25.17631250000001
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Konstitucijos pr. 7A-1, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.69631249999999,
+        "Longitude": 25.2764375
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Sausio 13-osios g. 2-1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6924375,
+        "Longitude": 25.220937500000005
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Laisvės pr. 26, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6899375,
+        "Longitude": 25.21118749999998
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Upės g. 9, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.69381249999999,
+        "Longitude": 25.27606250000001
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Gedimino pr. 18, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.68706250000001,
+        "Longitude": 25.279062499999995
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Gilužio g. 5, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70156249999998,
+        "Longitude": 25.17868750000001
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Mindaugo g. 11, Vilnius",
+        "DefaultSchedule": "07:00-24:00",
+        "Latitude": 54.678062499999996,
+        "Longitude": 25.272687500000004
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Savanorių pr. 31, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.67393750000001,
+        "Longitude": 25.247687499999998
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Naugarduko g. 84, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Saturday": "08:00-22:00",
+            "Sunday": "08:00-22:00"
+        },
+        "Latitude": 54.66906250000001,
+        "Longitude": 25.25931249999998
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Keramikų g. 4, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72893749999999,
+        "Longitude": 25.374437500000013
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Subačiaus g. 116A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.674812500000016,
+        "Longitude": 25.319187500000012
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Kalvarijų g. 125 Vilnius,",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.712187499999985,
+        "Longitude": 25.286937500000008
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Bazilijonų g. 3, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.674062500000005,
+        "Longitude": 25.286937500000008
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Architektų g. 152, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.68306249999999,
+        "Longitude": 25.21281249999997
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Pelesos g. 35, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.667687500000014,
+        "Longitude": 25.283937499999993
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Žaliųjų Ežerų g. 207, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.8005625,
+        "Longitude": 25.34856250000003
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Liepkalnio g. 112, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.65343750000001,
+        "Longitude": 25.3040625
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Beržų g. 92, Riešė",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.807062500000015,
+        "Longitude": 25.25168749999999
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Šaltkalvių g. 2, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.661312499999994,
+        "Longitude": 25.272937499999998
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Moravų g 7, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6501875,
+        "Longitude": 25.323937500000014
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Pergalės g. 40, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.68181249999999,
+        "Longitude": 25.414187499999983
+    },
+    {
+        "Name": "Maxima",
+        "Address": "S. Batoro g. 43, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.692562499999994,
+        "Longitude": 25.410062499999995
+    },
+    {
+        "Name": "Maxima",
+        "Address": "P. Žvirkos g. 1, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.60543749999998,
+        "Longitude": 25.262187499999996
+    },
+    {
+        "Name": "Maxima",
+        "Address": "Švenčionių g. 44, Nemenčinė",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.84856250000003,
+        "Longitude": 25.46681249999996
+    },
+    {
+        "Name": "Maxima",
+        "Address": "J. Tiškevičiaus g. 22, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.62418749999999,
+        "Longitude": 25.109687499999993
+    },
+    {
+        "Name": "Maxima Bazė",
+        "Address": "Mamoničių g 3, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.65693750000001,
+        "Longitude": 25.138062499999975
+    },
+    {
+        "Name": "Iki",
+        "Address": "Fabijoniškių g. 2A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.722187500000004,
+        "Longitude": 25.244562499999986
+    },
+    {
+        "Name": "Iki",
+        "Address": "Didlaukio g. 80a, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72881249999999,
+        "Longitude": 25.269312499999998
+    },
+    {
+        "Name": "Iki",
+        "Address": "Gabijos g. 34, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.735812499999994,
+        "Longitude": 25.223687499999997
+    },
+    {
+        "Name": "Iki",
+        "Address": "Jeruzalės g. 17, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.74318749999999,
+        "Longitude": 25.2788125
+    },
+    {
+        "Name": "Iki",
+        "Address": "Iki Palink, S. Stanevičiaus g. 23, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72393749999999,
+        "Longitude": 25.255312499999988
+    },
+    {
+        "Name": "Iki",
+        "Address": "Žirmūnų g. 106E-1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.7258125,
+        "Longitude": 25.29843750000002
+    },
+    {
+        "Name": "Iki",
+        "Address": "Žirmūnų g. 145, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.722562499999995,
+        "Longitude": 25.297937500000003
+    },
+    {
+        "Name": "Iki",
+        "Address": "Žemynos g. 2, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72556249999998,
+        "Longitude": 25.225687500000006
+    },
+    {
+        "Name": "Iki",
+        "Address": "J. Franko g. 2a, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.7608125,
+        "Longitude": 25.283562500000002
+    },
+    {
+        "Name": "Iki",
+        "Address": "Šeškinės g. 32, Vilnius",
+        "DefaultSchedule": "07:30-22:00",
+        "Latitude": 54.71556249999996,
+        "Longitude": 25.245437499999966
+    },
+    {
+        "Name": "Iki",
+        "Address": "Bajorų kl. 4, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.754562500000006,
+        "Longitude": 25.2620625
+    },
+    {
+        "Name": "Iki",
+        "Address": "Nemenčinės pl. 2, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.724187499999985,
+        "Longitude": 25.319812500000026
+    },
+    {
+        "Name": "Iki",
+        "Address": "Rygos g. 41, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.7188125,
+        "Longitude": 25.21606249999998
+    },
+    {
+        "Name": "Iki",
+        "Address": "Antakalnio g. 42, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.703312499999996,
+        "Longitude": 25.309562500000013
+    },
+    {
+        "Name": "Iki",
+        "Address": "Sudervės g. 17a, Avižieniai",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.762687499999984,
+        "Longitude": 25.1863125
+    },
+    {
+        "Name": "Iki",
+        "Address": "P. Lukšio g. 34, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.709812499999984,
+        "Longitude": 25.301937500000022
+    },
+    {
+        "Name": "Iki",
+        "Address": "Buivydiškių g. 17, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.71368749999998,
+        "Longitude": 25.238562499999986
+    },
+    {
+        "Name": "Iki",
+        "Address": "Antakalnio g. 73, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.71406249999997,
+        "Longitude": 25.3160625
+    },
+    {
+        "Name": "Iki",
+        "Address": "Žirmūnų g. 2, Vilnius",
+        "DefaultSchedule": "07:30-23:00",
+        "Latitude": 54.697312499999995,
+        "Longitude": 25.29881250000001
+    },
+    {
+        "Name": "Iki",
+        "Address": "Senasis Ukmergės kl. 8, Avižieniai",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.769812500000015,
+        "Longitude": 25.195312499999986
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Ulonų g. 2, Vilnius",
+        "DefaultSchedule": "08:00-20:00",
+        "Latitude": 54.70831249999999,
+        "Longitude": 25.290312499999985
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Kalvarijų g. 105, Vilnius",
+        "DefaultSchedule": "08:00-20:00",
+        "Latitude": 54.70843749999999,
+        "Longitude": 25.285812500000006
+    },
+    {
+        "Name": "Iki",
+        "Address": "Žalioji g. 22a, Vilnius",
+        "DefaultSchedule": "8:30-22:00",
+        "Latitude": 54.7308125,
+        "Longitude": 25.1839375
+    },
+    {
+        "Name": "Iki",
+        "Address": "Sėlių g. 54, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.69831250000003,
+        "Longitude": 25.247437499999975
+    },
+    {
+        "Name": "Iki",
+        "Address": "Molėtų g. 13-1, Riešė",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.781437499999996,
+        "Longitude": 25.273812500000005
+    },
+    {
+        "Name": "Iki",
+        "Address": "Priegliaus g. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.709812499999984,
+        "Longitude": 25.187312500000004
+    },
+    {
+        "Name": "Iki",
+        "Address": "Karaliaučiaus g. 9D, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70793749999997,
+        "Longitude": 25.174437500000025
+    },
+    {
+        "Name": "Iki",
+        "Address": "Saulėtekio al. 43, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72518749999999,
+        "Longitude": 25.342437500000003
+    },
+    {
+        "Name": "Iki",
+        "Address": "Savanorių pr. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.679312499999995,
+        "Longitude": 25.25756249999999
+    },
+    {
+        "Name": "Iki",
+        "Address": "Sodų g. 22-1, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.67031250000001,
+        "Longitude": 25.281937500000012
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Kalvarijų g. 3, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.69281249999999,
+        "Longitude": 25.281062500000004
+    },
+    {
+        "Name": "Iki",
+        "Address": "Švitrigailos g. 29, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Schedule": {
+            "Sunday": "9a.m.–7p.m."
+        },
+        "Latitude": 54.67093750000002,
+        "Longitude": 25.269312499999998
+    },
+    {
+        "Name": "Iki",
+        "Address": "Viršuliškių g. 40, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.708187499999994,
+        "Longitude": 25.227812499999985
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Gedimino pr. 64, Vilnius",
+        "DefaultSchedule": "08:00-20:00",
+        "Latitude": 54.690062499999996,
+        "Longitude": 25.261437499999985
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Užupio g. 7, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6804375,
+        "Longitude": 25.295062499999986
+    },
+    {
+        "Name": "Iki",
+        "Address": "Visalaukio g. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.77793749999999,
+        "Longitude": 25.341937500000014
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "A. Vivulskio g. 15, Vilnius",
+        "DefaultSchedule": "08:00-20:00",
+        "Latitude": 54.67943750000002,
+        "Longitude": 25.267437499999986
+    },
+    {
+        "Name": "Iki",
+        "Address": "Architektų g. 43, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.674437500000025,
+        "Longitude": 25.201312499999986
+    },
+    {
+        "Name": "Iki",
+        "Address": "Architektų g. 214, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.67943750000002,
+        "Longitude": 25.2175625
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Gedimino pr. 28, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.68781249999999,
+        "Longitude": 25.275437499999995
+    },
+    {
+        "Name": "Iki",
+        "Address": "J. Jasinskio g. 16, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Saturday": "9a.m.–10p.m."
+        },
+        "Latitude": 54.68781249999999,
+        "Longitude": 25.26006249999999
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Pylimo g. 21, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.67868750000001,
+        "Longitude": 25.27843750000001
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Didžioji g. 6, Vilnius",
+        "DefaultSchedule": "00:00-24:00",
+        "Latitude": 54.6803125,
+        "Longitude": 25.288562499999998
+    },
+    {
+        "Name": "Iki",
+        "Address": "Parko g. 34a, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.68593750000001,
+        "Longitude": 25.425312500000004
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Vokiečių g. 13, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.67993750000001,
+        "Longitude": 25.283812499999996
+    },
+    {
+        "Name": "Iki",
+        "Address": "Geležinio Vilko g. 9a, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.67131250000001,
+        "Longitude": 25.239062499999974
+    },
+    {
+        "Name": "Iki",
+        "Address": "Vaduvos g. 4, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.642437499999986,
+        "Longitude": 25.205437499999974
+    },
+    {
+        "Name": "Iki",
+        "Address": "Kauno g. 1A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.67268750000001,
+        "Longitude": 25.279062499999995
+    },
+    {
+        "Name": "Iki",
+        "Address": "Kapsų g. 22, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Schedule": {
+            "Sunday": "09:00-19:00"
+        },
+        "Latitude": 54.6610625,
+        "Longitude": 25.277812499999996
+    },
+    {
+        "Name": "Iki",
+        "Address": "Pilaitės pr. 42, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.70918749999997,
+        "Longitude": 25.184937500000004
+    },
+    {
+        "Name": "Iki Express",
+        "Address": "Upės g. 6, Vilnius",
+        "DefaultSchedule": "07:00-23:00",
+        "Latitude": 54.6934375,
+        "Longitude": 25.273312500000017
+    },
+    {
+        "Name": "Iki",
+        "Address": "Jonažolių g. 1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6669375,
+        "Longitude": 25.214562499999985
+    },
+    {
+        "Name": "Iki",
+        "Address": "Genių g. 2-1, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.68818750000001,
+        "Longitude": 25.4159375
+    },
+    {
+        "Name": "Iki",
+        "Address": "S. Batoro g. 154, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Schedule": {
+            "Sunday": "9a.m.–7p.m."
+        },
+        "Latitude": 54.692937499999985,
+        "Longitude": 25.408812499999996
+    },
+    {
+        "Name": "Iki",
+        "Address": "Džiaugsmo g. 28a, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.670812500000025,
+        "Longitude": 25.360812499999994
+    },
+    {
+        "Name": "Iki",
+        "Address": "Geležinkelio g. 38, Lentvaris",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.64393749999998,
+        "Longitude": 25.046437499999982
+    },
+    {
+        "Name": "Iki",
+        "Address": "Centrinė g. 62, Galgiai",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.724937499999996,
+        "Longitude": 25.412812499999987
+    },
+    {
+        "Name": "Iki",
+        "Address": "Pupinės g. 6, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Latitude": 54.606812499999975,
+        "Longitude": 25.256937500000006
+    },
+    {
+        "Name": "Iki",
+        "Address": "Juodasis kl. 35a, Vilnius",
+        "DefaultSchedule": "08:30-22:00",
+        "Latitude": 54.6623125,
+        "Longitude": 25.34218750000001
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Ukmergės g. 308, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Schedule": {
+            "Sunday": "09:00-23:00"
+        },
+        "Latitude": 54.74031249999997,
+        "Longitude": 25.224187499999985
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Medeinos g. 8, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.72993749999999,
+        "Longitude": 25.227437499999994
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Pavilnionių g. 22, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.735062499999984,
+        "Longitude": 25.21718749999998
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Vaivadiškių g. 2, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.748187500000014,
+        "Longitude": 25.20393749999998
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Rygos g. 8, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-22:00"
+        },
+        "Latitude": 54.71593749999998,
+        "Longitude": 25.2248125
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Ateities g. 91, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Schedule": {
+            "Sunday": "09:00-23:00"
+        },
+        "Latitude": 54.732187499999995,
+        "Longitude": 25.244312499999964
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Ukmergės g. 233, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-22:00"
+        },
+        "Latitude": 54.72081250000001,
+        "Longitude": 25.24518749999997
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Linkmenų g. 22, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "10:00-22:00"
+        },
+        "Latitude": 54.70581249999999,
+        "Longitude": 25.267687500000008
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Vydūno g. 4, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.706937499999995,
+        "Longitude": 25.188562500000003
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Žirmūnų g. 64, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.71193749999999,
+        "Longitude": 25.301937500000022
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Kareivių g. 11A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.71806249999999,
+        "Longitude": 25.300187500000007
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Saltoniškių g. 9, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.70043749999998,
+        "Longitude": 25.257812499999986
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Jeruzalės g. 4, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.73993749999998,
+        "Longitude": 25.274687500000013
+    },
+    {
+        "Name": "Rimi Hyper",
+        "Address": "Vytauto Pociūno g. 8, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.70368749999999,
+        "Longitude": 25.205687499999996
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Gedimino pr. 44A, Vilnius",
+        "DefaultSchedule": "10:00-22:00",
+        "Latitude": 54.688937499999994,
+        "Longitude": 25.2680625
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Kedrų g. 4, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.6755625,
+        "Longitude": 25.25681249999998
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Molėtų pl. 49, Vilnius",
+        "DefaultSchedule": "09:00-22:00",
+        "Latitude": 54.77368750000001,
+        "Longitude": 25.272687500000004
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Senasis Ukmergės kl. 46A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.77718750000001,
+        "Longitude": 25.19193750000001
+    },
+    {
+        "Name": "Rimi",
+        "Address": "L. Asanavičiūtės g. 20/2, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6851875,
+        "Longitude": 25.205062499999983
+    },
+    {
+        "Name": "Rimi Express",
+        "Address": "Šeimyniškių g. 19, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.6948125,
+        "Longitude": 25.289937499999994
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Gedimino pr. 10, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "10:00-21:00"
+        },
+        "Latitude": 54.68668749999999,
+        "Longitude": 25.281937500000012
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Antakalnio g. 55/1, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.708562499999985,
+        "Longitude": 25.313437500000006
+    },
+    {
+        "Name": "Rimi Express",
+        "Address": "Didžioji g. 28, Vilnius",
+        "DefaultSchedule": "07:30-22:00",
+        "Schedule": {
+            "Sunday": "09:00-22:00"
+        },
+        "Latitude": 54.678062499999996,
+        "Longitude": 25.287812499999987
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Pilies g. 10, Vilnius",
+        "DefaultSchedule": "10:00-22:00",
+        "Latitude": 54.6838125,
+        "Longitude": 25.289562500000002
+    },
+    {
+        "Name": "Rimi",
+        "Address": "VIkingų g. 3, Vilnius",
+        "DefaultSchedule": "09:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.653687500000004,
+        "Longitude": 25.27718750000001
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Architektų g. 19, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-22:00"
+        },
+        "Latitude": 54.673687500000014,
+        "Longitude": 25.21318749999999
+    },
+    {
+        "Name": "Rimi Express",
+        "Address": "Gedimino pr. 44a, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.6885625,
+        "Longitude": 25.267812500000005
+    },
+    {
+        "Name": "Rimi",
+        "Address": "Šiltnamių g. 21, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.6671875,
+        "Longitude": 25.216562499999966
+    },
+    {
+        "Name": "Rimi Express",
+        "Address": "Aukštaičių g. 7, Vilnius",
+        "DefaultSchedule": "07:30-22:00",
+        "Schedule": {
+            "Sunday": "09:00-22:00"
+        },
+        "Latitude": 54.6790625,
+        "Longitude": 25.3029375
+    },
+    {
+        "Name": "Rimi",
+        "Address": "ŽvaigždIkių g. 2, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.7258125,
+        "Longitude": 25.411812499999982
+    },
+    {
+        "Name": "Lidl",
+        "Address": "S. Nėries g. 16, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.73756249999998,
+        "Longitude": 25.231437499999984
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Ukmergės g. 256, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.72681249999998,
+        "Longitude": 25.239687499999988
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Nidos g. 1, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.71043749999997,
+        "Longitude": 25.1850625
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Dūkštų g. 34, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.711812499999965,
+        "Longitude": 25.24043749999997
+    },
+    {
+        "Name": "Lidl",
+        "Address": "S. Stanevičiaus g. 2A, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.72143749999999,
+        "Longitude": 25.254312499999983
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Virbeliškių g. 2, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.72918749999998,
+        "Longitude": 25.217812499999994
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Ateities g. 4A, Vilnius",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.73806249999997,
+        "Longitude": 25.2728125
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Sausio 13-osios g. 3, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.69306249999998,
+        "Longitude": 25.218937499999996
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Rinktinės g. 60, Vilnius",
+        "DefaultSchedule": "07:00-23:00",
+        "Latitude": 54.70306249999997,
+        "Longitude": 25.2871875
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Kalvarijų g. 180, Vilnius",
+        "DefaultSchedule": "07:00-23:00",
+        "Latitude": 54.71393749999997,
+        "Longitude": 25.286187499999997
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Gedimino pr. 9, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.68706250000001,
+        "Longitude": 25.281562499999993
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Žirmūnų g. 67, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.716937499999986,
+        "Longitude": 25.30606250000001
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Žemaitės g. 16, Vilnius",
+        "DefaultSchedule": "07:00-23:00",
+        "Latitude": 54.672812500000006,
+        "Longitude": 25.25643749999999
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Rasų g. 9a, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.67375000000001,
+        "Longitude": 25.296249999999986
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Nemenčinės pl. 15, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.73043749999998,
+        "Longitude": 25.332312500000015
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Gariūnų g. 66, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.6585625,
+        "Longitude": 25.157312500000003
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Kapsų g. 1, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.66018749999999,
+        "Longitude": 25.273937500000002
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Juodasis kl. 34, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.66268749999999,
+        "Longitude": 25.343187500000013
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Pramonės g. 17A, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.69268749999999,
+        "Longitude": 25.412437499999996
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Barčių g. 1, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.604812499999994,
+        "Longitude": 25.260562499999978
+    },
+    {
+        "Name": "Lidl",
+        "Address": "J. Tiškevičiaus g. 17, Trakų Vokė",
+        "DefaultSchedule": "08:00-23:00",
+        "Latitude": 54.625187499999996,
+        "Longitude": 25.111312499999983
+    },
+    {
+        "Name": "Lidl",
+        "Address": "Vilniaus g. 42, Nemenčinė",
+        "DefaultSchedule": "07:00-22:00",
+        "Latitude": 54.8413125,
+        "Longitude": 25.46831250000001
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Laisvės pr. 82, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Schedule": {
+            "Sunday": "10:00-20:00"
+        },
+        "Latitude": 54.72393749999999,
+        "Longitude": 25.232937499999977
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Zujūnų g. 1, Vilnius",
+        "DefaultSchedule": "07:00-21:00",
+        "Schedule": {
+            "Sunday": "09:00-20:00"
+        },
+        "Latitude": 54.710937499999986,
+        "Longitude": 25.160062499999995
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Ateities g. 48, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.73043749999998,
+        "Longitude": 25.247062499999984
+    },
+    {
+        "Name": "Norfa XXL",
+        "Address": "Ukmergės g. 298, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.73706249999999,
+        "Longitude": 25.2295625
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Justiniškių g. 91 A, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Sunday": "08:00-20:00"
+        },
+        "Latitude": 54.7175625,
+        "Longitude": 25.222687499999992
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Rygos g. 49, Vilnius",
+        "DefaultSchedule": "07:00-21:00",
+        "Schedule": {
+            "Sunday": "09:00-20:00"
+        },
+        "Latitude": 54.71906249999999,
+        "Longitude": 25.212687499999973
+    },
+    {
+        "Name": "Norfa XXL",
+        "Address": "Ateities g. 10, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Schedule": {
+            "Sunday": "10:00-21:00"
+        },
+        "Latitude": 54.73681249999997,
+        "Longitude": 25.266812499999972
+    },
+    {
+        
+        "Name": "Norfa XL",
+        "Address": "A. P. Kavoliuko g. 6, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-20:00"
+        },
+        "Latitude": 54.69781250000001,
+        "Longitude": 25.21118749999998
+    },
+    {
+        "Name": "Norfa XXL",
+        "Address": "L. Asanavičiūtės g. 29A, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-20:00"
+        },
+        "Latitude": 54.69318750000001,
+        "Longitude": 25.215812499999984
+    },
+    {
+        "Name": "Hyper Norfa",
+        "Address": "Kalvarijų g. 151, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.72143749999999,
+        "Longitude": 25.288687499999995
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Molėtų pl. 47, Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Schedule": {
+            "Sunday": "09:00-19:00"
+        },
+        "Latitude": 54.771437500000005,
+        "Longitude": 25.272187500000015
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Parodų g. 1A, Vilnius",
+        "DefaultSchedule": "07:30-22:00",
+        "Schedule": {
+            "Monday": "08:00-21:00",
+            "Sunday": "10:00-20:00"            
+        },
+        "Latitude": 54.67393750000001,
+        "Longitude": 25.22393749999999
+    },
+    {
+        "Name": "Hyper Norfa",
+        "Address": "Savanorių pr. 176, Vilnius",
+        "DefaultSchedule": "06:30-22:00",
+        "Schedule": {
+            "Sunday": "09:00-21:00"
+        },
+        "Latitude": 54.65218750000001,
+        "Longitude": 25.226187499999995
+    },
+    {
+        "Name": "Norfa XXL",
+        "Address": "Minsko pl. 3, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Sunday": "09:00-20:00"
+        },
+        "Latitude": 54.652062500000014,
+        "Longitude": 25.305437499999996
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Gvazdikų Sodų 1-oji g., Vilnius",
+        "DefaultSchedule": "08:00-21:00",
+        "Schedule": {
+            "Sunday": "10:00-20:00"
+        },
+        "Latitude": 54.75656249999999,
+        "Longitude": 25.36818750000002
+    },
+    {
+        "Name": "Norfa",
+        "Address": "Salininkų g. 129a, Vilnius",
+        "DefaultSchedule": "07:00-21:00",
+        "Schedule": {
+            "Sunday": "09:00-20:00"
+        },
+        "Latitude": 54.60531249999998,
+        "Longitude": 25.263812499999986
+    },
+    {
+        "Name": "Norfa",
+        "Address": "4707, Vilnius",
+        "DefaultSchedule": "08:00-22:00",
+        "Latitude": 54.62106250000001,
+        "Longitude": 25.064687500000005
+    },
+    {
+        "Name": "Norfa XL",
+        "Address": "Genių g. 10A, Vilnius",
+        "DefaultSchedule": "07:00-22:00",
+        "Schedule": {
+            "Saturday": "08:00-22:00",
+            "Sunday": "08:00-20:00"
+        },
+        "Latitude": 54.68831250000001,
+        "Longitude": 25.42143750000001
+    }
 ]
