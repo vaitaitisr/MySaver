@@ -35,7 +35,7 @@ public partial class ListPage : ContentPage
 
     async void DeleteListAsync(string listName)
     {
-        var target = Path.Combine(mainDir, listName);
+        var target = Path.Combine(mainDir, listName + ".json");
         if (File.Exists(target))
         {
             bool answer = await DisplayAlert("Klausimas", "Ar norite ištrinti sąrašą?", "Taip", "Ne");
