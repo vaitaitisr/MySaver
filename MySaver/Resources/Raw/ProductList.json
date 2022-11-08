@@ -1,35 +1,35 @@
 [
     {
         "Name": "Pienas",
-        "Price": 1.5
+        "UnitPrice": 1.5
     },
     {
         "Name": "Medus",
-        "Price": 5
+        "UnitPrice": 5
     },
     {
         "Name": "Saldainiai",
-        "Price": 11
+        "UnitPrice": 11
     },
     {
         "Name": "Duona",
-        "Price": 1.2
+        "UnitPrice": 1.2
     },
     {
         "Name": "Sviestas",
-        "Price": 4.33
+        "UnitPrice": 4.33
     },
     {
         
         "Name": "Batonas",
-        "Price": 0.99
+        "UnitPrice": 0.99
     },
     {
         "Name": "Dešra",
-        "Price": 3.49
+        "UnitPrice": 3.49
     },
     {
         "Name": "Kiaušiniai",
-        "Price": 5
+        "UnitPrice": 5
     }
 ]

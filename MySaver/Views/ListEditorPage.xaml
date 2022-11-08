@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:MySaver.Models"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
              xmlns:viewmodels="clr-namespace:MySaver.ViewModels"
              x:Class="MySaver.Views.ListEditorPage"
              x:DataType="viewmodels:ProductViewModel">
 
     <VerticalStackLayout  Spacing="10" Margin="10">
-            <Entry
-                Text="{Binding ListName}"
+        <Entry Text="{Binding ListName}"
                 Placeholder="Sąrašo pavadinimas"
                 FontSize="22"
                 FontAttributes="Bold"
@@ -16,8 +16,7 @@
                 HorizontalOptions="Center" 
                 Style="{StaticResource Label}"/>
 
-            <ImageButton
-                x:Name="saveButton"
+        <ImageButton x:Name="saveButton"
                 HeightRequest="50"
                 WidthRequest="50"
                 Aspect="AspectFit"
@@ -27,8 +26,7 @@
                 Background="{DynamicResource ButtonBackgroud}"
                 BorderColor="{DynamicResource ButtonBorderColor}"/>
 
-        <SearchBar 
-                Placeholder="Produkto pavadinimas..." 
+        <SearchBar Placeholder="Produkto pavadinimas..." 
                 TextChanged="OnTextChanged" 
                 Style="{StaticResource Search}"
                 HorizontalOptions="Center" />
@@ -44,10 +42,12 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
+
                     <Label Text="{Binding Name}"
                            Style="{StaticResource Label}"
                            FontSize="Medium"
                            BackgroundColor="Transparent"/>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
@@ -59,38 +59,73 @@
         <CollectionView ItemsSource="{Binding SelectedProducts}"
             x:Name="ListContents"
             HeightRequest="150">
-
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
-                    <Grid ColumnDefinitions="*,auto,*,50" 
-                          ColumnSpacing="10">
-                        <Label Text="{Binding Name}"
-                                   Style="{StaticResource Label}"
-                                   FontSize="Medium"
-                                   BackgroundColor="Transparent"
-                                   Grid.Column="0"/>
-                        
-                        <Label Text="Kaina:"
-                                   Style="{StaticResource Label}"
-                                   FontSize="Medium"
-                                   BackgroundColor="Transparent"
-                                   Grid.Column="1"/>
-                        
-                        <Label Text="{Binding Price}"
-                                   Style="{StaticResource Label}"
-                                   FontSize="Medium"
-                                   BackgroundColor="Transparent"
-                                   Grid.Column="2"/>
 
-                        <ImageButton Source="delete.png"
-                                         HorizontalOptions="End"
-                                         Grid.Column="3"
-                                         BackgroundColor="Transparent"
-                                         BorderColor="Transparent"
-                                         Clicked="OnRemoveProductTapped"
-                                         CommandParameter="{Binding .}"/>
+                    <Border Stroke="{StaticResource SecondaryColor}"
+                            BackgroundColor="Transparent"
+                        StrokeThickness="4"
+                        StrokeShape="RoundRectangle"
+                        Padding="16,8"
+                        HorizontalOptions="Center">
 
-                    </Grid>
+                        <Grid ColumnDefinitions="80,50,50,75,50" 
+                          ColumnSpacing="10"
+                          RowDefinitions="40,40">
+
+                            <Label Text="{Binding Name}"
+                                Style="{StaticResource Label}"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                Grid.Row="0"
+                                Grid.Column="0"/>
+
+                            <Label Text="Vnt:"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"
+                               Grid.Column="1"/>
+
+                            <Label Text="{Binding Amount}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"
+                               Grid.Column="2"/>
+
+                            <Stepper Increment="1"
+                                 Grid.Column="3"
+                                 x:Name="ProductCount"
+                                 Value="{Binding Amount}"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="Start"
+                                 ValueChanged="OnStepperValueChanged" />
+
+                            <Label Text="Kaina:"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               HorizontalOptions="End"
+                               BackgroundColor="Transparent"
+                               Grid.Row="1"
+                               Grid.Column="1"/>
+
+                            <Label x:Name="PriceLabel"
+                               Text="{Binding Price}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"
+                               Grid.Row="1"
+                               Grid.Column="2"/>
+
+                            <ImageButton Source="delete.png"
+                                HorizontalOptions="End"
+                                Grid.Column="4"
+                                BackgroundColor="Transparent"
+                                BorderColor="Transparent"
+                                Clicked="OnRemoveProductTapped"
+                                CommandParameter="{Binding .}"/>
+
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
