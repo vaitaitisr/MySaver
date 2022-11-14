@@ -4,6 +4,8 @@ using System.Text.Json;
 
 namespace MySaver.ViewModels;
 
+public delegate void GetProductDelegate(Product name);
+
 public class ProductViewModel
 {
     private List<Product> ProductList = new List<Product>();

@@ -9,7 +9,7 @@ public partial class ListEditorPage : ContentPage
     private bool isBusy = false;
     private ProductViewModel viewModel;
     private string mainDir = FileSystem.Current.AppDataDirectory;
-
+    
     public ListEditorPage(string inputName = "Titulas")
     {
         viewModel = new ProductViewModel(inputName);
@@ -33,7 +33,8 @@ public partial class ListEditorPage : ContentPage
 
     async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        viewModel.AddSelection((Product)SearchResults.SelectedItem);
+        GetProductDelegate addSelection = viewModel.AddSelection;
+        addSelection((Product)SearchResults.SelectedItem);
         Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
     }
 
@@ -82,7 +83,8 @@ public partial class ListEditorPage : ContentPage
     async void OnRemoveProductTapped(object sender, EventArgs e)
     {
         var senderButton = (ImageButton)sender;
-        viewModel.RemoveProduct((Product)senderButton.CommandParameter);
+        GetProductDelegate removeProduct = viewModel.RemoveProduct;
+        removeProduct((Product)senderButton.CommandParameter);
     }
 
     private async void PutSavePopup()
