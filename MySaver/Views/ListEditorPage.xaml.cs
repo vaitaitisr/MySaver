@@ -64,10 +64,13 @@ public partial class ListEditorPage : ContentPage
         if (!isBusy)
         {
             //if filename was changed      or if the list contents were changed then renders popup
-            var check = viewModel.ReadList();
+            var oldList = viewModel.ReadList();
+            var newList = viewModel.SelectedProducts;
+
             if (viewModel.ListName != startName ||
-                !viewModel.SelectedProducts.Equals(check))
+                !(oldList?.SequenceEqual(newList) ?? !newList.Any()))
             {
+                // TODO: show delete list pop-up if newList is empty
                 PutSavePopup();
             }
             else
