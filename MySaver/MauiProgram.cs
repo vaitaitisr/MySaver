@@ -1,6 +1,7 @@
 ﻿using MySaver.ViewModels;
 using MySaver.Views;
 using Syncfusion.Maui.Core.Hosting;
+using Plugin.LocalNotification;
 
 namespace MySaver;
 
@@ -11,6 +12,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+            .UseLocalNotification()
             .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {

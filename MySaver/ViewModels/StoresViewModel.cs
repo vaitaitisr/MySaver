@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MySaver.Models;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -22,6 +23,10 @@ public partial class StoresViewModel : BaseViewModel
         UpdateStoresCommand = new Command(async () => await UpdateStoresAsync());
         MyItems = new ObservableCollection<Store>(Stores);
     }
+
+
+    [ObservableProperty]
+    bool isRefreshing;
 
     public async Task UpdateStoresAsync()
     {
@@ -56,6 +61,7 @@ public partial class StoresViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
+            IsRefreshing = false;
         }
 
     }
