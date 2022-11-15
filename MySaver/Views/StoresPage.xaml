@@ -6,7 +6,7 @@
              x:Class="MySaver.Views.StoresPage"
              x:DataType="viewmodels:StoresViewModel"
              Title="Stores">
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,*,80">
         <SearchBar Placeholder="Filter stores by name" 
                    PlaceholderColor="Grey"
                    TextChanged="ShopsFilterByName"/>
@@ -40,5 +40,12 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        <Button Text="Find Closest"
+                Style="{StaticResource Button}"
+                Command="{Binding GetClosestStoreCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="3"
+                Grid.Column="2"
+                Margin="8"/>
     </Grid>
 </ContentPage>
