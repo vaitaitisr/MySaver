@@ -649,7 +649,7 @@
         "Address": "Švitrigailos g. 29, Vilnius",
         "DefaultSchedule": "08:00-21:00",
         "Schedule": {
-            "Sunday": "9a.m.–7p.m."
+            "Sunday": "09:00–19:00"
         },
         "Latitude": 54.67093750000002,
         "Longitude": 25.269312499999998
@@ -715,7 +715,7 @@
         "Address": "J. Jasinskio g. 16, Vilnius",
         "DefaultSchedule": "08:00-22:00",
         "Schedule": {
-            "Saturday": "9a.m.–10p.m."
+            "Saturday": "09:00–22:00"
         },
         "Latitude": 54.68781249999999,
         "Longitude": 25.26006249999999
@@ -812,7 +812,7 @@
         "Address": "S. Batoro g. 154, Vilnius",
         "DefaultSchedule": "08:00-21:00",
         "Schedule": {
-            "Sunday": "9a.m.–7p.m."
+            "Sunday": "09:00–19:00"
         },
         "Latitude": 54.692937499999985,
         "Longitude": 25.408812499999996
