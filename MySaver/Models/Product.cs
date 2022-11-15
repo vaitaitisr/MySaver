@@ -31,11 +31,13 @@ public class Product : INotifyPropertyChanged //Should probably implement IEquat
 
     public float UnitPrice { get; set; }
 
-    public float Price
+    public string Price
     {
         get
         {
-            return UnitPrice * Amount;
+            string result = (UnitPrice * Amount).ToString("0.00");
+            result += '€';
+            return result;
         }
     }
 }

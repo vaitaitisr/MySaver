@@ -63,13 +63,13 @@
                 <DataTemplate x:DataType="models:Product">
 
                     <Border Stroke="{StaticResource SecondaryColor}"
-                            BackgroundColor="Transparent"
+                        BackgroundColor="Transparent"
                         StrokeThickness="4"
                         StrokeShape="RoundRectangle"
-                        Padding="16,8"
+                        Padding="10,8"
                         HorizontalOptions="Center">
 
-                        <Grid ColumnDefinitions="80,50,50,75,50" 
+                        <Grid ColumnDefinitions="80,50,60,75,50" 
                           ColumnSpacing="10"
                           RowDefinitions="40,40">
 
