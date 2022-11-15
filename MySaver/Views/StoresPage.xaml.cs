@@ -41,4 +41,9 @@ public partial class StoresPage : ContentPage
             viewModel.MyItems.Add(Item); 
         }
     }
+
+    async void ClosestStore_Clicked(object sender, EventArgs e)
+    {
+        await viewModel.GetClosestStore();
+    }
 }

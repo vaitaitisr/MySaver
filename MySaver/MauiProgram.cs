@@ -21,6 +21,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<StoreService>();
         builder.Services.AddSingleton<StoresViewModel>();
         builder.Services.AddSingleton<StoresPage>();
+       
+        builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
 
         return builder.Build();
     }

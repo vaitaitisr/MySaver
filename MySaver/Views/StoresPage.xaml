@@ -7,9 +7,30 @@
              x:DataType="viewmodels:StoresViewModel"
              Title="Stores">
     <Grid RowDefinitions="Auto,*">
-        <SearchBar Placeholder="Filter stores by name" 
-                   PlaceholderColor="Grey"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1000"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <SearchBar Placeholder="Filter stores by name" 
+                       PlaceholderColor="Grey"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                           HorizontalOptions="Fill"
                    TextChanged="ShopsFilterByName"/>
+
+            <Button Text="Find Closest"
+                    Clicked="ClosestStore_Clicked"
+                    BackgroundColor="Green"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="Center" />
+        </Grid>
+
         <CollectionView ItemsSource="{Binding MyItems}"
                         Grid.Row="1">
             <CollectionView.ItemTemplate>
