@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace MySaver.Models;
 
-public class Product : INotifyPropertyChanged //Should probably implement IEquatable for better comparison functionality
+public class Product : INotifyPropertyChanged, IEquatable<Product>
 {
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -12,9 +12,9 @@ public class Product : INotifyPropertyChanged //Should probably implement IEquat
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
-    public string StoreName { get; set; }
+    public string StoreName { get; set; } = String.Empty;
 
-    public string Name { get; set; }
+    public string Name { get; set; } = String.Empty;
 
     private float _amount = 1;
     public float Amount
@@ -39,5 +39,10 @@ public class Product : INotifyPropertyChanged //Should probably implement IEquat
             result += '€';
             return result;
         }
+    }
+    public bool Equals(Product other)
+    {
+        return (StoreName?.Equals(other.StoreName) ?? false) &&
+               (Name?.Equals(other.Name) ?? false);
     }
 }

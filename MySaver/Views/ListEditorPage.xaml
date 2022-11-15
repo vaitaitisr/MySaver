@@ -113,6 +113,7 @@
                                Style="{StaticResource Label}"
                                FontSize="Medium"
                                BackgroundColor="Transparent"
+                               Grid.ColumnSpan="2"
                                Grid.Row="1"
                                Grid.Column="2"/>
 
