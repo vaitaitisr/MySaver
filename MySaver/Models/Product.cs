@@ -40,6 +40,7 @@ public class Product : INotifyPropertyChanged, IEquatable<Product>
             return result;
         }
     }
+
     public bool Equals(Product other)
     {
         return (StoreName?.Equals(other.StoreName) ?? false) &&
