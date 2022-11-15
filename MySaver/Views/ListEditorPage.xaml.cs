@@ -20,11 +20,6 @@ public partial class ListEditorPage : ContentPage
         startName = inputName;
     }
 
-    protected override async void OnAppearing()
-    {
-        SearchResults.ItemsSource = await viewModel.GetSearchResultsAsync(null);
-    }
-
     async void OnTextChanged(object sender, EventArgs e)
     {
         SearchBar search = (SearchBar)sender;
