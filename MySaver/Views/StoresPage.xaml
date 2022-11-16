@@ -11,7 +11,8 @@
                    PlaceholderColor="Grey"
                    TextChanged="ShopsFilterByName"/>
         <RefreshView Command="{Binding UpdateStoresCommand}"
-                     IsRefreshing="{Binding IsRefreshing}">
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Grid.Row="1">
             <CollectionView ItemsSource="{Binding MyItems}"
                             Grid.Row="1">
                 <CollectionView.ItemTemplate>
