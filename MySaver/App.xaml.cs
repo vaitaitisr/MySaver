@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Platform;
 using MySaver.Handlers;
+using MySaver.Services;
 
 namespace MySaver;
 
@@ -19,6 +20,12 @@ public partial class App : Application
 #endif
 			}
 		});
+
+        MauiExceptions.UnhandledException += (sender, args) =>
+        {
+            var exception = (Exception)args.ExceptionObject;
+            LogService.Log(exception.ToString());
+        };
 
 		MainPage = new AppShell();
 	}
