@@ -1,4 +1,5 @@
-﻿using MySaver.ViewModels;
+﻿using MySaver.Services;
+using MySaver.ViewModels;
 using MySaver.Views;
 using Syncfusion.Maui.Core.Hosting;
 
@@ -21,6 +22,12 @@ public static class MauiProgram
         builder.Services.AddSingleton<StoreService>();
         builder.Services.AddSingleton<StoresViewModel>();
         builder.Services.AddSingleton<StoresPage>();
+
+        builder.Services.AddSingleton<ProductService>();
+        builder.Services.AddSingleton<ProductViewModel>();
+        builder.Services.AddSingleton<ListEditorPage>();
+
+        
 
         return builder.Build();
     }

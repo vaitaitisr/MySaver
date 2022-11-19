@@ -3,6 +3,7 @@ using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
+[QueryProperty(nameof(startName), "inputName")]
 public partial class ListEditorPage : ContentPage
 {
     private string startName;
@@ -10,14 +11,14 @@ public partial class ListEditorPage : ContentPage
     private ProductViewModel viewModel;
     private string mainDir = FileSystem.Current.AppDataDirectory;
 
-    public ListEditorPage(string inputName = "Titulas")
+    public ListEditorPage( ProductViewModel viewModel)
     {
-        viewModel = new ProductViewModel(inputName);
         BindingContext = viewModel;
-
+        this.viewModel = viewModel;
+        viewModel.ListName = startName;
         InitializeComponent();
 
-        startName = inputName;
+        //startName = inputName;
     }
 
     async void OnTextChanged(object sender, EventArgs e)

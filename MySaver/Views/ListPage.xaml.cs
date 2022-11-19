@@ -51,14 +51,17 @@ public partial class ListPage : ContentPage
     async void OnListTapped(object sender, SelectionChangedEventArgs e)
     {
         if (ListOfLists.SelectedItem != null)
-        {
-            await Navigation.PushAsync(new ListEditorPage(inputName: e.CurrentSelection.FirstOrDefault().ToString()));
+        {//IDictionary<string, object> parameters
+            await Shell.Current.GoToAsync("ListEditor", new Dictionary<string, object> 
+            {
+                { "inputName", e.CurrentSelection.FirstOrDefault().ToString() } 
+            });
             ListOfLists.SelectedItem = null;
         }
     }
 
     async void OnCreateTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ListEditorPage());
+        await Shell.Current.GoToAsync("ListEditor");
     }
 }

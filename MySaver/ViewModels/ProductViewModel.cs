@@ -1,4 +1,5 @@
 ﻿using MySaver.Models;
+using MySaver.Services;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 
@@ -6,8 +7,8 @@ namespace MySaver.ViewModels;
 
 public class ProductViewModel
 {
-    private Lazy<Task<List<Product>>> ProductList =
-        new Lazy<Task<List<Product>>>(() => ReadDataFileAsync());
+    private ProductService productService;
+    private Lazy<Task<List<Product>>> ProductList; 
 
     public ObservableCollection<Product> SelectedProducts { get; }
         = new ObservableCollection<Product>();
@@ -16,10 +17,14 @@ public class ProductViewModel
     private string targetFile;
     public string ListName { get; set; }
 
-    public ProductViewModel(string inputName)
+    public ProductViewModel(ProductService productService)
     {
+        this.productService = productService;
+        ProductList = new Lazy<Task<List<Product>>>(() =>
+            productService.ReadDataFileAsync());
+
         mainDir = FileSystem.Current.AppDataDirectory;
-        targetFile = Path.Combine(mainDir, inputName + ".json");
+        targetFile = Path.Combine(mainDir, ListName + ".json");
 
         if (File.Exists(targetFile))
         {
@@ -36,8 +41,6 @@ public class ProductViewModel
         {
             File.Create(targetFile).Close();
         }
-
-        ListName = inputName;
     }
 
     private static async Task<List<Product>> ReadDataFileAsync()
