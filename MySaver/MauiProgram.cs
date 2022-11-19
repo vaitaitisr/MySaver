@@ -1,4 +1,5 @@
-﻿using MySaver.ViewModels;
+﻿using MySaver.Services;
+using MySaver.ViewModels;
 using MySaver.Views;
 using Syncfusion.Maui.Core.Hosting;
 
@@ -18,7 +19,7 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
-        builder.Services.AddSingleton<StoreService>();
+        builder.Services.AddSingleton<IStoreService>(new StoreService());
         builder.Services.AddSingleton<StoresViewModel>();
         builder.Services.AddSingleton<StoresPage>();
 

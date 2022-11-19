@@ -1,7 +1,10 @@
 ﻿using MySaver.Models;
+using MySaver.Services;
 using System.Text.Json;
 
-public class StoreService
+namespace MySaver.Services;
+
+public class StoreService : IStoreService
 {
     private List<Store> storeList;
     public async Task<List<Store>> GetStoresAsync()
