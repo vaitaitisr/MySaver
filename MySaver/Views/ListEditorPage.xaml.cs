@@ -97,4 +97,8 @@ public partial class ListEditorPage : ContentPage
             isBusy = false;
         }
     }
+
+    async void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+    {
+    }
 }
