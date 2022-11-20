@@ -6,7 +6,9 @@ namespace MySaver.ViewModels;
 
 public class ProductViewModel
 {
-    private List<Product> ProductList = new List<Product>();
+    private Lazy<Task<List<Product>>> ProductList =
+        new Lazy<Task<List<Product>>>(() => ReadDataFileAsync());
+
     public ObservableCollection<Product> SelectedProducts { get; }
         = new ObservableCollection<Product>();
 
@@ -34,12 +36,11 @@ public class ProductViewModel
         {
             File.Create(targetFile).Close();
         }
-        ReadDataFileAsync();
 
         ListName = inputName;
     }
 
-    private async Task ReadDataFileAsync()
+    private static async Task<List<Product>> ReadDataFileAsync()
     {
         using Stream inputFileStream = await FileSystem.OpenAppPackageFileAsync("ProductList.json");
         using StreamReader reader = new StreamReader(inputFileStream);
@@ -49,10 +50,7 @@ public class ProductViewModel
         try
         {
             var tempList = JsonSerializer.Deserialize<List<Product>>(data);
-            foreach (var product in tempList)
-            {
-                ProductList.Add(product);
-            }
+            return tempList;
         }
         catch (Exception)
         {
@@ -62,17 +60,16 @@ public class ProductViewModel
 
     public async Task<List<Product>> GetSearchResultsAsync(string input)
     {
-        if (input == null) return null;
-
         input = input.ToLower();
 
         var resultQuery =
-            (from product in ProductList
+            (from product in await ProductList.Value
              where product.Name.ToLower().Contains(input)
              select product).ToList();
 
         return resultQuery;
     }
+
     public async Task<List<Product>> ReadListAsync()
     {
         using Stream inputFileStream = File.OpenRead(targetFile);
