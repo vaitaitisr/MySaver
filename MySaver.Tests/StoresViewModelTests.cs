@@ -14,17 +14,19 @@ namespace MySaver.Tests
             // Arrange
             var expected = new ObservableCollection<Store>(GetStores());
 
-            var mock = new Mock<IStoreService>();
-            mock.Setup(x => x.GetStoresAsync().Result).Returns(GetStores());
+            var mockStore = new Mock<IStoreService>();
+            mockStore.Setup(x => x.GetStoresAsync().Result).Returns(GetStores());
 
-            var viewModel = new StoresViewModel(mock.Object);
+            var mockLocation = new Mock<IGeolocation>();
+
+            var viewModel = new StoresViewModel(mockStore.Object, mockLocation.Object);
 
             // Act
             await viewModel.UpdateStoresAsync();
             var actual = viewModel.Stores;
 
             // Assert
-            mock.Verify(x => x.GetStoresAsync(), Times.Once);
+            mockStore.Verify(x => x.GetStoresAsync(), Times.Once);
 
             Assert.Equal(expected.Count, actual.Count);
 

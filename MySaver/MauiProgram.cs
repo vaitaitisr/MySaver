@@ -13,7 +13,9 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+#if !NET6_0
             .UseLocalNotification()
+#endif
             .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
