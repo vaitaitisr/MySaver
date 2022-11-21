@@ -1,31 +1,44 @@
 ﻿using MySaver.Models;
 using MySaver.Services;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace MySaver.ViewModels;
 
-public class ProductViewModel
+[QueryProperty(nameof(ListName), "ListName")]
+public class ProductViewModel : INotifyPropertyChanged
 {
-    private ProductService productService;
-    private Lazy<Task<List<Product>>> ProductList; 
+    private WebService webService;
+    private Lazy<Task<List<Product>>> ProductList;
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
     public ObservableCollection<Product> SelectedProducts { get; }
         = new ObservableCollection<Product>();
 
     private string mainDir;
     private string targetFile;
-    public string ListName { get; set; }
-
-    public ProductViewModel(ProductService productService)
+    private string _listName = "Titulas";
+    public string ListName
     {
-        this.productService = productService;
+        get { return _listName; }
+        set { _listName = value; OnPropertyChanged(); }
+    }
+
+
+    //public ProductViewModel(ProductService productService)
+    public ProductViewModel(WebService webService)
+    {
+        this.webService = webService;
         ProductList = new Lazy<Task<List<Product>>>(() =>
-            productService.ReadDataFileAsync());
+            webService.GetObjectListAsync<Product>());
 
         mainDir = FileSystem.Current.AppDataDirectory;
         targetFile = Path.Combine(mainDir, ListName + ".json");
-
+        // BUG: targetFile is always "Titulas" since it only changes after the constructor finishes.
+        // so it always reads Titulas.json
         if (File.Exists(targetFile))
         {
             var tempList = ReadList();
@@ -124,5 +137,10 @@ public class ProductViewModel
     public void RemoveProduct(Product product)
     {
         SelectedProducts.Remove(product);
+    }
+
+    public void OnPropertyChanged([CallerMemberName] string name = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

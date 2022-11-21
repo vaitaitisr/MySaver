@@ -3,19 +3,19 @@ using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
-[QueryProperty(nameof(startName), "inputName")]
 public partial class ListEditorPage : ContentPage
 {
-    private string startName;
+    private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
     private ProductViewModel viewModel;
     private string mainDir = FileSystem.Current.AppDataDirectory;
 
-    public ListEditorPage( ProductViewModel viewModel)
+    public ListEditorPage(ProductViewModel viewModel)
     {
         BindingContext = viewModel;
         this.viewModel = viewModel;
-        viewModel.ListName = startName;
+
+        //startName = viewModel.ListName;
         InitializeComponent();
 
         //startName = inputName;

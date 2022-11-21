@@ -52,10 +52,13 @@ public partial class ListPage : ContentPage
     {
         if (ListOfLists.SelectedItem != null)
         {//IDictionary<string, object> parameters
+            
             await Shell.Current.GoToAsync("ListEditor", new Dictionary<string, object> 
             {
-                { "inputName", e.CurrentSelection.FirstOrDefault().ToString() } 
+                { "ListName", e.CurrentSelection.FirstOrDefault() } 
             });
+            
+            //await Shell.Current.GoToAsync($"ListEditor?inputName={e.CurrentSelection.FirstOrDefault()}");
             ListOfLists.SelectedItem = null;
         }
     }

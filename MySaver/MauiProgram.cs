@@ -28,11 +28,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<StoresViewModel>();
         builder.Services.AddSingleton<StoresPage>();
 
-        builder.Services.AddSingleton<ProductService>();
-        builder.Services.AddSingleton<ProductViewModel>();
-        builder.Services.AddSingleton<ListEditorPage>();
+        builder.Services.AddTransient<ProductViewModel>();
+        builder.Services.AddTransient<ListEditorPage>();
 
-        
+        builder.Services.AddSingleton<WebService>();
 
         return builder.Build();
     }
