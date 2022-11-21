@@ -7,8 +7,8 @@ using System.Text.Json;
 
 namespace MySaver.ViewModels;
 
-[QueryProperty(nameof(ListName), "ListName")]
-public class ProductViewModel : INotifyPropertyChanged
+//[QueryProperty(nameof(ListName), "ListName")]
+public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
 {
     private WebService webService;
     private Lazy<Task<List<Product>>> ProductList;
@@ -36,24 +36,8 @@ public class ProductViewModel : INotifyPropertyChanged
             webService.GetObjectListAsync<Product>());
 
         mainDir = FileSystem.Current.AppDataDirectory;
-        targetFile = Path.Combine(mainDir, ListName + ".json");
         // BUG: targetFile is always "Titulas" since it only changes after the constructor finishes.
         // so it always reads Titulas.json
-        if (File.Exists(targetFile))
-        {
-            var tempList = ReadList();
-            if (tempList != null)
-            {
-                foreach (var item in tempList)
-                {
-                    SelectedProducts.Add(item);
-                }
-            }
-        }
-        else
-        {
-            File.Create(targetFile).Close();
-        }
     }
 
     private static async Task<List<Product>> ReadDataFileAsync()
@@ -128,8 +112,8 @@ public class ProductViewModel : INotifyPropertyChanged
 
     public async void RenameFile(string renamedFile)
     {
-        File.Delete(renamedFile);
-        File.Move(targetFile, renamedFile);
+        //File.Delete(renamedFile);
+        File.Move(targetFile, renamedFile, true);
 
         targetFile = renamedFile;
     }
@@ -142,5 +126,35 @@ public class ProductViewModel : INotifyPropertyChanged
     public void OnPropertyChanged([CallerMemberName] string name = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        
+        if(query.ContainsKey("ListName"))
+        {
+            ListName = query["ListName"] as string;
+        }
+        InitStartList();
+    }
+    private void InitStartList()
+    {
+        targetFile = Path.Combine(mainDir, ListName + ".json");
+
+        if (File.Exists(targetFile))
+        {
+            var tempList = ReadList();
+            if (tempList != null)
+            {
+                foreach (var item in tempList)
+                {
+                    SelectedProducts.Add(item);
+                }
+            }
+        }
+        else
+        {
+            File.Create(targetFile).Close();
+        }
     }
 }

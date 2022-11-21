@@ -6,7 +6,6 @@ namespace WebApiTest.Models;
 
 public class Product
 {
-
     public string StoreName { get; set; } = String.Empty;
 
     [Key]

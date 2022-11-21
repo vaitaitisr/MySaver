@@ -13,8 +13,7 @@ public class WebService
 
     public async Task<List<T>> GetObjectListAsync<T>()
     {
-        string shortType = typeof(T).ToString();
-        shortType = shortType.Replace("MySaver.Models.", "");
+        string shortType = typeof(T).Name;
 
         Uri uri = new Uri("http://10.0.2.2:5272/api/" + shortType + 's');
 
