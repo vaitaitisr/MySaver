@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Net;
+using System.Text.Json;
 
 namespace MySaver.Services;
 
@@ -13,34 +14,43 @@ public class WebService
 
     public async Task<List<T>> GetObjectListAsync<T>()
     {
+        bool retry = false;
         string shortType = typeof(T).Name;
 
         Uri uri = new Uri("http://10.0.2.2:5272/api/" + shortType + 's');
-
-        try
-        {
-            HttpResponseMessage response = await _client.GetAsync(uri);
-            if (response.IsSuccessStatusCode)
+        do
+            try
             {
-                string content = await response.Content.ReadAsStringAsync();
-
-                //  removing all spaces negatively affects store list, 
-                //  products seem fine even with extra spaces
-                //content = content.Replace(" ", "");
-
-                var options = new JsonSerializerOptions
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
                 {
-                    PropertyNameCaseInsensitive = true
-                };
+                    string content = await response.Content.ReadAsStringAsync();
 
-                var result = JsonSerializer.Deserialize<List<T>>(content, options);
-                return result;
+                    //  removing all spaces negatively affects store list, 
+                    //  products seem fine even with extra spaces
+                    //content = content.Replace(" ", "");
+
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    };
+
+                    var result = JsonSerializer.Deserialize<List<T>>(content, options);
+                    return result;
+                }
+                return null;
             }
-            return null;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+            catch (WebException ex)
+            {
+                bool answer = await Shell.Current.DisplayAlert("Error!",
+                    $"{ex.Message}", "Retry", "Cancel");
+                if (answer)
+                {
+                    retry = true;
+                }
+                else return null;
+            }
+        while (retry);
+        return null;
     }
 }

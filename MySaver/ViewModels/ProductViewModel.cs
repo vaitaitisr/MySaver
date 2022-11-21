@@ -62,12 +62,19 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
     {
         input = input.ToLower();
 
-        var resultQuery =
-            (from product in await ProductList.Value
+        var result = await ProductList.Value;
+
+        if(result != null)
+        {
+             var resultQuery =
+                (from product in result
              where product.Name.ToLower().Contains(input)
              select product).ToList();
 
-        return resultQuery;
+            return resultQuery;
+        }
+
+        return null;
     }
 
     public async Task<List<Product>> ReadListAsync()

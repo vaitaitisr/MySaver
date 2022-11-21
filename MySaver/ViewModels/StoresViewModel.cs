@@ -46,12 +46,14 @@ public partial class StoresViewModel : BaseViewModel
 
             var stores = await webService.GetObjectListAsync<Store>();
 
-            foreach (var store in stores)
+            if(stores != null)
             {
-                Stores.Add(store);
-                MyItems.Add(store);
+                foreach (var store in stores)
+                {
+                    Stores.Add(store);
+                    MyItems.Add(store);
+                }
             }
-
         }
         catch (Exception ex)
         {
