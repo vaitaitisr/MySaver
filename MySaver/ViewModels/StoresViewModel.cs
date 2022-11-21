@@ -11,15 +11,16 @@ namespace MySaver.ViewModels;
 public partial class StoresViewModel : BaseViewModel
 {
     IStoreService storeService;
-    public ObservableCollection<Store> Stores { get; } = new ObservableCollection<Store>();
+    IAlert alert;
+    IGeolocation geolocation;
+    public ObservableCollection<Store> Stores { get; set; } = new ObservableCollection<Store>();
     public ObservableCollection<Store> MyItems { get; set; }
     public ICommand UpdateStoresCommand { get; }
-
-    IGeolocation geolocation;
     
-    public StoresViewModel(IStoreService storeService, IGeolocation geolocation)
+    public StoresViewModel(IStoreService storeService, IAlert alert, IGeolocation geolocation)
     {
         this.storeService = storeService;
+        this.alert = alert;
         this.geolocation = geolocation;
         UpdateStoresCommand = new Command(async () => await UpdateStoresAsync());
         MyItems = new ObservableCollection<Store>(Stores);
@@ -55,8 +56,7 @@ public partial class StoresViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex);
-            await Shell.Current.DisplayAlert("Error!",
+            await alert.DisplayAlert("Error!",
                 $"Unable to get stores: {ex.Message}", "OK");
         }
         finally
@@ -68,7 +68,7 @@ public partial class StoresViewModel : BaseViewModel
     }
 
     [ICommand]
-    async Task GetClosestStoreAsync()
+    public async Task GetClosestStoreAsync()
     {
         if(IsBusy || Stores.Count == 0)
             return;
@@ -97,13 +97,12 @@ public partial class StoresViewModel : BaseViewModel
             if (first is null)
                 return;
 
-            await Shell.Current.DisplayAlert("Closest store",
+            await alert.DisplayAlert("Closest store",
                 $"{first.Name} in {first.Address}", "OK");
         }
         catch(Exception ex)
         {
-            Debug.WriteLine(ex);
-            await Shell.Current.DisplayAlert("Error!",
+            await alert.DisplayAlert("Error!",
                 $"Unable to get closest store: {ex.Message}", "OK");
         }
     }

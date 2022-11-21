@@ -15,11 +15,12 @@ namespace MySaver.Tests
             var expected = new ObservableCollection<Store>(GetStores());
 
             var mockStore = new Mock<IStoreService>();
+            var mockLocation = new Mock<IGeolocation>();
+            var mockAlert = new Mock<IAlert>();
+
             mockStore.Setup(x => x.GetStoresAsync().Result).Returns(GetStores());
 
-            var mockLocation = new Mock<IGeolocation>();
-
-            var viewModel = new StoresViewModel(mockStore.Object, mockLocation.Object);
+            var viewModel = new StoresViewModel(mockStore.Object, mockAlert.Object, mockLocation.Object);
 
             // Act
             await viewModel.UpdateStoresAsync();
@@ -48,6 +49,34 @@ namespace MySaver.Tests
                     Assert.Equal(expectedValue, actualValue);
                 }
             }
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        public async void GetClosestStoreAsync_CachedLocationShouldWork(int storeNumber)
+        {
+            // Arrange
+            var expected = GetStores()[storeNumber];
+
+            var mockStore = new Mock<IStoreService>();
+            var mockLocation = new Mock<IGeolocation>();
+            var mockAlert = new Mock<IAlert>();
+
+            mockStore.Setup(x => x.GetStoresAsync().Result).Returns(GetStores());
+            mockLocation.Setup(x => x.GetLastKnownLocationAsync().Result)
+                .Returns(new Location(expected.Latitude, expected.Longitude));
+
+            var viewModel = new StoresViewModel(mockStore.Object, mockAlert.Object, mockLocation.Object);
+            viewModel.Stores = new ObservableCollection<Store>(GetStores());
+
+            // Act
+            await viewModel.GetClosestStoreAsync();
+
+            // Assert
+            mockAlert.Verify(x => x.DisplayAlert("Closest store",
+                $"{expected.Name} in {expected.Address}", "OK"), Times.Once);
         }
 
         private List<Store> GetStores()
