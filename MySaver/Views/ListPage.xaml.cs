@@ -58,7 +58,6 @@ public partial class ListPage : ContentPage
                 { "ListName", e.CurrentSelection.FirstOrDefault() } 
             });
             
-            //await Shell.Current.GoToAsync($"ListEditor?inputName={e.CurrentSelection.FirstOrDefault()}");
             ListOfLists.SelectedItem = null;
         }
     }

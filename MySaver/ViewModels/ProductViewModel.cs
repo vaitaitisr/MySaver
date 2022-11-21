@@ -7,7 +7,6 @@ using System.Text.Json;
 
 namespace MySaver.ViewModels;
 
-//[QueryProperty(nameof(ListName), "ListName")]
 public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
 {
     private WebService webService;
@@ -27,8 +26,6 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
         set { _listName = value; OnPropertyChanged(); }
     }
 
-
-    //public ProductViewModel(ProductService productService)
     public ProductViewModel(WebService webService)
     {
         this.webService = webService;
@@ -36,8 +33,6 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
             webService.GetObjectListAsync<Product>());
 
         mainDir = FileSystem.Current.AppDataDirectory;
-        // BUG: targetFile is always "Titulas" since it only changes after the constructor finishes.
-        // so it always reads Titulas.json
     }
 
     private static async Task<List<Product>> ReadDataFileAsync()
@@ -64,12 +59,12 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
 
         var result = await ProductList.Value;
 
-        if(result != null)
+        if (result != null)
         {
-             var resultQuery =
-                (from product in result
-             where product.Name.ToLower().Contains(input)
-             select product).ToList();
+            var resultQuery =
+               (from product in result
+                where product.Name.ToLower().Contains(input)
+                select product).ToList();
 
             return resultQuery;
         }
@@ -117,9 +112,9 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
             <ObservableCollection<Product>>(SelectedProducts));
     }
 
-    public async void RenameFile(string renamedFile)
+    public async void RenameFile()
     {
-        //File.Delete(renamedFile);
+        var renamedFile = Path.Combine(mainDir, ListName + ".json");
         File.Move(targetFile, renamedFile, true);
 
         targetFile = renamedFile;
@@ -137,13 +132,13 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
-        
-        if(query.ContainsKey("ListName"))
+        if (query.ContainsKey("ListName"))
         {
             ListName = query["ListName"] as string;
         }
         InitStartList();
     }
+
     private void InitStartList()
     {
         targetFile = Path.Combine(mainDir, ListName + ".json");

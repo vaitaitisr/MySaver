@@ -3,22 +3,20 @@ using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
-public partial class ListEditorPage : ContentPage
+public partial class ListEditorPage : ContentPage, IQueryAttributable
 {
     private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
     private ProductViewModel viewModel;
     private string mainDir = FileSystem.Current.AppDataDirectory;
+    private delegate void saveDel();
 
     public ListEditorPage(ProductViewModel viewModel)
     {
         BindingContext = viewModel;
         this.viewModel = viewModel;
 
-        //startName = viewModel.ListName;
         InitializeComponent();
-
-        //startName = inputName;
     }
 
     async void OnTextChanged(object sender, EventArgs e)
@@ -35,7 +33,8 @@ public partial class ListEditorPage : ContentPage
 
     async void OnSaveTapped(object sender, EventArgs e)
     {
-        viewModel.SaveFile();
+        saveDel saveAction = viewModel.SaveFile;
+
         var renamedFile = Path.Combine(mainDir, viewModel.ListName + ".json");
 
         if (startName != viewModel.ListName)
@@ -49,10 +48,11 @@ public partial class ListEditorPage : ContentPage
                 }
             }
 
-            viewModel.RenameFile(renamedFile);
+            saveAction += viewModel.RenameFile;
 
             startName = viewModel.ListName;
         }
+        saveAction();
     }
 
     protected override bool OnBackButtonPressed()
@@ -99,5 +99,13 @@ public partial class ListEditorPage : ContentPage
 
     async void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
+    }
+
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        if (query.ContainsKey("ListName"))
+        {
+            startName = query["ListName"] as string;
+        }
     }
 }
