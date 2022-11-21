@@ -1,34 +1,35 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.SqlServer.Management.HadrData;
-using NuGet.ContentModel;
+using System;
 using WebApiTest.Models;
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-    // Add services to the container.
+// Add services to the container.
 
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 
+string rootDir = builder.Environment.ContentRootPath;
+string connectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + rootDir 
+    + "\\Data\\MySaver.mdf; Initial Catalog=MySaver; Integrated Security = True; Connect Timeout = 30";
 
-    builder.Services.AddDbContext<ProductContext>(opt =>
-        opt.UseSqlServer("Data Source=DESKTOP-UJ7JG66;Initial Catalog=MySaver;Integrated Security=True;Encrypt=False"));
+builder.Services.AddDbContext<ProductContext>(opt =>
+    opt.UseSqlServer(connectionString));
 
-    builder.Services.AddDbContext<StoreContext>(opt =>
-        opt.UseSqlServer("Data Source=DESKTOP-UJ7JG66;Initial Catalog=MySaver;Integrated Security=True;Encrypt=False"));
+builder.Services.AddDbContext<StoreContext>(opt =>
+    opt.UseSqlServer(connectionString));
 
+var app = builder.Build();
 
-    var app = builder.Build();
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+}
 
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-    }
+app.UseHttpsRedirection();
 
-    app.UseHttpsRedirection();
+app.UseAuthorization();
 
-    app.UseAuthorization();
+app.MapControllers();
 
-    app.MapControllers();
-
-    app.Run();
+app.Run();
