@@ -3,6 +3,7 @@
 static class LogService
 {
     private static string path;
+    private static ReaderWriterLock rwl = new ReaderWriterLock();
 
     static LogService()
     {
@@ -19,6 +20,19 @@ static class LogService
 
     public static void Log(String message)
     {
-        File.AppendAllText(path, $"{DateTime.Now.ToString("HH:mm:ss")} {message}\n");
+        try
+        {
+            rwl.AcquireWriterLock(10000);
+
+            try
+            {
+                File.AppendAllText(path, $"{DateTime.Now.ToString("HH:mm:ss")} {message}\n");
+            }
+            finally
+            {
+                rwl.ReleaseWriterLock();
+            }
+        }
+        catch (ApplicationException) { }
     }
 }
