@@ -92,15 +92,15 @@ public partial class StoresViewModel : BaseViewModel
             if (location is null)
                 return;
 
-            var first = Stores.OrderBy(s =>
+            var first = MyItems.OrderBy(s =>
                 location.CalculateDistance(s.Latitude, s.Longitude, DistanceUnits.Kilometers)
                 ).FirstOrDefault();
 
             if (first is null)
                 return;
 
-            await alert.DisplayAlert("Closest store",
-                $"{first.Name} in {first.Address}", "OK");
+            await Task.Run(() => MyItems.Clear());
+            await Task.Run(() => MyItems.Add(first));
         }
         catch (Exception ex)
         {
