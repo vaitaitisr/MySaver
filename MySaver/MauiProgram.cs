@@ -13,7 +13,9 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
+#if !NET6_0
             .UseLocalNotification()
+#endif
             .ConfigureSyncfusionCore()
             .ConfigureFonts(fonts =>
             {
@@ -24,14 +26,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
         builder.Services.AddSingleton<IMap>(Map.Default);
 
-        builder.Services.AddSingleton<StoreService>();
+        builder.Services.AddSingleton<IAlert>(new Alert());
+        builder.Services.AddSingleton<IWebService>(new WebService());
         builder.Services.AddSingleton<StoresViewModel>();
         builder.Services.AddSingleton<StoresPage>();
 
         builder.Services.AddTransient<ProductViewModel>();
         builder.Services.AddTransient<ListEditorPage>();
-
-        builder.Services.AddSingleton<WebService>();
 
         return builder.Build();
     }
