@@ -26,10 +26,6 @@ public class WebService
                 {
                     string content = await response.Content.ReadAsStringAsync();
 
-                    //  removing all spaces negatively affects store list, 
-                    //  products seem fine even with extra spaces
-                    //content = content.Replace(" ", "");
-
                     var options = new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true

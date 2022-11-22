@@ -15,10 +15,7 @@ public partial class ListEditorPage : ContentPage
         BindingContext = viewModel;
         this.viewModel = viewModel;
 
-        //startName = viewModel.ListName;
         InitializeComponent();
-
-        //startName = inputName;
     }
 
     async void OnTextChanged(object sender, EventArgs e)

@@ -18,8 +18,9 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    }, /* // This is the Default configuration that uses 
-              https which doesn't work for debugging on local DB
+    }, 
+    /* // This is the Default configuration that uses 
+             https which doesn't work for debugging on local DB
     "WebApiTest": {
       "commandName": "Project",
       "dotnetRunMessages": true,
