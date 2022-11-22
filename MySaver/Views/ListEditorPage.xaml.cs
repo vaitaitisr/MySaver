@@ -5,19 +5,17 @@ namespace MySaver.Views;
 
 public partial class ListEditorPage : ContentPage
 {
-    private string startName;
+    private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
     private ProductViewModel viewModel;
     private string mainDir = FileSystem.Current.AppDataDirectory;
 
-    public ListEditorPage(string inputName = "Titulas")
+    public ListEditorPage(ProductViewModel viewModel)
     {
-        viewModel = new ProductViewModel(inputName);
         BindingContext = viewModel;
+        this.viewModel = viewModel;
 
         InitializeComponent();
-
-        startName = inputName;
     }
 
     async void OnTextChanged(object sender, EventArgs e)
@@ -58,10 +56,9 @@ public partial class ListEditorPage : ContentPage
     {
         if (!isBusy)
         {
-            //if filename was changed      or if the list contents were changed then renders popup
             var oldList = viewModel.ReadList();
             var newList = viewModel.SelectedProducts;
-
+            //if filename was changed      or if the list contents were changed then renders popup
             if (viewModel.ListName != startName ||
                 !(oldList?.SequenceEqual(newList) ?? !newList.Any()))
             {

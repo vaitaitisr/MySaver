@@ -10,16 +10,16 @@ namespace MySaver.ViewModels;
 
 public partial class StoresViewModel : BaseViewModel
 {
-    IStoreService storeService;
+    WebService webService;
     IAlert alert;
     IGeolocation geolocation;
     public ObservableCollection<Store> Stores { get; set; } = new ObservableCollection<Store>();
     public ObservableCollection<Store> MyItems { get; set; }
     public ICommand UpdateStoresCommand { get; }
     
-    public StoresViewModel(IStoreService storeService, IAlert alert, IGeolocation geolocation)
+    public StoresViewModel(WebService webService, IAlert alert, IGeolocation geolocation)
     {
-        this.storeService = storeService;
+        this.webService = webService;
         this.alert = alert;
         this.geolocation = geolocation;
         UpdateStoresCommand = new Command(async () => await UpdateStoresAsync());
@@ -44,15 +44,17 @@ public partial class StoresViewModel : BaseViewModel
                 Stores.Clear();
                 MyItems.Clear();
             }
-            
-            var stores = await storeService.GetStoresAsync();
-        
-            foreach (var store in stores)
-            {
-                Stores.Add(store);
-                MyItems.Add(store);
-            }
 
+            var stores = await webService.GetObjectListAsync<Store>();
+
+            if (stores != null)
+            {
+                foreach (var store in stores)
+                {
+                    Stores.Add(store);
+                    MyItems.Add(store);
+                }
+            }
         }
         catch (Exception ex)
         {
@@ -70,13 +72,13 @@ public partial class StoresViewModel : BaseViewModel
     [ICommand]
     public async Task GetClosestStoreAsync()
     {
-        if(IsBusy || Stores.Count == 0)
+        if (IsBusy || Stores.Count == 0)
             return;
 
         try
         {
             var location = await geolocation.GetLastKnownLocationAsync();
-            if(location is null)
+            if (location is null)
             {
                 location = await geolocation.GetLocationAsync(
                     new GeolocationRequest
@@ -100,10 +102,10 @@ public partial class StoresViewModel : BaseViewModel
             await alert.DisplayAlert("Closest store",
                 $"{first.Name} in {first.Address}", "OK");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             await alert.DisplayAlert("Error!",
                 $"Unable to get closest store: {ex.Message}", "OK");
         }
     }
- }
+}
