@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace MySaver.Services;
 
-public class WebService
+public class WebService : IWebService
 {
     private HttpClient _client;
 

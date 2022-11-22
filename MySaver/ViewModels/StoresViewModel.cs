@@ -10,14 +10,14 @@ namespace MySaver.ViewModels;
 
 public partial class StoresViewModel : BaseViewModel
 {
-    WebService webService;
+    IWebService webService;
     IAlert alert;
     IGeolocation geolocation;
     public ObservableCollection<Store> Stores { get; set; } = new ObservableCollection<Store>();
     public ObservableCollection<Store> MyItems { get; set; }
     public ICommand UpdateStoresCommand { get; }
     
-    public StoresViewModel(WebService webService, IAlert alert, IGeolocation geolocation)
+    public StoresViewModel(IWebService webService, IAlert alert, IGeolocation geolocation)
     {
         this.webService = webService;
         this.alert = alert;

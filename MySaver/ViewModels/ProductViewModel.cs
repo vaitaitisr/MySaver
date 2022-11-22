@@ -9,7 +9,7 @@ namespace MySaver.ViewModels;
 
 public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
 {
-    private WebService webService;
+    private IWebService webService;
     private Lazy<Task<List<Product>>> ProductList;
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -26,7 +26,7 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
         set { _listName = value; OnPropertyChanged(); }
     }
 
-    public ProductViewModel(WebService webService)
+    public ProductViewModel(IWebService webService)
     {
         this.webService = webService;
         ProductList = new Lazy<Task<List<Product>>>(() =>
