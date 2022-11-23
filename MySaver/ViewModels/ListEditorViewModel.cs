@@ -54,6 +54,22 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
         return null;
     }
 
+    public List<Product> ReadList()
+    {
+        return listService.OpenList(CurrentListName);
+    }
+
+    public void SaveList()
+    {
+        listService.SaveList(CurrentListName, SelectedProducts);
+    }
+
+    public void RenameList()
+    {
+        listService.RenameList(CurrentListName, ListName);
+        CurrentListName = ListName;
+    }
+
     public void AddProduct(Product product)
     {
         if (product != null)
@@ -90,7 +106,7 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
 
         if (listService.ListExists(ListName))
         {
-            var tempList = listService.OpenList(ListName);
+            var tempList = ReadList();
             if (tempList != null)
             {
                 foreach (var item in tempList)

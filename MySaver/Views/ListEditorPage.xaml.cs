@@ -10,7 +10,6 @@ public partial class ListEditorPage : ContentPage
     private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
     private ListEditorViewModel viewModel;
-    private string mainDir = FileSystem.Current.AppDataDirectory;
 
     public ListEditorPage(ListEditorViewModel viewModel, IProductListService listService)
     {
@@ -36,7 +35,7 @@ public partial class ListEditorPage : ContentPage
 
     async void OnSaveTapped(object sender, EventArgs e)
     {
-        listService.SaveList(viewModel.CurrentListName, viewModel.SelectedProducts);
+        viewModel.SaveList();
 
         if (startName != viewModel.ListName)
         {
@@ -49,8 +48,7 @@ public partial class ListEditorPage : ContentPage
                 }
             }
 
-            listService.RenameList(viewModel.CurrentListName, viewModel.ListName);
-            viewModel.CurrentListName = viewModel.ListName;
+            viewModel.RenameList();
 
             startName = viewModel.ListName;
         }
@@ -60,7 +58,7 @@ public partial class ListEditorPage : ContentPage
     {
         if (!isBusy)
         {
-            var oldList = listService.OpenList(viewModel.CurrentListName);
+            var oldList = viewModel.ReadList();
             var newList = viewModel.SelectedProducts;
             //if filename was changed      or if the list contents were changed then renders popup
             if (viewModel.ListName != startName ||
