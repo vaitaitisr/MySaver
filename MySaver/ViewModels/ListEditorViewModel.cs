@@ -17,14 +17,13 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
     public ObservableCollection<Product> SelectedProducts { get; }
         = new ObservableCollection<Product>();
 
+    private string currentListName;
     private string _listName = "Titulas";
     public string ListName
     {
         get { return _listName; }
         set { _listName = value; OnPropertyChanged(); }
     }
-
-    public string CurrentListName { get; set; }
 
     public ListEditorViewModel(IWebService webService, IProductListService listService)
     {
@@ -56,18 +55,18 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
 
     public List<Product> ReadList()
     {
-        return listService.OpenList(CurrentListName);
+        return listService.OpenList(currentListName);
     }
 
     public void SaveList()
     {
-        listService.SaveList(CurrentListName, SelectedProducts);
+        listService.SaveList(currentListName, SelectedProducts);
     }
 
     public void RenameList()
     {
-        listService.RenameList(CurrentListName, ListName);
-        CurrentListName = ListName;
+        listService.RenameList(currentListName, ListName);
+        currentListName = ListName;
     }
 
     public void AddProduct(Product product)
@@ -102,9 +101,9 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
 
     private void InitStartList()
     {
-        CurrentListName = ListName;
+        currentListName = ListName;
 
-        if (listService.ListExists(ListName))
+        if (listService.ListExists(currentListName))
         {
             var tempList = ReadList();
             if (tempList != null)
@@ -117,7 +116,7 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
         }
         else
         {
-            listService.SaveList(ListName, new List<Product>());
+            listService.SaveList(currentListName, new List<Product>());
         }
     }
 }
