@@ -1,19 +1,23 @@
 ﻿using MySaver.Models;
+using MySaver.Services;
 using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
 public partial class ListEditorPage : ContentPage
 {
+    private IProductListService listService;
     private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
-    private ProductViewModel viewModel;
+    private ListEditorViewModel viewModel;
     private string mainDir = FileSystem.Current.AppDataDirectory;
 
-    public ListEditorPage(ProductViewModel viewModel)
+    public ListEditorPage(ListEditorViewModel viewModel, IProductListService listService)
     {
         BindingContext = viewModel;
         this.viewModel = viewModel;
+
+        this.listService = listService;
 
         InitializeComponent();
     }
@@ -24,20 +28,19 @@ public partial class ListEditorPage : ContentPage
         SearchResults.ItemsSource = await viewModel.GetSearchResultsAsync(search.Text);
     }
 
-    async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        viewModel.AddSelection((Product)SearchResults.SelectedItem);
+        viewModel.AddProduct((Product)SearchResults.SelectedItem);
         Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
     }
 
     async void OnSaveTapped(object sender, EventArgs e)
     {
-        viewModel.SaveFile();
-        var renamedFile = Path.Combine(mainDir, viewModel.ListName + ".json");
+        listService.SaveList(viewModel.CurrentListName, viewModel.SelectedProducts);
 
         if (startName != viewModel.ListName)
         {
-            if (File.Exists(renamedFile))
+            if (listService.ListExists(viewModel.ListName))
             {
                 bool answer = await DisplayAlert("Klausimas", "Ar norite perrašyti esantį failą?", "Taip", "Ne");
                 if (!answer)
@@ -46,7 +49,8 @@ public partial class ListEditorPage : ContentPage
                 }
             }
 
-            viewModel.RenameFile(renamedFile);
+            listService.RenameList(viewModel.CurrentListName, viewModel.ListName);
+            viewModel.CurrentListName = viewModel.ListName;
 
             startName = viewModel.ListName;
         }
@@ -56,7 +60,7 @@ public partial class ListEditorPage : ContentPage
     {
         if (!isBusy)
         {
-            var oldList = viewModel.ReadList();
+            var oldList = listService.OpenList(viewModel.CurrentListName);
             var newList = viewModel.SelectedProducts;
             //if filename was changed      or if the list contents were changed then renders popup
             if (viewModel.ListName != startName ||
@@ -74,7 +78,7 @@ public partial class ListEditorPage : ContentPage
         return true;
     }
 
-    async void OnRemoveProductTapped(object sender, EventArgs e)
+    void OnRemoveProductTapped(object sender, EventArgs e)
     {
         var senderButton = (ImageButton)sender;
         viewModel.RemoveProduct((Product)senderButton.CommandParameter);
@@ -94,7 +98,7 @@ public partial class ListEditorPage : ContentPage
         }
     }
 
-    async void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+    void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
     }
 }

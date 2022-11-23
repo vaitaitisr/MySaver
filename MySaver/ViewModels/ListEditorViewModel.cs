@@ -3,13 +3,13 @@ using MySaver.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text.Json;
 
 namespace MySaver.ViewModels;
 
-public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
+public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
 {
     private IWebService webService;
+    private IProductListService listService;
     private Lazy<Task<List<Product>>> ProductList;
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -17,8 +17,6 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
     public ObservableCollection<Product> SelectedProducts { get; }
         = new ObservableCollection<Product>();
 
-    private string mainDir;
-    private string targetFile;
     private string _listName = "Titulas";
     public string ListName
     {
@@ -26,13 +24,15 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
         set { _listName = value; OnPropertyChanged(); }
     }
 
-    public ProductViewModel(IWebService webService)
+    public string CurrentListName { get; set; }
+
+    public ListEditorViewModel(IWebService webService, IProductListService listService)
     {
         this.webService = webService;
+        this.listService = listService;
+
         ProductList = new Lazy<Task<List<Product>>>(() =>
             webService.GetObjectListAsync<Product>());
-
-        mainDir = FileSystem.Current.AppDataDirectory;
     }
 
     public async Task<List<Product>> GetSearchResultsAsync(string input)
@@ -54,51 +54,15 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
         return null;
     }
 
-    public async Task<List<Product>> ReadListAsync()
+    public void AddProduct(Product product)
     {
-        using Stream inputFileStream = File.OpenRead(targetFile);
-        using StreamReader reader = new StreamReader(inputFileStream);
-
-        var data = await reader.ReadToEndAsync();
-
-        return JsonSerializer.Deserialize<List<Product>>(data);
-    }
-
-    public List<Product> ReadList()
-    {
-        using Stream inputFileStream = File.OpenRead(targetFile);
-        using StreamReader reader = new StreamReader(inputFileStream);
-
-        var data = reader.ReadToEnd();
-        if (data == "")
+        if (product != null)
         {
-            return null;
-        }
-        return JsonSerializer.Deserialize<List<Product>>(data);
-    }
-
-    public void AddSelection(Product selectedProduct)
-    {
-        if (selectedProduct != null)
-        {
-            if (!SelectedProducts.Contains(selectedProduct))
+            if (!SelectedProducts.Contains(product))
             {
-                SelectedProducts.Add(selectedProduct);
+                SelectedProducts.Add(product);
             }
         }
-    }
-
-    public async void SaveFile()
-    {
-        File.WriteAllText(targetFile, JsonSerializer.Serialize
-            <ObservableCollection<Product>>(SelectedProducts));
-    }
-
-    public async void RenameFile(string renamedFile)
-    {
-        File.Move(targetFile, renamedFile, true);
-
-        targetFile = renamedFile;
     }
 
     public void RemoveProduct(Product product)
@@ -122,11 +86,11 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
 
     private void InitStartList()
     {
-        targetFile = Path.Combine(mainDir, ListName + ".json");
+        CurrentListName = ListName;
 
-        if (File.Exists(targetFile))
+        if (listService.ListExists(ListName))
         {
-            var tempList = ReadList();
+            var tempList = listService.OpenList(ListName);
             if (tempList != null)
             {
                 foreach (var item in tempList)
@@ -137,7 +101,7 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
         }
         else
         {
-            File.Create(targetFile).Close();
+            listService.SaveList(ListName, new List<Product>());
         }
     }
 }
