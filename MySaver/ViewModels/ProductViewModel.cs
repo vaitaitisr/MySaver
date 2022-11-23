@@ -94,8 +94,9 @@ public class ProductViewModel : INotifyPropertyChanged, IQueryAttributable
             <ObservableCollection<Product>>(SelectedProducts));
     }
 
-    public async void RenameFile(string renamedFile)
+    public async void RenameFile()
     {
+        var renamedFile = Path.Combine(mainDir, ListName + ".json");
         File.Move(targetFile, renamedFile, true);
 
         targetFile = renamedFile;
