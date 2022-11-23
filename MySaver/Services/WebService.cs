@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace MySaver.Services;
 
-public class WebService
+public class WebService : IWebService
 {
     private HttpClient _client;
 
@@ -25,10 +25,6 @@ public class WebService
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-
-                    //  removing all spaces negatively affects store list, 
-                    //  products seem fine even with extra spaces
-                    //content = content.Replace(" ", "");
 
                     var options = new JsonSerializerOptions
                     {

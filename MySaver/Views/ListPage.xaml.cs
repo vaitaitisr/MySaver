@@ -51,8 +51,7 @@ public partial class ListPage : ContentPage
     async void OnListTapped(object sender, SelectionChangedEventArgs e)
     {
         if (ListOfLists.SelectedItem != null)
-        {//IDictionary<string, object> parameters
-            
+        {
             await Shell.Current.GoToAsync("ListEditor", new Dictionary<string, object> 
             {
                 { "ListName", e.CurrentSelection.FirstOrDefault() } 

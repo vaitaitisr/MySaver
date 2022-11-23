@@ -4,8 +4,10 @@ public class Store
 {
     public string Name { get; set; }
     public string Address { get; set; }
-    public Dictionary<DayOfWeek, string> Schedule { get; set; }
+
     public string DefaultSchedule { get; set; }
+    public string SaturdaySchedule { get; set; }
+    public string SundaySchedule { get; set; }
 
     public string TodaysSchedule
     {
@@ -13,8 +15,10 @@ public class Store
         {
             var today = DateTime.Now.DayOfWeek;
 
-            if (Schedule?.ContainsKey(today) ?? false)
-                return Schedule[today];
+            if (today == DayOfWeek.Saturday)
+                return SaturdaySchedule ?? DefaultSchedule;
+            if (today == DayOfWeek.Sunday)
+                return SundaySchedule ?? DefaultSchedule;
 
             return DefaultSchedule;
         }
