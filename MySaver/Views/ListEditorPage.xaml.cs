@@ -4,12 +4,13 @@ using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
-public partial class ListEditorPage : ContentPage
+public partial class ListEditorPage : ContentPage, IQueryAttributable
 {
     private IProductListService listService;
     private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
     private ListEditorViewModel viewModel;
+    private delegate void saveDel();
 
     public ListEditorPage(ListEditorViewModel viewModel, IProductListService listService)
     {
@@ -35,7 +36,7 @@ public partial class ListEditorPage : ContentPage
 
     async void OnSaveTapped(object sender, EventArgs e)
     {
-        viewModel.SaveList();
+        saveDel saveAction = viewModel.SaveList;
 
         if (startName != viewModel.ListName)
         {
@@ -48,10 +49,11 @@ public partial class ListEditorPage : ContentPage
                 }
             }
 
-            viewModel.RenameList();
+            saveAction += viewModel.RenameList;
 
             startName = viewModel.ListName;
         }
+        saveAction();
     }
 
     protected override bool OnBackButtonPressed()
@@ -98,5 +100,13 @@ public partial class ListEditorPage : ContentPage
 
     void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
+    }
+
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        if (query.ContainsKey("ListName"))
+        {
+            startName = query["ListName"] as string;
+        }
     }
 }
