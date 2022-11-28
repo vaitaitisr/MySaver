@@ -33,7 +33,7 @@ public class ProductModelTests
     public void ProductModel_PriceShouldWork()
     {
         // Arrange
-        var expected = "8,80€";
+        var expected = String.Format("{0:0.00}€", 8.8);
 
         var product = new Product()
         {
