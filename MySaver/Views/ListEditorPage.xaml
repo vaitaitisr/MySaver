@@ -5,7 +5,7 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              xmlns:viewmodels="clr-namespace:MySaver.ViewModels"
              x:Class="MySaver.Views.ListEditorPage"
-             x:DataType="viewmodels:ProductViewModel">
+             x:DataType="viewmodels:ListEditorViewModel">
 
     <VerticalStackLayout  Spacing="10" Margin="10">
         <Entry Text="{Binding ListName}"

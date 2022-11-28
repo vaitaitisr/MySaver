@@ -1,11 +1,13 @@
-﻿namespace MySaver.Views;
+﻿using MySaver.Services;
+
+namespace MySaver.Views;
 
 public partial class ListPage : ContentPage
 {
-    private string mainDir;
-    public ListPage()
+    private IProductListService listService;
+    public ListPage(IProductListService listService)
     {
-        mainDir = FileSystem.Current.AppDataDirectory;
+        this.listService = listService;
 
         InitializeComponent();
         RefreshLists();
@@ -19,31 +21,24 @@ public partial class ListPage : ContentPage
 
     private void RefreshLists()
     {
-        var tempList = Directory.GetFiles(mainDir);
-
-        var fileNames =
-            from file in tempList
-            select Path.GetFileNameWithoutExtension(file);
-
-        ListOfLists.ItemsSource = fileNames;
+        ListOfLists.ItemsSource = listService.GetListNames();
     }
     async void OnDeleteListTapped(object sender, EventArgs e)
     {
         var senderButton = (ImageButton)sender;
-        DeleteListAsync((string)senderButton.CommandParameter);
+        await DeleteListAsync((string)senderButton.CommandParameter);
     }
 
-    async void DeleteListAsync(string listName)
+    async Task DeleteListAsync(string listName)
     {
-        var target = Path.Combine(mainDir, listName + ".json");
-        if (File.Exists(target))
+        if (listService.ListExists(listName))
         {
             bool answer = await DisplayAlert("Klausimas", "Ar norite ištrinti sąrašą?", "Taip", "Ne");
             if (!answer)
             {
                 return;
             }
-            File.Delete(target);
+            listService.DeleteList(listName);
             RefreshLists();
         }
     }

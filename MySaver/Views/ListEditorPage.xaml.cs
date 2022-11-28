@@ -1,20 +1,23 @@
 ﻿using MySaver.Models;
+using MySaver.Services;
 using MySaver.ViewModels;
 
 namespace MySaver.Views;
 
 public partial class ListEditorPage : ContentPage, IQueryAttributable
 {
+    private IProductListService listService;
     private string startName { get; set; } = "Titulas";
     private bool isBusy = false;
-    private ProductViewModel viewModel;
-    private string mainDir = FileSystem.Current.AppDataDirectory;
+    private ListEditorViewModel viewModel;
     private delegate void saveDel();
 
-    public ListEditorPage(ProductViewModel viewModel)
+    public ListEditorPage(ListEditorViewModel viewModel, IProductListService listService)
     {
         BindingContext = viewModel;
         this.viewModel = viewModel;
+
+        this.listService = listService;
 
         InitializeComponent();
     }
@@ -25,21 +28,19 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
         SearchResults.ItemsSource = await viewModel.GetSearchResultsAsync(search.Text);
     }
 
-    async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        viewModel.AddSelection((Product)SearchResults.SelectedItem);
+        viewModel.AddProduct((Product)SearchResults.SelectedItem);
         Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
     }
 
     async void OnSaveTapped(object sender, EventArgs e)
     {
-        saveDel saveAction = viewModel.SaveFile;
-
-        var renamedFile = Path.Combine(mainDir, viewModel.ListName + ".json");
+        saveDel saveAction = viewModel.SaveList;
 
         if (startName != viewModel.ListName)
         {
-            if (File.Exists(renamedFile))
+            if (listService.ListExists(viewModel.ListName))
             {
                 bool answer = await DisplayAlert("Klausimas", "Ar norite perrašyti esantį failą?", "Taip", "Ne");
                 if (!answer)
@@ -48,7 +49,7 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
                 }
             }
 
-            saveAction += viewModel.RenameFile;
+            saveAction += viewModel.RenameList;
 
             startName = viewModel.ListName;
         }
@@ -77,7 +78,7 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
         return true;
     }
 
-    async void OnRemoveProductTapped(object sender, EventArgs e)
+    void OnRemoveProductTapped(object sender, EventArgs e)
     {
         var senderButton = (ImageButton)sender;
         viewModel.RemoveProduct((Product)senderButton.CommandParameter);
@@ -97,7 +98,7 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
         }
     }
 
-    async void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+    void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
     }
 
