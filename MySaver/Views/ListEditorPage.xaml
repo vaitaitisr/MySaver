@@ -130,5 +130,38 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Grid ColumnSpacing="10"
+              ColumnDefinitions="*,*"
+              RowDefinitions="*,*">
+
+            <Label Text="Viso:"
+            Style="{StaticResource Label}"
+            FontSize="Medium"
+            BackgroundColor="Transparent"/>
+
+            <Label x:Name="TotalPrice"
+            Text="0.00€"
+            Style="{StaticResource Label}"
+            FontSize="Medium"
+            BackgroundColor="Transparent"
+            Grid.Column="1"/>
+
+            <Label Text="Parduotuvėje:"
+            Style="{StaticResource Label}"
+            FontSize="Medium"
+            BackgroundColor="Transparent"
+            Grid.Row="1"/>
+            
+            <Label Text="TBD"
+            Style="{StaticResource Label}"
+            FontSize="Medium"
+            BackgroundColor="Transparent"
+            Grid.Row="1"
+            Grid.Column="1"/>
+
+        </Grid>
+
+        
     </VerticalStackLayout>
 </ContentPage>

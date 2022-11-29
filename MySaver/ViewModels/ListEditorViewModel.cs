@@ -119,4 +119,14 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
             listService.SaveList(currentListName, new List<Product>());
         }
     }
+
+    public float CalculateTotal()
+    {
+        float totalPrice = 0;
+        foreach(var product in SelectedProducts)
+        {
+            totalPrice += product.Amount * product.UnitPrice;
+        }
+        return totalPrice;
+    }
 }

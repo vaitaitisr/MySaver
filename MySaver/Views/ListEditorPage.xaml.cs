@@ -31,6 +31,11 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
     void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         viewModel.AddProduct((Product)SearchResults.SelectedItem);
+
+        // This refresh is useful since OnStepperValueChanged gets called only when the stepper
+        // is being rendered (adding products doesn't refresh price total when off-screen)
+        RefreshPriceTotal();
+
         Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
     }
 
@@ -100,6 +105,7 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
 
     void OnStepperValueChanged(object sender, ValueChangedEventArgs e)
     {
+        RefreshPriceTotal();
     }
 
     public void ApplyQueryAttributes(IDictionary<string, object> query)
@@ -108,5 +114,10 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
         {
             startName = query["ListName"] as string;
         }
+    }
+
+    public void RefreshPriceTotal()
+    {
+        TotalPrice.Text = viewModel.CalculateTotal().ToString("0.00") + "€";
     }
 }
