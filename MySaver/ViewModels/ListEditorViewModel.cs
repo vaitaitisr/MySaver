@@ -2,6 +2,7 @@
 using MySaver.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace MySaver.ViewModels;
@@ -42,11 +43,9 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
 
         if (result != null)
         {
-            var resultQuery =
-               (from product in result
-                where product.Name.ToLower().Contains(input)
-                select product).ToList();
-
+            var resultQuery = result.Where(product => product.Name.ToLower().Contains(input))
+                .GroupBy(product => product.Name, (key,g) => g.OrderBy(e=>e.UnitPrice).FirstOrDefault())
+                .ToList();
             return resultQuery;
         }
 
