@@ -28,10 +28,9 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
         SearchResults.ItemsSource = await viewModel.GetSearchResultsAsync(search.Text);
     }
 
-    void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    void OnProductTapped(object sender, EventArgs e)
     {
-        viewModel.AddProduct((Product)SearchResults.SelectedItem);
-        Device.BeginInvokeOnMainThread(() => SearchResults.SelectedItem = null);
+        viewModel.AddProduct((Product)((TappedEventArgs)e).Parameter);
     }
 
     async void OnSaveTapped(object sender, EventArgs e)
