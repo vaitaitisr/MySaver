@@ -37,7 +37,6 @@
 
         <CollectionView x:Name="SearchResults"
                         SelectionMode="Single"
-                        SelectionChanged="OnSelectionChanged"
                         HeightRequest="150">
 
             <CollectionView.ItemTemplate>
@@ -46,7 +45,12 @@
                     <Label Text="{Binding Name}"
                            Style="{StaticResource Label}"
                            FontSize="Medium"
-                           BackgroundColor="Transparent"/>
+                           BackgroundColor="Transparent">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnProductTapped"
+                                                  CommandParameter="{Binding .}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
 
                 </DataTemplate>
             </CollectionView.ItemTemplate>
