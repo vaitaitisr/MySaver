@@ -42,6 +42,6 @@ public partial class StoresPage : ContentPage
             viewModel.MyItems.Add(Item); 
         }
 
-        viewModel.GetClosestStoreAsync();
+        await viewModel.GetClosestStoreAsync();
     }
 }

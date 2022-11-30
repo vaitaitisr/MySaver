@@ -28,6 +28,21 @@
                                            FontSize="20"
                                            TextColor="Black"
                                            BackgroundColor="Transparent"/>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text = "Distance: " 
+                                                  TextColor="Black" 
+                                                  BackgroundColor="Transparent"/>
+                                                <Span Text = "{Binding Distance}"
+                                                  TextColor="Black"
+                                                  BackgroundColor="Transparent"/>
+                                                <Span Text = " km" 
+                                                  TextColor="Black" 
+                                                  BackgroundColor="Transparent"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                     <Label Text="{Binding Address}"
                                            TextColor="Gray"
                                            BackgroundColor="Transparent"/>
