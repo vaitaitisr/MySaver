@@ -100,8 +100,13 @@ public partial class StoresViewModel : BaseViewModel
                 return;
 
             Stores.Clear();
+            MyItems.Clear();
             foreach (var store in list)
+            {
                 Stores.Add(store);
+                MyItems.Add(store);
+            }
+                
         }
         catch (Exception ex)
         {
