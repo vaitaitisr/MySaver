@@ -8,30 +8,34 @@
              x:DataType="viewmodels:ListEditorViewModel">
 
     <VerticalStackLayout  Spacing="10" Margin="10">
-        <Entry Text="{Binding ListName}"
-                Placeholder="Sąrašo pavadinimas"
-                FontSize="22"
-                FontAttributes="Bold"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" 
-                Style="{StaticResource Label}"/>
+        <Grid ColumnSpacing="10"
+              ColumnDefinitions="auto,*">
 
-        <ImageButton x:Name="saveButton"
-                HeightRequest="50"
-                WidthRequest="50"
-                Aspect="AspectFit"
-                Source="checkmark.png"
-                HorizontalOptions="End"
-                Clicked="OnSaveTapped"
-                Background="{DynamicResource ButtonBackgroud}"
-                BorderColor="{DynamicResource ButtonBorderColor}"/>
+            <Entry Text="{Binding ListName}"
+            Placeholder="Sąrašo pavadinimas"
+            FontSize="22"
+            FontAttributes="Bold"
+            VerticalOptions="Center"
+            Grid.Column="0"
+            Style="{StaticResource Label}"/>
+
+            <ImageButton x:Name="saveButton"
+            HeightRequest="50"
+            WidthRequest="50"
+            Aspect="AspectFit"
+            Source="checkmark.png"
+            HorizontalOptions="End"
+            Clicked="OnSaveTapped"
+            Grid.Column="1"
+            Background="{DynamicResource ButtonBackgroud}"
+            BorderColor="{DynamicResource ButtonBorderColor}"/>
+        </Grid>
 
         <SearchBar Placeholder="Produkto pavadinimas..." 
                 TextChanged="OnTextChanged" 
-                Style="{StaticResource Search}"
-                HorizontalOptions="Center" />
+                Style="{StaticResource Search}"/>
 
-        <Label Text="Paieška:"
+        <Label Text="Paieškos rezultatai:"
                FontSize="Large"
                Style="{StaticResource Label}"/>
 
@@ -58,7 +62,7 @@
 
         <CollectionView ItemsSource="{Binding SelectedProducts}"
             x:Name="ListContents"
-            HeightRequest="150">
+            HeightRequest="190">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
 
@@ -100,6 +104,13 @@
                                  VerticalOptions="Start"
                                  ValueChanged="OnStepperValueChanged" />
 
+                            <Label Text="{Binding StoreName}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"
+                               Grid.Row="1"
+                               Grid.Column="0"/>
+                            
                             <Label Text="Kaina:"
                                Style="{StaticResource Label}"
                                FontSize="Medium"
@@ -124,7 +135,6 @@
                                 BorderColor="Transparent"
                                 Clicked="OnRemoveProductTapped"
                                 CommandParameter="{Binding .}"/>
-
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -132,10 +142,10 @@
         </CollectionView>
 
         <Grid ColumnSpacing="10"
-              ColumnDefinitions="*,*"
-              RowDefinitions="*,*">
+              ColumnDefinitions="auto,*"
+              HeightRequest="23">
 
-            <Label Text="Viso:"
+            <Label Text="Viso pigiausia:"
             Style="{StaticResource Label}"
             FontSize="Medium"
             BackgroundColor="Transparent"/>
@@ -146,22 +156,24 @@
             FontSize="Medium"
             BackgroundColor="Transparent"
             Grid.Column="1"/>
-
-            <Label Text="Parduotuvėje:"
-            Style="{StaticResource Label}"
-            FontSize="Medium"
-            BackgroundColor="Transparent"
-            Grid.Row="1"/>
-            
-            <Label Text="TBD"
-            Style="{StaticResource Label}"
-            FontSize="Medium"
-            BackgroundColor="Transparent"
-            Grid.Row="1"
-            Grid.Column="1"/>
-
         </Grid>
-
         
+        <Label Text="Perkant parduotuvėse:"
+            Style="{StaticResource Label}"
+            FontSize="Large"
+            BackgroundColor="Transparent"/>
+
+        <CollectionView            
+            x:Name="StorePriceCollection"
+            HeightRequest="150">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}"
+                        Style="{StaticResource Label}"
+                        FontSize="Medium"
+                        BackgroundColor="Transparent"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

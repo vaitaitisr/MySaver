@@ -2,7 +2,6 @@
 using MySaver.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace MySaver.ViewModels;
@@ -44,7 +43,7 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
         if (result != null)
         {
             var resultQuery = result.Where(product => product.Name.ToLower().Contains(input))
-                .GroupBy(product => product.Name, (key,g) => g.OrderBy(e=>e.UnitPrice).FirstOrDefault())
+                .GroupBy(product => product.Name, (key, g) => g.OrderBy(e => e.UnitPrice).FirstOrDefault())
                 .ToList();
             return resultQuery;
         }
@@ -122,10 +121,39 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
     public float CalculateTotal()
     {
         float totalPrice = 0;
-        foreach(var product in SelectedProducts)
+        foreach (var product in SelectedProducts)
         {
             totalPrice += product.Amount * product.UnitPrice;
         }
         return totalPrice;
+    }
+    public async void UpdateStorePrices(CollectionView col)
+    {
+        var allProducts = await ProductList.Value;
+
+        // Finds all relevant store names
+        List<string> storeNames = (
+            from product in SelectedProducts
+            join compareProduct in allProducts on product.Name equals compareProduct.Name
+            select compareProduct.StoreName).Distinct().ToList();
+
+        List<string> resultList = new List<string>();
+        foreach (var storeName in storeNames)
+        {
+            // Finds the total price of all products in a given store name
+            var totalPrice =
+                from product in SelectedProducts
+                join compareProduct in allProducts on product.Name equals compareProduct.Name
+                where compareProduct.StoreName == storeName
+                select compareProduct.UnitPrice * product.Amount;
+
+            string result = storeName + ": " + totalPrice.Sum().ToString("0.00") + '€';
+            if (SelectedProducts.Count() != totalPrice.Count())
+            {
+                result += " (trūksta produktų)";
+            }
+            resultList.Add(result);
+        }
+        col.ItemsSource = resultList;
     }
 }
