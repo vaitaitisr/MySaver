@@ -140,15 +140,15 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
         List<string> resultList = new List<string>();
         foreach (var storeName in storeNames)
         {
-            // Finds the total price of all products in a given store name
-            var totalPrice =
+            // Finds the prices of all products in a given store name
+            var productPrices =
                 from product in SelectedProducts
                 join compareProduct in allProducts on product.Name equals compareProduct.Name
                 where compareProduct.StoreName == storeName
                 select compareProduct.UnitPrice * product.Amount;
 
-            string result = storeName + ": " + totalPrice.Sum().ToString("0.00") + '€';
-            if (SelectedProducts.Count() != totalPrice.Count())
+            string result = storeName + ": " + productPrices.Sum().ToString("0.00") + '€';
+            if (SelectedProducts.Count() != productPrices.Count())
             {
                 result += " (trūksta produktų)";
             }
