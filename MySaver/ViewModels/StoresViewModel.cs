@@ -92,16 +92,16 @@ public partial class StoresViewModel : BaseViewModel
             if (location is null)
                 return;
 
-            var list = MyItems.OrderBy(s =>
+            var list = Stores.OrderBy(s =>
                 location.CalculateDistance(s.Latitude, s.Longitude, DistanceUnits.Kilometers)
                 ).ToList();
 
             if (list is null)
                 return;
 
-            MyItems.Clear();
+            Stores.Clear();
             foreach (var store in list)
-                await Task.Run(() => MyItems.Add(store));
+                Stores.Add(store);
         }
         catch (Exception ex)
         {

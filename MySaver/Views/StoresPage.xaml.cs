@@ -19,7 +19,7 @@ public partial class StoresPage : ContentPage
         await viewModel.GetClosestStoreAsync();
     }
     
-    public async void ShopsFilterByName(object sender, TextChangedEventArgs e)
+    public void ShopsFilterByName(object sender, TextChangedEventArgs e)
     {
        
         var searchTerm = e.NewTextValue;
@@ -41,7 +41,5 @@ public partial class StoresPage : ContentPage
         {
             viewModel.MyItems.Add(Item); 
         }
-
-        await viewModel.GetClosestStoreAsync();
     }
 }
