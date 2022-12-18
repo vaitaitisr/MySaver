@@ -16,6 +16,7 @@ public partial class StoresPage : ContentPage
     {
         base.OnAppearing();
         await viewModel.UpdateStoresAsync();
+        await viewModel.GetClosestStoreAsync();
     }
     
     public void ShopsFilterByName(object sender, TextChangedEventArgs e)

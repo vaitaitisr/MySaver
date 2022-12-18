@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using MySaver.Models;
 using MySaver.Services;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Windows.Input;
 
 namespace MySaver.ViewModels;
@@ -54,6 +53,7 @@ public partial class StoresViewModel : BaseViewModel
                     Stores.Add(store);
                     MyItems.Add(store);
                 }
+                await GetDistance();
             }
         }
         catch (Exception ex)
@@ -88,24 +88,56 @@ public partial class StoresViewModel : BaseViewModel
 
                     });
             }
-
+            
             if (location is null)
                 return;
 
-            var first = Stores.OrderBy(s =>
+            var list = Stores.OrderBy(s =>
                 location.CalculateDistance(s.Latitude, s.Longitude, DistanceUnits.Kilometers)
-                ).FirstOrDefault();
+                ).ToList();
 
-            if (first is null)
+            if (list is null)
                 return;
 
-            await alert.DisplayAlert("Closest store",
-                $"{first.Name} in {first.Address}", "OK");
+            Stores.Clear();
+            MyItems.Clear();
+            foreach (var store in list)
+            {
+                Stores.Add(store);
+                MyItems.Add(store);
+            }
+                
         }
         catch (Exception ex)
         {
             await alert.DisplayAlert("Error!",
                 $"Unable to get closest store: {ex.Message}", "OK");
         }
+    }
+
+    public async Task GetDistance()
+    {
+        var location = await geolocation.GetLastKnownLocationAsync();
+
+        if (location is null)
+        {
+            location = await geolocation.GetLocationAsync(
+                new GeolocationRequest
+                {
+                    DesiredAccuracy = GeolocationAccuracy.Medium,
+                    Timeout = TimeSpan.FromSeconds(30),
+                });
+        }
+
+        if (location is null)
+            return;
+
+        foreach (var item in Stores)
+        {
+            double distance = location.CalculateDistance(item.Latitude, item.Longitude, DistanceUnits.Kilometers);
+
+            item.Distance = Math.Round(distance, 1);
+        }
+
     }
 }

@@ -6,7 +6,7 @@
              x:Class="MySaver.Views.StoresPage"
              x:DataType="viewmodels:StoresViewModel"
              Title="Stores">
-    <Grid RowDefinitions="Auto,*,80">
+    <Grid RowDefinitions="Auto,*">
         <SearchBar Placeholder="Filter stores by name" 
                    PlaceholderColor="Grey"
                    TextChanged="ShopsFilterByName"/>
@@ -28,6 +28,21 @@
                                            FontSize="20"
                                            TextColor="Black"
                                            BackgroundColor="Transparent"/>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text = "Distance: " 
+                                                  TextColor="Black" 
+                                                  BackgroundColor="Transparent"/>
+                                                <Span Text = "{Binding Distance}"
+                                                  TextColor="Black"
+                                                  BackgroundColor="Transparent"/>
+                                                <Span Text = " km" 
+                                                  TextColor="Black" 
+                                                  BackgroundColor="Transparent"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                     <Label Text="{Binding Address}"
                                            TextColor="Gray"
                                            BackgroundColor="Transparent"/>
@@ -44,13 +59,5 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </RefreshView>
-        
-        <Button Text="Find Closest"
-                Style="{StaticResource Button}"
-                Command="{Binding GetClosestStoreCommand}"
-                IsEnabled="{Binding IsNotBusy}"
-                Grid.Row="3"
-                Grid.Column="2"
-                Margin="8"/>
     </Grid>
 </ContentPage>
