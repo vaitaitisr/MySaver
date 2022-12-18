@@ -7,7 +7,7 @@
              x:Class="MySaver.Views.ListEditorPage"
              x:DataType="viewmodels:ListEditorViewModel">
 
-    <Grid RowDefinitions="auto,*,auto"
+    <Grid RowDefinitions="auto,*,200"
           RowSpacing="10"
           Margin="10" >
         <VerticalStackLayout Grid.Row="0"
@@ -111,6 +111,13 @@
                                      VerticalOptions="Start"
                                      ValueChanged="OnStepperValueChanged" />
 
+                            <Label Text="{Binding StoreName}"
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Row="1"
+                                   Grid.Column="0"/>
+
                             <Label Text="Kaina:"
                                    Style="{StaticResource Label}"
                                    FontSize="Medium"
@@ -144,10 +151,11 @@
 
         <Grid Grid.Row="2"
               ColumnSpacing="10"
-              ColumnDefinitions="*,*"
-              RowDefinitions="*,*">
+              RowSpacing="10"
+              RowDefinitions="auto,auto,*"
+              ColumnDefinitions="auto,*">
 
-            <Label Text="Viso:"
+            <Label Text="Viso pigiausia:"
                    Style="{StaticResource Label}"
                    FontSize="Medium"
                    BackgroundColor="Transparent"/>
@@ -159,20 +167,24 @@
                    BackgroundColor="Transparent"
                    Grid.Column="1"/>
 
-            <Label Text="Parduotuvėje:"
+            <Label Text="Perkant parduotuvėse:"
                    Style="{StaticResource Label}"
-                   FontSize="Medium"
+                   FontSize="Large"
                    BackgroundColor="Transparent"
                    Grid.Row="1"/>
 
-            <Label Text="TBD"
-                   Style="{StaticResource Label}"
-                   FontSize="Medium"
-                   BackgroundColor="Transparent"
-                   Grid.Row="1"
-                   Grid.Column="1"/>
-
+            <CollectionView x:Name="StorePriceCollection"
+                            HeightRequest="150"
+                            Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
-
     </Grid>
 </ContentPage>

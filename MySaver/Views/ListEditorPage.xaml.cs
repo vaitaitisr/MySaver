@@ -119,5 +119,6 @@ public partial class ListEditorPage : ContentPage, IQueryAttributable
     public void RefreshPriceTotal()
     {
         TotalPrice.Text = viewModel.CalculateTotal().ToString("0.00") + "€";
+        viewModel.UpdateStorePrices(StorePriceCollection);
     }
 }
