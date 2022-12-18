@@ -7,173 +7,184 @@
              x:Class="MySaver.Views.ListEditorPage"
              x:DataType="viewmodels:ListEditorViewModel">
 
-    <VerticalStackLayout  Spacing="10" Margin="10">
-        <Grid ColumnSpacing="10"
-              ColumnDefinitions="auto,*">
-
+    <Grid RowDefinitions="auto,*,200"
+          RowSpacing="10"
+          Margin="10" >
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="10">
             <Entry Text="{Binding ListName}"
-            Placeholder="Sąrašo pavadinimas"
-            FontSize="22"
-            FontAttributes="Bold"
-            VerticalOptions="Center"
-            Grid.Column="0"
-            Style="{StaticResource Label}"/>
+                   Placeholder="Sąrašo pavadinimas"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" 
+                   Style="{StaticResource Label}"/>
 
-            <ImageButton x:Name="saveButton"
-            HeightRequest="50"
-            WidthRequest="50"
-            Aspect="AspectFit"
-            Source="checkmark.png"
-            HorizontalOptions="End"
-            Clicked="OnSaveTapped"
-            Grid.Column="1"
-            Background="{DynamicResource ButtonBackgroud}"
-            BorderColor="{DynamicResource ButtonBorderColor}"/>
+            <Button x:Name="saveButton"
+                    Text="Išsaugoti sąrašą"
+                    Clicked="OnSaveTapped"/>
+
+            <Grid ColumnDefinitions="*,*">
+                <RadioButton x:Name="ListRadioButton"
+                             Content="Sąrašas"
+                             FontSize="22"
+                             BackgroundColor="Transparent"
+                             Grid.Column="0"
+                             IsChecked="True"/>
+                <RadioButton x:Name="SearchRadioButton"
+                             Content="Paieška"
+                             FontSize="22"
+                             BackgroundColor="Transparent"
+                             Grid.Column="1"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1"
+              RowDefinitions="auto,*"
+              IsVisible="{Binding Source={x:Reference SearchRadioButton}, Path=IsChecked}">
+            <SearchBar Placeholder="Produkto pavadinimas..." 
+                       TextChanged="OnTextChanged" 
+                       Style="{StaticResource Search}"
+                       HorizontalOptions="Center"
+                       Grid.Row="0"/>
+
+            <CollectionView x:Name="SearchResults"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged"
+                            Grid.Row="1">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Product">
+
+                        <Label Text="{Binding Name}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"/>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
 
-        <SearchBar Placeholder="Produkto pavadinimas..." 
-                TextChanged="OnTextChanged" 
-                Style="{StaticResource Search}"/>
-
-        <Label Text="Paieškos rezultatai:"
-               FontSize="Large"
-               Style="{StaticResource Label}"/>
-
-        <CollectionView x:Name="SearchResults"
-                        SelectionMode="Single"
-                        SelectionChanged="OnSelectionChanged"
-                        HeightRequest="150">
-
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Product">
-
-                    <Label Text="{Binding Name}"
-                           Style="{StaticResource Label}"
-                           FontSize="Medium"
-                           BackgroundColor="Transparent"/>
-
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <Label Text="Sąrašas:"
-               FontSize="Large"
-               Style="{StaticResource Label}"/>
-
-        <CollectionView ItemsSource="{Binding SelectedProducts}"
-            x:Name="ListContents"
-            HeightRequest="190">
+        <CollectionView x:Name="ListContents"
+                        Grid.Row="1"
+                        IsVisible="{Binding Source={x:Reference ListRadioButton}, Path=IsChecked}"
+                        ItemsSource="{Binding SelectedProducts}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
 
                     <Border Stroke="{StaticResource SecondaryColor}"
-                        BackgroundColor="Transparent"
-                        StrokeThickness="4"
-                        StrokeShape="RoundRectangle"
-                        Padding="10,8"
-                        HorizontalOptions="Center">
+                            BackgroundColor="Transparent"
+                            StrokeThickness="4"
+                            StrokeShape="RoundRectangle"
+                            Padding="10,8"
+                            HorizontalOptions="Center">
 
                         <Grid ColumnDefinitions="80,50,60,75,50" 
-                          ColumnSpacing="10"
-                          RowDefinitions="40,40">
+                              ColumnSpacing="10"
+                              RowDefinitions="40,40">
 
                             <Label Text="{Binding Name}"
-                                Style="{StaticResource Label}"
-                                FontSize="Medium"
-                                BackgroundColor="Transparent"
-                                Grid.Row="0"
-                                Grid.Column="0"/>
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
 
                             <Label Text="Vnt:"
-                               Style="{StaticResource Label}"
-                               FontSize="Medium"
-                               BackgroundColor="Transparent"
-                               Grid.Column="1"/>
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Column="1"/>
 
                             <Label Text="{Binding Amount}"
-                               Style="{StaticResource Label}"
-                               FontSize="Medium"
-                               BackgroundColor="Transparent"
-                               Grid.Column="2"/>
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Column="2"/>
 
                             <Stepper Increment="1"
-                                 Grid.Column="3"
-                                 x:Name="ProductCount"
-                                 Value="{Binding Amount}"
-                                 HorizontalOptions="Start"
-                                 VerticalOptions="Start"
-                                 ValueChanged="OnStepperValueChanged" />
+                                     Grid.Column="3"
+                                     x:Name="ProductCount"
+                                     Value="{Binding Amount}"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Start"
+                                     ValueChanged="OnStepperValueChanged" />
 
                             <Label Text="{Binding StoreName}"
-                               Style="{StaticResource Label}"
-                               FontSize="Medium"
-                               BackgroundColor="Transparent"
-                               Grid.Row="1"
-                               Grid.Column="0"/>
-                            
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.Row="1"
+                                   Grid.Column="0"/>
+
                             <Label Text="Kaina:"
-                               Style="{StaticResource Label}"
-                               FontSize="Medium"
-                               HorizontalOptions="End"
-                               BackgroundColor="Transparent"
-                               Grid.Row="1"
-                               Grid.Column="1"/>
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   HorizontalOptions="End"
+                                   BackgroundColor="Transparent"
+                                   Grid.Row="1"
+                                   Grid.Column="1"/>
 
                             <Label x:Name="PriceLabel"
-                               Text="{Binding Price}"
-                               Style="{StaticResource Label}"
-                               FontSize="Medium"
-                               BackgroundColor="Transparent"
-                               Grid.ColumnSpan="2"
-                               Grid.Row="1"
-                               Grid.Column="2"/>
+                                   Text="{Binding Price}"
+                                   Style="{StaticResource Label}"
+                                   FontSize="Medium"
+                                   BackgroundColor="Transparent"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="1"
+                                   Grid.Column="2"/>
 
                             <ImageButton Source="delete.png"
-                                HorizontalOptions="End"
-                                Grid.Column="4"
-                                BackgroundColor="Transparent"
-                                BorderColor="Transparent"
-                                Clicked="OnRemoveProductTapped"
-                                CommandParameter="{Binding .}"/>
+                                         HorizontalOptions="End"
+                                         Grid.Column="4"
+                                         BackgroundColor="Transparent"
+                                         BorderColor="Transparent"
+                                         Clicked="OnRemoveProductTapped"
+                                         CommandParameter="{Binding .}"/>
+
                         </Grid>
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Grid ColumnSpacing="10"
-              ColumnDefinitions="auto,*"
-              HeightRequest="23">
+        <Grid Grid.Row="2"
+              ColumnSpacing="10"
+              RowSpacing="10"
+              RowDefinitions="auto,auto,*"
+              ColumnDefinitions="auto,*">
 
             <Label Text="Viso pigiausia:"
-            Style="{StaticResource Label}"
-            FontSize="Medium"
-            BackgroundColor="Transparent"/>
+                   Style="{StaticResource Label}"
+                   FontSize="Medium"
+                   BackgroundColor="Transparent"/>
 
             <Label x:Name="TotalPrice"
-            Text="0.00€"
-            Style="{StaticResource Label}"
-            FontSize="Medium"
-            BackgroundColor="Transparent"
-            Grid.Column="1"/>
-        </Grid>
-        
-        <Label Text="Perkant parduotuvėse:"
-            Style="{StaticResource Label}"
-            FontSize="Large"
-            BackgroundColor="Transparent"/>
+                   Text="0.00€"
+                   Style="{StaticResource Label}"
+                   FontSize="Medium"
+                   BackgroundColor="Transparent"
+                   Grid.Column="1"/>
 
-        <CollectionView            
-            x:Name="StorePriceCollection"
-            HeightRequest="150">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Label Text="{Binding}"
-                        Style="{StaticResource Label}"
-                        FontSize="Medium"
-                        BackgroundColor="Transparent"/>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+            <Label Text="Perkant parduotuvėse:"
+                   Style="{StaticResource Label}"
+                   FontSize="Large"
+                   BackgroundColor="Transparent"
+                   Grid.Row="1"/>
+
+            <CollectionView x:Name="StorePriceCollection"
+                            HeightRequest="150"
+                            Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}"
+                               Style="{StaticResource Label}"
+                               FontSize="Medium"
+                               BackgroundColor="Transparent"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
 </ContentPage>
