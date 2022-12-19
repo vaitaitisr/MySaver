@@ -1,9 +1,11 @@
 ﻿using MySaver.Models;
 using MySaver.Services;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
 namespace MySaver.Services;
 
+[ExcludeFromCodeCoverage]
 public class StoreService : IStoreService
 {
     private List<Store> storeList;

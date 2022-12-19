@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="MySaver.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="NewFolder\**" />
     <Content Remove="NewFolder\**" />
     <EmbeddedResource Remove="NewFolder\**" />

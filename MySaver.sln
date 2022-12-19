@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySaver", "MySaver\MySaver.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiTest", "MySaver.WebApi\WebApiTest.csproj", "{A61F389E-8E62-4FD1-8286-5D0CCEE01FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySaver.Tests", "MySaver.Tests\MySaver.Tests.csproj", "{2DE9B277-21D0-4E30-BA0B-10867C683965}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySaver.Tests", "MySaver.Tests\MySaver.Tests.csproj", "{2DE9B277-21D0-4E30-BA0B-10867C683965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

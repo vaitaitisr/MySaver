@@ -8,7 +8,7 @@ public class ProductModelTests
     public void ProductModel_PropertyChangedShouldWork()
     {
         // Arrange
-        List<string> changedProperties = new List<string>();
+        List<string?> changedProperties = new List<string?>();
 
         var product = new Product()
         {
@@ -19,7 +19,7 @@ public class ProductModelTests
         };
 
         product.PropertyChanged +=
-            (sender, args) => changedProperties.Add(args.PropertyName ?? string.Empty);
+            (sender, args) => changedProperties.Add(args.PropertyName);
 
         // Act
         product.Amount = 3;
@@ -72,5 +72,53 @@ public class ProductModelTests
 
         // Assert
         Assert.True(product1.Equals(product2));
+    }
+
+    [Fact]
+    public void ProductModel_EqualsShouldntWorkIfProductNameIsNull()
+    {
+        // Arrange
+        var product1 = new Product()
+        {
+            StoreName = "Maxima",
+            Name = null,
+            Amount = 1,
+            UnitPrice = 1.89f
+        };
+
+        var product2 = new Product()
+        {
+            StoreName = "Maxima",
+            Name = "Coca-Cola",
+            Amount = 1,
+            UnitPrice = 1.89f
+        };
+
+        // Assert
+        Assert.False(product1.Equals(product2));
+    }
+
+    [Fact]
+    public void ProductModel_EqualsShouldntWorkIfStoreNameIsNull()
+    {
+        // Arrange
+        var product1 = new Product()
+        {
+            StoreName = null,
+            Name = "Coca-Cola",
+            Amount = 1,
+            UnitPrice = 1.89f
+        };
+
+        var product2 = new Product()
+        {
+            StoreName = "Maxima",
+            Name = "Coca-Cola",
+            Amount = 1,
+            UnitPrice = 1.89f
+        };
+
+        // Assert
+        Assert.False(product1.Equals(product2));
     }
 }

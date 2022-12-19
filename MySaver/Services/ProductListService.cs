@@ -1,8 +1,10 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using MySaver.Models;
 
 namespace MySaver.Services;
 
+[ExcludeFromCodeCoverage]
 public class ProductListService : IProductListService
 {
     private string appDirectory;

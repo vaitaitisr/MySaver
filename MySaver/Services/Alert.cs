@@ -1,5 +1,8 @@
-﻿namespace MySaver.Services;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace MySaver.Services;
+
+[ExcludeFromCodeCoverage]
 public class Alert : IAlert
 {
     public async Task DisplayAlert(string title, string message, string cancel)
@@ -7,8 +10,8 @@ public class Alert : IAlert
         await Shell.Current.DisplayAlert(title, message, cancel);
     }
 
-    public async Task DisplayAlert(string title, string message, string accept, string cancel)
+    public async Task<bool> DisplayAlert(string title, string message, string accept, string cancel)
     {
-        await Shell.Current.DisplayAlert(title, message, accept, cancel);
+        return await Shell.Current.DisplayAlert(title, message, accept, cancel);
     }
 }
