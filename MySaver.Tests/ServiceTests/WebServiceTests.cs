@@ -108,13 +108,14 @@ public class WebServiceTests
                 It.IsAny<string>()).Result)
             .Returns(false);
 
-        var service = new WebService(factory.CreateDefaultClient(), mockAlert.Object);
+        var service = new WebService(client, mockAlert.Object);
 
         // Act
         var products = await service.GetObjectListAsync<Product>();
 
         // Assert
         Assert.NotNull(products);
+        Assert.True(products.Any());
     }
 
     private List<Product> GetProducts()
