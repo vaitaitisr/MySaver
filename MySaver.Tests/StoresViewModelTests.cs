@@ -59,15 +59,23 @@ namespace MySaver.Tests
             mockLocation.Setup(x => x.GetLastKnownLocationAsync().Result)
                 .Returns(new Location(expected.Latitude, expected.Longitude));
 
-            var viewModel = new StoresViewModel(mockWeb.Object, mockAlert.Object, mockLocation.Object);
-            viewModel.Stores = new ObservableCollection<Store>(GetStores());
+            var viewModel = new StoresViewModel(mockWeb.Object, mockAlert.Object, mockLocation.Object)
+            {
+                Stores = new ObservableCollection<Store>(GetStores())
+            };
 
             // Act
             await viewModel.GetClosestStoreAsync();
+            var actual = viewModel.Stores;
 
             // Assert
-            mockAlert.Verify(x => x.DisplayAlert("Closest store",
-                $"{expected.Name} in {expected.Address}", "OK"), Times.Once);
+            Assert.Equal(expected.Name, actual[0].Name);
+            Assert.Equal(expected.Address, actual[0].Address);
+            Assert.Equal(expected.DefaultSchedule, actual[0].DefaultSchedule);
+            Assert.Equal(expected.SaturdaySchedule, actual[0].SaturdaySchedule);
+            Assert.Equal(expected.SundaySchedule, actual[0].SundaySchedule);
+            Assert.Equal(expected.Latitude, actual[0].Latitude);
+            Assert.Equal(expected.Longitude, actual[0].Longitude);
         }
 
         private List<Store> GetStores()
@@ -76,24 +84,24 @@ namespace MySaver.Tests
             {
                 new Store()
                 {
-                    Name = "Store Name 1",
+                   Name = "Store Name 1",
                     Address = "Store Address 1",
                     DefaultSchedule = "Store Schedule 1",
                     SaturdaySchedule = "Saturday Schedule 1",
                     SundaySchedule = "Sunday Schedule 1",
                     Latitude = 15,
                     Longitude = 20
-                },
-                new Store()
+                },              
+                 new Store()
                 {
-                    Name = "Store Name 2",
+                     Name = "Store Name 2",
                     Address = "Store Address 2",
                     DefaultSchedule = "Store Schedule 2",
                     SundaySchedule = "Sunday Schedule 2",
                     Latitude = 30,
                     Longitude = 40
                 },
-                new Store()
+                   new Store()
                 {
                     Name = "Store Name 3",
                     Address = "Store Address 3",
