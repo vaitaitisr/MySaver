@@ -14,20 +14,14 @@ public partial class StoresViewModel : BaseViewModel
     IGeolocation geolocation;
     public ObservableCollection<Store> Stores { get; set; } = new ObservableCollection<Store>();
     public ObservableCollection<Store> MyItems { get; set; }
-    public ICommand UpdateStoresCommand { get; }
     
     public StoresViewModel(IWebService webService, IAlert alert, IGeolocation geolocation)
     {
         this.webService = webService;
         this.alert = alert;
         this.geolocation = geolocation;
-        UpdateStoresCommand = new Command(async () => await UpdateStoresAsync());
         MyItems = new ObservableCollection<Store>(Stores);
     }
-
-
-    [ObservableProperty]
-    bool isRefreshing;
 
     public async Task UpdateStoresAsync()
     {
@@ -64,7 +58,6 @@ public partial class StoresViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
-            IsRefreshing = false;
         }
 
     }
