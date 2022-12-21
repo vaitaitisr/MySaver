@@ -6,18 +6,23 @@ namespace MySaver.Services;
 public class WebService : IWebService
 {
     private HttpClient _client;
+    private IAlert _alert;
 
-    public WebService()
+    public WebService(HttpClient client, IAlert alert)
     {
-        _client = new HttpClient();
+        _client = client;
+        _alert = alert;
     }
 
     public async Task<List<T>> GetObjectListAsync<T>()
     {
         bool retry = false;
         string shortType = typeof(T).Name;
-
+#if ANDROID
         Uri uri = new Uri("http://10.0.2.2:5272/api/" + shortType + 's');
+#else
+        Uri uri = new Uri("http://localhost:5272/api/" + shortType + 's');
+#endif
         do
             try
             {
@@ -38,8 +43,8 @@ public class WebService : IWebService
             }
             catch (WebException ex)
             {
-                bool answer = await Shell.Current.DisplayAlert("Error!",
-                    $"{ex.Message}", "Retry", "Cancel");
+                bool answer = await _alert.DisplayAlert("Error!",
+                    $"{ex.Message} ... {ex.Response}", "Retry", "Cancel");
                 if (answer)
                 {
                     retry = true;

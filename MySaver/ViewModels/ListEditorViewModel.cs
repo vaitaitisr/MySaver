@@ -127,7 +127,7 @@ public class ListEditorViewModel : INotifyPropertyChanged, IQueryAttributable
         }
         return totalPrice;
     }
-    public async void UpdateStorePrices(CollectionView col)
+    public async Task UpdateStorePrices(CollectionView col)
     {
         var allProducts = await ProductList.Value;
 
